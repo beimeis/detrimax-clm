@@ -1,0 +1,761 @@
+/* ─── Animated explanatory scenes (SVG + D3 + CSS) ─── */
+
+.anim-scene {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #fafcfe 0%, #eef6fa 100%);
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.anim-scene.is-lit {
+  background: linear-gradient(180deg, #f8fcff 0%, #e8f4f8 100%);
+}
+
+.anim-scene-svg,
+.anim-d3-svg,
+.anim-home-svg {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+/* Shared fills */
+.anim-body-fill {
+  fill: color-mix(in srgb, var(--accent, #00A896) 12%, #fff);
+  stroke: color-mix(in srgb, var(--accent, #00A896) 35%, #fff);
+  stroke-width: 1.5;
+}
+
+.anim-pulse-slow {
+  animation: animPulseSlow 4s ease-in-out infinite;
+}
+
+@keyframes animPulseSlow {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+/* D3 drop */
+.anim-d3-drop-core {
+  fill: #FFB74D;
+  animation: animDropPulse 2.5s ease-in-out infinite;
+}
+
+.anim-d3-drop-halo {
+  fill: none;
+  stroke: #FFB74D;
+  stroke-width: 1.5;
+  opacity: 0.4;
+  animation: animDropPulse 2.5s ease-in-out infinite 0.2s;
+}
+
+@keyframes animDropPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.anim-vitamin-ray {
+  stroke: #FFB74D;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 8 6;
+  animation: animRayFlow 1.2s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(255, 183, 77, 0.5));
+}
+
+@keyframes animRayFlow {
+  to { stroke-dashoffset: -28; }
+}
+
+.anim-zone-ring {
+  fill: color-mix(in srgb, var(--accent, #00A896) 8%, transparent);
+  stroke: color-mix(in srgb, var(--accent, #00A896) 40%, white);
+  stroke-width: 2;
+  transition: r 0.4s ease, fill 0.4s ease;
+}
+
+.anim-zone-ring.is-on {
+  fill: color-mix(in srgb, var(--accent, #00A896) 22%, transparent);
+  stroke: var(--accent, #00A896);
+}
+
+/* Deficit hub */
+.anim-hub-line {
+  stroke: color-mix(in srgb, #D32F2F 30%, #ccc);
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+  animation: animDashFlow 2s linear infinite;
+}
+
+.anim-hub-line.is-on {
+  stroke: #D32F2F;
+  stroke-width: 3;
+}
+
+@keyframes animDashFlow {
+  to { stroke-dashoffset: -22; }
+}
+
+.anim-hub-node {
+  fill: rgba(255, 255, 255, 0.9);
+  stroke: #D32F2F;
+  stroke-width: 2;
+  transition: r 0.35s ease;
+}
+
+.anim-hub-node.is-on {
+  fill: color-mix(in srgb, #D32F2F 12%, white);
+  stroke-width: 3;
+}
+
+.anim-hub-label {
+  text-anchor: middle;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--text-primary, #1a2332);
+}
+
+.anim-hub-center-ring {
+  fill: none;
+  stroke: color-mix(in srgb, #D32F2F 40%, white);
+  stroke-width: 2;
+}
+
+/* Complications */
+.anim-stage-title,
+.anim-d3-title {
+  text-anchor: middle;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  fill: var(--text-secondary, #5a6578);
+}
+
+.anim-progress-track {
+  fill: rgba(255, 255, 255, 0.8);
+}
+
+.anim-progress-fill {
+  fill: #D32F2F;
+  transition: width 0.6s ease;
+}
+
+.anim-stage-card {
+  fill: rgba(255, 255, 255, 0.85);
+  stroke: rgba(26, 35, 50, 0.08);
+  stroke-width: 1.5;
+  transition: fill 0.35s ease, stroke 0.35s ease;
+}
+
+.anim-stage-card.is-on {
+  fill: color-mix(in srgb, #D32F2F 10%, white);
+  stroke: #D32F2F;
+}
+
+.anim-stage-dot {
+  fill: color-mix(in srgb, #D32F2F 20%, white);
+  stroke: #D32F2F;
+  stroke-width: 2;
+  transition: r 0.35s ease;
+}
+
+.anim-stage-dot.is-on {
+  fill: #D32F2F;
+}
+
+.anim-stage-label,
+.anim-stage-caption {
+  text-anchor: middle;
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--text-primary, #1a2332);
+}
+
+.anim-stage-connector {
+  stroke: rgba(26, 35, 50, 0.1);
+  stroke-width: 2;
+  stroke-dasharray: 4 4;
+}
+
+/* Immunity */
+.anim-shield-path {
+  fill: color-mix(in srgb, var(--accent, #00A896) 15%, white);
+  stroke: color-mix(in srgb, var(--accent, #00A896) 50%, white);
+  stroke-width: 2;
+  transition: fill 0.4s ease;
+}
+
+.anim-shield.is-active .anim-shield-path {
+  fill: color-mix(in srgb, var(--accent, #00A896) 28%, white);
+}
+
+.anim-shield-wave {
+  fill: none;
+  stroke: var(--accent, #00A896);
+  stroke-width: 2;
+  animation: animWave 1.5s ease-in-out infinite;
+}
+
+@keyframes animWave {
+  0%, 100% { opacity: 0.4; transform: translateX(0); }
+  50% { opacity: 1; }
+}
+
+.anim-virus-core {
+  fill: rgba(190, 110, 110, 0.7);
+}
+
+.anim-virus-spike {
+  stroke: rgba(190, 110, 110, 0.5);
+  stroke-width: 1.2;
+}
+
+.anim-scene--immune.is-wave .anim-virus {
+  animation: animVirusRepel 0.8s ease forwards;
+  animation-delay: calc(var(--i) * 0.05s);
+}
+
+@keyframes animVirusRepel {
+  to { transform: translate(calc(cos(var(--i)) * 20px), calc(sin(var(--i)) * -15px)); opacity: 0.2; }
+}
+
+/* Adaptive cells */
+.anim-balance-pole { fill: #ccc; }
+.anim-balance-bar { fill: var(--accent, #00A896); transition: transform 0.6s ease; }
+.anim-cell { fill: color-mix(in srgb, var(--accent, #00A896) 50%, white); transition: transform 0.4s ease; }
+.anim-cell--treg { fill: color-mix(in srgb, #028090 40%, white); }
+.anim-cell-group.is-on .anim-cell { transform: scale(1.15); }
+.anim-cell-label { text-anchor: middle; font-size: 12px; font-weight: 700; fill: var(--text-primary); }
+.anim-cell-link { stroke: var(--accent, #00A896); stroke-width: 2; fill: none; }
+.anim-dash-flow { stroke-dasharray: 6 4; animation: animDashFlow 1.5s linear infinite; }
+
+/* School room */
+.anim-room-wall { fill: rgba(255, 255, 255, 0.7); stroke: rgba(26, 35, 50, 0.06); }
+.anim-window { fill: #E3F2FD; stroke: #90CAF9; stroke-width: 2; transition: fill 0.4s ease; }
+.anim-window.is-on { fill: #FFF9C4; }
+.anim-sun-rays line { stroke: #FFB74D; stroke-width: 2; stroke-linecap: round; animation: animRayFlow 1s linear infinite; }
+.anim-desk { fill: #D7CCC8; }
+.anim-gadget { fill: #37474F; transition: fill 0.4s ease; }
+.anim-gadget.is-on { fill: #028090; filter: drop-shadow(0 0 8px rgba(2, 128, 144, 0.4)); }
+.anim-growth-line { fill: none; stroke: var(--accent, #00A896); stroke-width: 3; stroke-linecap: round; }
+.anim-chart-axis { stroke: #ccc; stroke-width: 1.5; }
+.anim-growth-chart.is-on .anim-growth-line { stroke: #FF9100; animation: animDrawLine 1s ease forwards; }
+@keyframes animDrawLine { from { stroke-dashoffset: 80; stroke-dasharray: 80; } to { stroke-dashoffset: 0; } }
+.anim-snowflake { font-size: 14px; opacity: 0.5; }
+.anim-snow.is-on .anim-snowflake { animation: animSnowFall 2s ease-in-out infinite; }
+@keyframes animSnowFall { 0%, 100% { transform: translateY(0); opacity: 0.8; } 50% { transform: translateY(8px); opacity: 0.4; } }
+
+/* Neural */
+.anim-brain-outline {
+  fill: color-mix(in srgb, #7E57C2 8%, white);
+  stroke: color-mix(in srgb, #7E57C2 40%, white);
+  stroke-width: 2;
+}
+
+.anim-neural-link {
+  stroke: rgba(126, 87, 196, 0.2);
+  stroke-width: 2;
+  transition: stroke 0.35s ease;
+}
+
+.anim-neural-link.is-on {
+  stroke: #7E57C2;
+  stroke-width: 3;
+  animation: animRayFlow 1s linear infinite;
+}
+
+.anim-neural-node {
+  fill: white;
+  stroke: #7E57C2;
+  stroke-width: 2;
+  transition: r 0.35s ease;
+}
+
+.anim-neural-node.is-on {
+  fill: color-mix(in srgb, #7E57C2 20%, white);
+}
+
+.anim-neural-pulse {
+  fill: none;
+  stroke: #7E57C2;
+  stroke-width: 1.5;
+  opacity: 0.5;
+  animation: animPulseSlow 1.5s ease infinite;
+}
+
+.anim-neural-label {
+  text-anchor: middle;
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--text-primary);
+}
+
+.anim-neural-impulse {
+  fill: #7E57C2;
+  animation: animPulseSlow 0.8s ease infinite;
+}
+
+/* Circadian */
+.anim-circadian-arc { stroke: rgba(26, 35, 50, 0.12); stroke-width: 3; }
+.anim-circadian-orb { transition: cx 0.6s ease, cy 0.6s ease; }
+.anim-circadian-orb.is-sun { fill: #FFD54F; }
+.anim-circadian-orb.is-moon { fill: #90CAF9; }
+.anim-circadian-orb.is-mood { fill: #FFB74D; }
+.anim-circadian-orb.is-behavior { fill: #CE93D8; }
+.anim-orbit-path { stroke: rgba(26, 35, 50, 0.08); stroke-width: 1.5; }
+.anim-orbit { transform-origin: 200px 160px; animation: animOrbitSpin 12s linear infinite; }
+.anim-orbit--b { animation-duration: 18s; animation-direction: reverse; }
+@keyframes animOrbitSpin { to { transform: rotate(360deg); } }
+.anim-orbit-dot { fill: #ccc; transition: fill 0.35s ease; }
+.anim-orbit-dot.is-on { fill: var(--accent, #00A896); }
+.anim-bed { fill: rgba(255, 255, 255, 0.8); stroke: rgba(26, 35, 50, 0.08); }
+.anim-scene--circadian.is-night { background: linear-gradient(180deg, #1a237e 0%, #283593 40%, #eef6fa 100%); }
+.anim-circadian-caption { text-anchor: middle; font-size: 13px; font-weight: 600; fill: var(--text-secondary); }
+
+/* D3 charts */
+.anim-d3-bar { fill: color-mix(in srgb, var(--accent, #028090) 70%, white); transition: fill 0.35s ease; }
+.anim-d3-bar.is-on { fill: var(--accent, #028090); }
+.anim-d3-axis text { font-size: 11px; fill: var(--text-secondary); }
+.anim-risk-scale-bar { opacity: 0.85; }
+.anim-risk-line { stroke: rgba(26, 35, 50, 0.1); stroke-width: 1.5; }
+.anim-risk-line.is-on { stroke: #D32F2F; stroke-width: 2.5; }
+.anim-risk-marker { fill: white; stroke: #888; stroke-width: 2; transition: r 0.35s ease; }
+.anim-risk-marker.is-on { fill: #D32F2F; stroke: #D32F2F; r: 10; }
+.anim-risk-label { font-size: 12px; font-weight: 600; fill: var(--text-secondary); }
+.anim-risk-label.is-on { fill: #D32F2F; font-weight: 700; }
+
+/* Product animated */
+.anim-scene--product { --product-accent: #FF9100; }
+.anim-product-orbit { stroke: color-mix(in srgb, var(--product-accent) 25%, transparent); stroke-width: 1.5; stroke-dasharray: 4 4; animation: animOrbitSpin 20s linear infinite; }
+.anim-bottle-body { fill: white; stroke: var(--product-accent); stroke-width: 2.5; }
+.anim-bottle-cap { fill: var(--product-accent); opacity: 0.85; }
+.anim-bottle-label { text-anchor: middle; font-size: 11px; font-weight: 700; fill: var(--product-accent); }
+.anim-drop-shape { fill: var(--product-accent); opacity: 0.9; animation: animDropFall 2s ease-in-out infinite; }
+@keyframes animDropFall {
+  0%, 100% { transform: translateY(0); opacity: 0.3; }
+  40% { transform: translateY(60px); opacity: 1; }
+  60% { transform: translateY(70px); opacity: 0; }
+}
+.anim-product-glow { fill: color-mix(in srgb, var(--product-accent) 15%, transparent); }
+.anim-product-orbit-dot { fill: var(--product-accent); opacity: 0.4; transition: r 0.35s ease, opacity 0.35s ease; }
+.anim-product-orbit-dot.is-on { opacity: 1; }
+
+/* Dose D3 */
+.anim-scene--dose-d3 { width: 100%; padding: 8px 0; background: transparent; min-height: auto; }
+.anim-dose-svg { min-height: 200px; }
+.anim-dose-band-label,
+.anim-dose-step-label,
+.anim-dose-marker-text,
+.anim-dose-target-text {
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--text-secondary);
+}
+.anim-dose-step { fill: white; stroke: #ccc; stroke-width: 2; transition: r 0.3s ease; }
+.anim-dose-step.is-active { fill: var(--accent, #00A896); stroke: var(--accent, #00A896); }
+.anim-dose-step-line { stroke: #ccc; stroke-width: 2; }
+.anim-dose-target-line { stroke: var(--accent, #00A896); stroke-width: 2; stroke-dasharray: 4 3; }
+.anim-dose-marker { transition: transform 0.6s ease; }
+
+/* Home hero */
+.anim-scene--home {
+  min-height: 200px;
+  background: transparent;
+  margin-bottom: -20px;
+}
+
+.anim-home-sun-core {
+  fill: #FFD54F;
+  stroke: #FF9100;
+  stroke-width: 2;
+}
+
+.anim-home-d3-label {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  fill: #E65100;
+}
+
+.anim-home-branch {
+  fill: none;
+  stroke-width: 3;
+  opacity: 0.35;
+  stroke-dasharray: 8 6;
+  animation: animDashFlow 2s linear infinite;
+  transition: opacity 0.4s ease, stroke-width 0.4s ease;
+}
+
+.anim-home-branch.is-on {
+  opacity: 1;
+  stroke-width: 4;
+}
+
+.anim-home-node-label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-pulse-slow,
+  .anim-vitamin-ray,
+  .anim-hub-line,
+  .anim-orbit,
+  .anim-product-orbit,
+  .anim-drop-shape,
+  .anim-home-branch,
+  .anim-sun-rays line {
+    animation: none;
+  }
+}
+
+/* ─── Depot node motion ─── */
+.anim-depot-node-body {
+  transition: transform 0.55s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.anim-depot-empty {
+  fill: rgba(255, 255, 255, 0.6);
+  stroke: #D32F2F;
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+
+/* ─── Risk gauge (complications) ─── */
+.anim-risk-gauge-bg {
+  fill: rgba(255, 255, 255, 0.85);
+  stroke: rgba(26, 35, 50, 0.1);
+  stroke-width: 1.5;
+}
+
+.anim-risk-zone { opacity: 0.55; }
+.anim-risk-zone--early { fill: #FFB74D; }
+.anim-risk-zone--mid { fill: #FFE082; }
+.anim-risk-zone--late { fill: #EF5350; }
+
+.anim-risk-indicator {
+  fill: white;
+  stroke: #888;
+  stroke-width: 2;
+  transition: cy 0.65s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)), fill 0.35s ease;
+}
+
+.anim-scene--complications.is-early .anim-risk-indicator.is-on {
+  fill: #FF9100;
+  stroke: #FF9100;
+}
+
+.anim-scene--complications.is-late .anim-risk-indicator.is-on {
+  fill: #D32F2F;
+  stroke: #D32F2F;
+}
+
+/* ─── Shield layers (immune system) ─── */
+.anim-shield-layer {
+  fill: none;
+  stroke: var(--accent, #00A896);
+  stroke-width: 2;
+  opacity: 0.45;
+  animation: animLayerIn 0.5s ease backwards;
+}
+
+@keyframes animLayerIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 0.45; transform: scale(1); }
+}
+
+.anim-immune-caption {
+  text-anchor: middle;
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--text-secondary);
+}
+
+/* ─── Treg shell ─── */
+.anim-treg-shell {
+  fill: color-mix(in srgb, #028090 12%, transparent);
+  stroke: #028090;
+  stroke-width: 2;
+  animation: animLayerIn 0.5s ease;
+}
+
+.anim-scene--adaptive.is-balanced .anim-balance-beam {
+  transition: transform 0.7s var(--ease-out);
+}
+
+.anim-cell-group.is-stable .anim-cell {
+  animation: animCellStable 1.2s ease infinite;
+}
+
+@keyframes animCellStable {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.anim-cell-link.is-balanced {
+  stroke: #00A896;
+  stroke-width: 3;
+}
+
+/* ─── Neural modes ─── */
+.anim-neural-flash {
+  fill: #FFD54F;
+  animation: animNeuralFlash 0.8s ease infinite;
+}
+
+.anim-neural-flash--b { animation-delay: 0.15s; }
+.anim-neural-flash--c { animation-delay: 0.3s; }
+
+@keyframes animNeuralFlash {
+  0%, 100% { opacity: 0.3; r: 6; }
+  50% { opacity: 1; r: 10; }
+}
+
+.anim-neural-link.is-fast {
+  stroke-dasharray: 6 4;
+  animation: animDashFlow 0.5s linear infinite;
+}
+
+.anim-brain-outline.is-shielded {
+  stroke: #7E57C2;
+  stroke-width: 3;
+}
+
+.anim-brain-shield {
+  fill: none;
+  stroke: #7E57C2;
+  stroke-width: 3;
+  stroke-dasharray: 8 6;
+  animation: animLayerIn 0.6s ease;
+}
+
+/* ─── Biorhythm sphere ─── */
+.anim-bio-sphere {
+  fill: rgba(255, 255, 255, 0.5);
+  stroke: rgba(26, 35, 50, 0.08);
+  stroke-width: 2;
+}
+
+.anim-bio-core {
+  fill: rgba(144, 202, 249, 0.35);
+  transition: fill 0.5s ease;
+}
+
+.anim-bio-core.is-gold {
+  fill: rgba(255, 183, 77, 0.55);
+  animation: animPulseSlow 2s ease infinite;
+}
+
+.anim-scene--circadian.is-mode-behavior .anim-particle {
+  fill: #CE93D8;
+  animation: animParticleOrganize 1.2s ease forwards;
+  animation-delay: calc(var(--i, 0) * 0.06s);
+}
+
+@keyframes animParticleOrganize {
+  from { transform: translate(var(--ox, 0), var(--oy, 0)); opacity: 0.2; }
+  to { transform: translate(0, 0); opacity: 0.9; }
+}
+
+.anim-scene--circadian.is-mode-sleep {
+  background: linear-gradient(180deg, #1a237e 0%, #283593 35%, #eef6fa 100%);
+}
+
+.anim-scene--circadian.is-mode-sleep .anim-bio-core {
+  fill: rgba(144, 202, 249, 0.4);
+}
+
+/* ─── Product bottle sequence ─── */
+.anim-product-bottle {
+  cursor: pointer;
+}
+
+.anim-product-bottle.is-tapped .anim-bottle-body {
+  transform: scale(0.96);
+  transition: transform 0.2s ease;
+}
+
+.anim-bottle-hint {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--product-accent);
+  animation: animPulseSlow 2s ease infinite;
+}
+
+.anim-drop-shape--once {
+  animation: animDropOnce 1.4s ease forwards;
+}
+
+@keyframes animDropOnce {
+  0% { transform: translateY(-20px); opacity: 0; }
+  30% { opacity: 1; }
+  70% { transform: translateY(55px); opacity: 1; }
+  100% { transform: translateY(70px); opacity: 0; }
+}
+
+.anim-product-dose-text {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  fill: var(--product-accent);
+  animation: animLayerIn 0.5s ease;
+}
+
+.interactive-chip-row.is-locked {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.interactive-chip-row.is-ready {
+  animation: animLayerIn 0.4s ease;
+}
+
+/* ─── Home hero ─── */
+.anim-home-sun-halo { opacity: 0.5; }
+
+.anim-home-drop-shape {
+  fill: #FFB300;
+  filter: drop-shadow(0 0 8px rgba(255, 179, 0, 0.5));
+}
+
+.anim-home-drop-flying {
+  transition: transform 0.65s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.anim-home-route-card {
+  fill: rgba(255, 255, 255, 0.85);
+  stroke-width: 2;
+  opacity: 0.7;
+  transition: opacity 0.35s ease;
+}
+
+.anim-home-route-card.is-on {
+  opacity: 1;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
+}
+
+.anim-scene--home.is-flying .anim-home-drop-shape {
+  animation: none;
+}
+
+/* ─── Final route map ─── */
+.anim-scene--final-map {
+  width: 100%;
+  max-width: 520px;
+  min-height: 240px;
+  background: transparent;
+}
+
+.anim-final-brand {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 800;
+  fill: #E65100;
+}
+
+.anim-final-branch.is-on .anim-home-route-card {
+  opacity: 1;
+}
+
+.anim-final-branch-label {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.anim-final-branch-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.anim-final-branch-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--route-color, #028090);
+  background: white;
+  color: var(--route-color, #028090);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.anim-final-branch-btn.is-on {
+  background: var(--route-color, #028090);
+  color: white;
+}
+
+.final-screen--map .final-map-conclusion {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  max-width: 640px;
+  animation: animLayerIn 0.4s ease;
+}
+
+/* ─── School room extras ─── */
+.anim-calendar-body {
+  fill: white;
+  stroke: rgba(26, 35, 50, 0.12);
+  stroke-width: 1.5;
+}
+
+.anim-calendar-header {
+  fill: #028090;
+  opacity: 0.85;
+}
+
+.anim-calendar.is-on .anim-calendar-header {
+  fill: #1565C0;
+}
+
+.anim-calendar-month {
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--text-primary);
+}
+
+.anim-growth-ruler {
+  fill: rgba(255, 255, 255, 0.9);
+  stroke: var(--accent, #00A896);
+  stroke-width: 2;
+}
+
+.anim-growth-tick {
+  stroke: rgba(26, 35, 50, 0.2);
+  stroke-width: 1.5;
+}
+
+.anim-growth-marker {
+  fill: var(--accent, #00A896);
+  transition: cy 0.5s var(--ease-out);
+}
+
+.anim-growth-meter.is-on .anim-growth-marker {
+  fill: #FF9100;
+}
+
+.anim-gadget--laptop { fill: #455A64; }
+.anim-gadget-screen { fill: #78909C; }
+.anim-gadget-screen.is-on { fill: #4FC3F7; }
+
+.anim-dose-band {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.anim-scene--dose-d3 .anim-dose-band:hover {
+  opacity: 0.95;
+}
+

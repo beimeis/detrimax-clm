@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 620" fill="none">
+  <defs>
+    <linearGradient id="skin" x1="180" y1="50" x2="180" y2="560">
+      <stop stop-color="#E8C4A0"/>
+      <stop offset="1" stop-color="#B88860"/>
+    </linearGradient>
+    <linearGradient id="uniform" x1="100" y1="240" x2="260" y2="500">
+      <stop stop-color="#4A6B8A"/>
+      <stop offset="1" stop-color="#2E4A62"/>
+    </linearGradient>
+    <radialGradient id="hl" cx="0.35" cy="0.1" r="0.45">
+      <stop stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="180" cy="590" rx="80" ry="14" fill="#6A5848" opacity="0.18"/>
+  <ellipse cx="180" cy="88" rx="46" ry="50" fill="url(#skin)"/>
+  <ellipse cx="180" cy="80" rx="46" ry="50" fill="url(#hl)"/>
+  <path d="M108 168c-14 8-24 42-20 88 4 52 14 140 14 200 0 32 26 58 78 58s78-26 78-58c0-60 10-148 14-200 4-46-6-80-20-88-16-10-40-16-72-16s-56 6-72 16z" fill="url(#uniform)"/>
+  <path d="M82 210c-28 16-40 56-36 104 4 40 18 72 36 72" stroke="url(#skin)" stroke-width="24" stroke-linecap="round"/>
+  <path d="M278 210c28 16 40 56 36 104-4 40-18 72-36 72" stroke="url(#skin)" stroke-width="24" stroke-linecap="round"/>
+  <rect x="120" y="380" width="120" height="72" rx="8" fill="#1A2838" opacity="0.85"/>
+  <rect x="128" y="388" width="104" height="48" rx="4" fill="#88AACC" opacity="0.35"/>
+</svg>
