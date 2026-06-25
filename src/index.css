@@ -1,0 +1,101 @@
+@import './styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply h-full w-full overflow-hidden;
+  }
+
+  body {
+    @apply bg-brand-heading font-sans text-brand-heading antialiased;
+    background-color: var(--color-bg);
+  }
+}
+
+@layer components {
+  .slide-viewport {
+    @apply flex h-full w-full items-center justify-center overflow-hidden;
+  }
+
+  .slide-viewport-inner {
+    transform: scale(var(--frame-scale, 1));
+    transform-origin: center center;
+  }
+
+  .slide-frame {
+    width: var(--slide-width);
+    height: var(--slide-height);
+    @apply relative flex flex-col overflow-hidden;
+  }
+
+  .text-detrimax {
+    color: var(--color-detrimax);
+  }
+
+  .slide-title {
+    @apply font-display text-[30px] font-bold leading-tight text-brand-heading;
+  }
+
+  .slide-category {
+    @apply text-[15px] font-medium text-brand-muted;
+  }
+
+  .slide-thesis {
+    @apply text-[17px] leading-snug text-brand-heading;
+  }
+
+  .card-panel {
+    @apply rounded-card bg-white p-5 shadow-card;
+  }
+
+  .tag-btn {
+    @apply rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-brand-muted transition-all duration-200 ease-in-out;
+  }
+
+  .tag-btn-active {
+    @apply border-transparent text-white;
+  }
+
+  .btn-primary {
+    @apply rounded-btn px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply rounded-btn border border-brand-heading bg-white px-5 py-2.5 text-sm font-semibold text-brand-heading transition-colors duration-200;
+  }
+
+  .home-hero-title {
+    font-family: 'Montserrat', 'Inter', 'Arial Black', sans-serif;
+    font-size: 106px;
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #d12f2f;
+    text-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.95),
+      0 2px 0 rgba(255, 255, 255, 0.85),
+      0 4px 10px rgba(91, 99, 110, 0.28);
+    -webkit-text-stroke: 4px rgba(255, 255, 255, 0.96);
+    paint-order: stroke fill;
+    filter: drop-shadow(0 1px 0 rgba(105, 114, 125, 0.45));
+  }
+
+  .home-hero-subtitle {
+    @apply flex flex-col items-center gap-1 text-center;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-size: 31px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #1f4f8a;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
+  }
+}
