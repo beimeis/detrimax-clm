@@ -1,6 +1,6 @@
 import type { BranchConfig, DosingLevel, DosingRow, DosingStep, TagItem, AudienceSlideData, ProductTag } from './types'
 
-export const BABY_COLOR = '#F5A623'
+export const BABY_COLOR = '#FFA726'
 
 export const babyBranch: BranchConfig = {
   id: 'baby',
@@ -16,6 +16,7 @@ export const babyBranch: BranchConfig = {
     { id: 4, title: 'Роль D3', menuLabel: 'Механизм D3' },
     { id: 5, title: 'Продукт', menuLabel: 'Детримакс® Бэби' },
     { id: 6, title: 'Подбор дозы', menuLabel: 'Подбор дозы' },
+    { id: 7, title: 'Приказ №422', menuLabel: 'Приказ №422' },
   ],
 }
 

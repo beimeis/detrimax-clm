@@ -16,6 +16,7 @@ export const activeBranch: BranchConfig = {
     { id: 4, title: 'Роль D3', menuLabel: 'Механизм D3' },
     { id: 5, title: 'Продукт', menuLabel: 'Детримакс® Актив' },
     { id: 6, title: 'Подбор дозы', menuLabel: 'Подбор дозы' },
+    { id: 7, title: 'Приказ №422', menuLabel: 'Приказ №422' },
   ],
 }
 

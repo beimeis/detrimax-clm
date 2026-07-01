@@ -9,7 +9,8 @@ import BabySlide02 from '../components/slides/baby/Slide02RiskFactors'
 import BabySlide03 from '../components/slides/baby/Slide03Complications'
 import BabySlide04 from '../components/slides/baby/Slide04MechanismD3'
 import BabySlide05 from '../components/slides/baby/Slide05Product'
-import BabySlide06 from '../components/slides/baby/Slide06Dosing'
+import CommonDosingSlide from '../components/slides/common/SlideDosing'
+import Order422Slide from '../components/slides/decree/Slide01Order422'
 
 const SLIDES = [
   BabySlide01,
@@ -17,7 +18,8 @@ const SLIDES = [
   BabySlide03,
   BabySlide04,
   BabySlide05,
-  BabySlide06,
+  CommonDosingSlide,
+  Order422Slide,
 ]
 
 export default function BabyFlow() {
@@ -26,7 +28,7 @@ export default function BabyFlow() {
   const setBranch = usePresentationStore((s) => s.setBranch)
   const setSlideIndex = usePresentationStore((s) => s.setSlideIndex)
 
-  const slideIndex = Math.min(Math.max(parseInt(slideId ?? '1', 10) || 1, 1), 6)
+  const slideIndex = Math.min(Math.max(parseInt(slideId ?? '1', 10) || 1, 1), 7)
   const SlideComponent = SLIDES[slideIndex - 1]
 
   useEffect(() => {
@@ -55,11 +57,11 @@ export default function BabyFlow() {
       branchLabel={babyBranch.label}
       branchColor={BABY_COLOR}
       slideIndex={slideIndex}
-      totalSlides={6}
+      totalSlides={7}
       slideKey={slideIndex}
       onPrev={() => goToSlide(slideIndex - 1)}
       onNext={() => {
-        if (slideIndex >= 6) navigate('/finale')
+        if (slideIndex >= 7) navigate('/finale')
         else goToSlide(slideIndex + 1)
       }}
       onDotClick={goToSlide}

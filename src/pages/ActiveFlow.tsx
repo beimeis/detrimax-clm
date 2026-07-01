@@ -9,7 +9,8 @@ import ActiveSlide02 from '../components/slides/active/Slide02RiskFactors'
 import ActiveSlide03 from '../components/slides/active/Slide03Complications'
 import ActiveSlide04 from '../components/slides/active/Slide04MechanismD3'
 import ActiveSlide05 from '../components/slides/active/Slide05Product'
-import ActiveSlide06 from '../components/slides/active/Slide06Dosing'
+import CommonDosingSlide from '../components/slides/common/SlideDosing'
+import Order422Slide from '../components/slides/decree/Slide01Order422'
 
 const SLIDES = [
   ActiveSlide01,
@@ -17,7 +18,8 @@ const SLIDES = [
   ActiveSlide03,
   ActiveSlide04,
   ActiveSlide05,
-  ActiveSlide06,
+  CommonDosingSlide,
+  Order422Slide,
 ]
 
 export default function ActiveFlow() {
@@ -26,7 +28,7 @@ export default function ActiveFlow() {
   const setBranch = usePresentationStore((s) => s.setBranch)
   const setSlideIndex = usePresentationStore((s) => s.setSlideIndex)
 
-  const slideIndex = Math.min(Math.max(parseInt(slideId ?? '1', 10) || 1, 1), 6)
+  const slideIndex = Math.min(Math.max(parseInt(slideId ?? '1', 10) || 1, 1), 7)
   const SlideComponent = SLIDES[slideIndex - 1]
 
   useEffect(() => {
@@ -55,11 +57,11 @@ export default function ActiveFlow() {
       branchLabel={activeBranch.label}
       branchColor={ACTIVE_COLOR}
       slideIndex={slideIndex}
-      totalSlides={6}
+      totalSlides={7}
       slideKey={slideIndex}
       onPrev={() => goToSlide(slideIndex - 1)}
       onNext={() => {
-        if (slideIndex >= 6) navigate('/finale')
+        if (slideIndex >= 7) navigate('/finale')
         else goToSlide(slideIndex + 1)
       }}
       onDotClick={goToSlide}
