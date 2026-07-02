@@ -83,7 +83,7 @@ function ActivityIcon({ className = 'h-9 w-9' }: { className?: string }) {
 
 function CircleIcon({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-[70px] w-[70px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] text-[#21A7A2] shadow-[0_8px_18px_rgba(0,0,0,0.06)]">
+    <div className="flex h-[62px] w-[62px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] text-[#21A7A2] shadow-[0_8px_18px_rgba(0,0,0,0.06)]">
       {children}
     </div>
   )
@@ -92,11 +92,11 @@ function CircleIcon({ children }: { children: ReactNode }) {
 function InfoCard({ icon, title, text, accent = 'teal' }: { icon: ReactNode; title: string; text: string; accent?: 'teal' | 'orange' }) {
   const isOrange = accent === 'orange'
   return (
-    <article className="flex min-h-[112px] items-start gap-4 rounded-[16px] border border-[#E4E8EB] bg-white px-5 py-4 shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
-      <div className={`flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-full ${isOrange ? 'bg-[#FFF9EF] text-[#FFA726]' : 'bg-[#EAF8F7] text-[#21A7A2]'}`}>{icon}</div>
+    <article className="flex min-h-[108px] items-start gap-4 rounded-[16px] border border-[#E4E8EB] bg-white px-5 py-[15px] shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
+      <div className={`flex h-[62px] w-[62px] shrink-0 items-center justify-center rounded-full ${isOrange ? 'bg-[#FFF9EF] text-[#FFA726]' : 'bg-[#EAF8F7] text-[#21A7A2]'}`}>{icon}</div>
       <div className="min-w-0">
         <h3 className={`text-[16.5px] font-bold leading-tight ${isOrange ? 'text-[#FFA726]' : 'text-[#21A7A2]'}`}>{title}</h3>
-        <p className="mt-2 whitespace-pre-line text-[13px] font-medium leading-[1.3] text-[#6D7A86]">{text}</p>
+        <p className="mt-1.5 whitespace-pre-line text-[13px] font-medium leading-[1.28] text-[#6D7A86]">{text}</p>
       </div>
     </article>
   )
@@ -282,14 +282,14 @@ function ImmunityContent() {
 function MusclesContent() {
   return (
     <>
-      <div className="absolute left-[35px] top-[96px] h-[1010px] w-[400px] rounded-[22px] bg-white px-6 py-[30px] shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <div className="relative h-[792px] w-full overflow-visible">
-          <div className="absolute left-1/2 top-0 h-[620px] w-[330px] -translate-x-1/2 overflow-hidden rounded-[24px] bg-[#FFF4E8]">
+      <div className="absolute left-[35px] top-[96px] flex h-[990px] w-[400px] flex-col rounded-[22px] bg-white px-6 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+        <div className="relative h-[710px] w-full shrink-0 overflow-visible">
+          <div className="absolute left-1/2 top-0 h-[646px] w-[332px] -translate-x-1/2 overflow-hidden rounded-[24px] bg-[#FFF4E8]">
             <img src="/assets/characters/baby-growth.png" alt="Фото активного младенца" className="h-full w-full object-cover object-center" draggable={false} />
-            <div className="absolute inset-x-0 bottom-0 h-[170px] bg-gradient-to-t from-white via-white/80 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-[150px] bg-gradient-to-t from-white via-white/78 to-transparent" />
           </div>
 
-          <svg className="pointer-events-none absolute left-[26px] top-[54px] h-[455px] w-[300px]" viewBox="0 0 300 455" fill="none" aria-hidden>
+          <svg className="pointer-events-none absolute left-[26px] top-[48px] h-[420px] w-[300px]" viewBox="0 0 300 420" fill="none" aria-hidden>
             <path d="M66 82C22 145 18 265 72 350" stroke="#21A7A2" strokeWidth="2" strokeDasharray="7 10" strokeLinecap="round" />
             <path d="M234 82c44 63 48 183-6 268" stroke="#21A7A2" strokeWidth="2" strokeDasharray="7 10" strokeLinecap="round" />
             <circle cx="66" cy="82" r="4" fill="#21A7A2" />
@@ -298,27 +298,27 @@ function MusclesContent() {
             <circle cx="228" cy="350" r="4" fill="#21A7A2" />
           </svg>
 
-          <div className="absolute left-[-12px] top-[58px] flex w-[126px] flex-col items-center text-center"><CircleIcon><MuscleIcon /></CircleIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Мышечный<br />тонус</p></div>
-          <div className="absolute right-[-12px] top-[58px] flex w-[126px] flex-col items-center text-center"><CircleIcon><CoordinationIcon /></CircleIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Координация<br />движений</p></div>
-          <div className="absolute left-[-12px] bottom-[238px] flex w-[126px] flex-col items-center text-center"><CircleIcon><CrawlingBabyIcon /></CircleIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Моторное<br />развитие</p></div>
-          <div className="absolute right-[-12px] bottom-[238px] flex w-[126px] flex-col items-center text-center"><CircleIcon><ActivityIcon /></CircleIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Физическая<br />активность</p></div>
+          <div className="absolute left-[-8px] top-[52px] flex w-[126px] flex-col items-center text-center"><CircleIcon><MuscleIcon className="h-8 w-8" /></CircleIcon><p className="mt-2 text-[13px] font-bold leading-[1.15] text-[#18324A]">Мышечный<br />тонус</p></div>
+          <div className="absolute right-[-8px] top-[52px] flex w-[126px] flex-col items-center text-center"><CircleIcon><CoordinationIcon className="h-8 w-8" /></CircleIcon><p className="mt-2 text-[13px] font-bold leading-[1.15] text-[#18324A]">Координация<br />движений</p></div>
+          <div className="absolute left-[-8px] bottom-[128px] flex w-[126px] flex-col items-center text-center"><CircleIcon><CrawlingBabyIcon className="h-8 w-8" /></CircleIcon><p className="mt-2 text-[13px] font-bold leading-[1.15] text-[#18324A]">Моторное<br />развитие</p></div>
+          <div className="absolute right-[-8px] bottom-[128px] flex w-[126px] flex-col items-center text-center"><CircleIcon><ActivityIcon className="h-8 w-8" /></CircleIcon><p className="mt-2 text-[13px] font-bold leading-[1.15] text-[#18324A]">Физическая<br />активность</p></div>
         </div>
 
-        <div className="mt-2 flex gap-[14px] rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-4">
-          <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-white"><ShieldIcon className="h-8 w-8" /></div>
+        <div className="mt-5 flex gap-[14px] rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-[18px]">
+          <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-white"><ShieldIcon className="h-8 w-8" /></div>
           <div>
             <h3 className="text-[16px] font-bold leading-tight text-[#21A7A2]">Поддержка движения<br />с первых месяцев жизни</h3>
-            <p className="mt-2 text-[13px] font-medium leading-[1.35] text-[#18324A]">Витамин D3 способствует укреплению<br />мышц и формированию двигательных<br />навыков, помогая малышу активно<br />познавать мир.</p>
+            <p className="mt-2 text-[13px] font-medium leading-[1.32] text-[#18324A]">Витамин D3 способствует укреплению<br />мышц и формированию двигательных<br />навыков, помогая малышу активно<br />познавать мир.</p>
           </div>
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[1010px] w-[555px] rounded-[22px] bg-white px-9 py-10 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[35px] top-[96px] h-[990px] w-[555px] rounded-[22px] bg-white px-9 py-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <h2 className="text-[26px] font-bold leading-[1.22] text-[#21A7A2]">Мышечная и двигательная роль<br />витамина D3 у младенца</h2>
-        <div className="mt-[14px] h-[3px] w-12 rounded-full bg-[#21A7A2]" />
-        <p className="mt-5 text-[14.5px] font-medium leading-[1.42] text-[#6D7A86]">Витамин D3 действует не только на кости, но и на мышцы.<br />Он играет ключевую роль в формировании силы,<br />координации и двигательной активности ребёнка.</p>
+        <div className="mt-3 h-[3px] w-12 rounded-full bg-[#21A7A2]" />
+        <p className="mt-4 text-[14.5px] font-medium leading-[1.38] text-[#6D7A86]">Витамин D3 действует не только на кости, но и на мышцы.<br />Он играет ключевую роль в формировании силы,<br />координации и двигательной активности ребёнка.</p>
 
-        <div className="mt-5 space-y-3">
+        <div className="mt-5 grid gap-3">
           <InfoCard icon={<MuscleIcon />} title="Мышечный тонус" text={'D3 способствует поддержанию оптимального\nтонуса скелетных мышц, предотвращая\nмышечную слабость и гипотонию.'} />
           <InfoCard icon={<CoordinationIcon />} title="Координация движений" text={'Витамин D3 участвует в передаче нервных\nимпульсов и работе мышц, улучшая\nкоординацию и точность движений.'} />
           <InfoCard icon={<CrawlingBabyIcon />} title="Моторное развитие" text={'D3 поддерживает своевременное освоение\nдвигательных навыков: перевороты, ползание,\nсидение, ходьба.'} />
@@ -366,14 +366,14 @@ export default function Slide04MechanismD3() {
 
       {activeRoleBabyTab === 'bones' ? <BonesContent /> : activeRoleBabyTab === 'sleep' ? <SleepContent /> : activeRoleBabyTab === 'immunity' ? <ImmunityContent /> : activeRoleBabyTab === 'muscles' ? <MusclesContent /> : <PlaceholderContent label={placeholder} />}
 
-      <div className="absolute left-[35px] top-[1130px] flex h-11 items-center gap-3">
+      <div className="absolute left-[35px] right-[35px] top-[1114px] grid h-11 grid-cols-4 gap-3">
         {roleTabs.map((tab) => {
           const isActive = activeRoleBabyTab === tab.id
           return (
             <button
               key={tab.id}
               type="button"
-              className={`h-11 cursor-pointer rounded-[12px] px-5 text-[16px] font-bold transition duration-200 ease-in-out ${isActive ? 'bg-[#FFA726] text-white shadow-[0_8px_20px_rgba(255,167,38,0.25)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86] shadow-[0_6px_14px_rgba(0,0,0,0.05)] hover:-translate-y-px hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)]'}`}
+              className={`h-11 w-full cursor-pointer rounded-[12px] px-4 text-[16px] font-bold transition duration-200 ease-in-out ${isActive ? 'bg-[#FFA726] text-white shadow-[0_8px_20px_rgba(255,167,38,0.25)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86] shadow-[0_6px_14px_rgba(0,0,0,0.05)] hover:-translate-y-px hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)]'}`}
               onClick={() => setActiveRoleBabyTab(tab.id)}
             >
               {tab.label}
@@ -382,7 +382,7 @@ export default function Slide04MechanismD3() {
         })}
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-white/38 backdrop-blur-[1px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-white/42" />
     </section>
   )
 }

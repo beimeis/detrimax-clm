@@ -95,10 +95,6 @@ export default function Slide05Product() {
         </div>
       </div>
 
-      <div className="absolute left-[35px] right-[35px] top-[1112px] grid h-12 grid-cols-2 gap-4">
-        <button type="button" className="h-12 cursor-pointer rounded-[12px] border-[1.5px] border-[#18324A] bg-white text-[16px] font-bold text-[#18324A] transition duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(24,50,74,0.08)]">Когда рекомендовать</button>
-        <button type="button" className="h-12 cursor-pointer rounded-[12px] bg-[#21A7A2] text-[16px] font-bold text-white transition duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(33,167,162,0.22)]">Как принимать</button>
-      </div>
 
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-white/52 backdrop-blur-[1.5px]" />
     </section>
