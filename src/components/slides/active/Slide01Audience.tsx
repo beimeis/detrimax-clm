@@ -48,13 +48,22 @@ function ShieldIcon({ className = 'h-9 w-9' }: { className?: string }) {
   )
 }
 
-function GrowthIcon({ className = 'h-9 w-9' }: { className?: string }) {
+function SleepZzzIcon({ className = 'h-10 w-10' }: { className?: string }) {
   return (
     <svg viewBox="0 0 56 56" className={className} fill="none" aria-hidden>
-      <path d="M10 45h36" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-      <path d="M15 39V27M28 39V18M41 39V11" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-      <path d="M34 12h7v7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M16 29c7.6-.6 15.7-4.7 25-17" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <path d="M36.5 42.5C25.8 42.5 17 33.7 17 23c0-5.5 2.3-10.5 6-14A19.5 19.5 0 1 0 47 33c-3.5 5.8-6.6 9.5-10.5 9.5Z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
+      <path d="M35 10h9l-9 9h9M25 16h6l-6 6h6M39 25h7l-7 7h7" stroke="currentColor" strokeWidth="2.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function GrowthArrowIcon({ className = 'h-12 w-12' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 56 56" className={className} fill="none" aria-hidden>
+      <path d="M12 44h32" stroke="currentColor" strokeWidth="4.2" strokeLinecap="round" />
+      <path d="M16 39c9.8-2.9 18.1-10.2 25-24" stroke="currentColor" strokeWidth="4.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M32 15h10v10" stroke="currentColor" strokeWidth="4.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M18 43V31M28 43V25M38 43V19" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" opacity="0.9" />
     </svg>
   )
 }
@@ -80,19 +89,55 @@ function Molecule() {
   )
 }
 
-function Sector({ className, children }: { className: string; children: ReactNode }) {
+function WheelSector({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`absolute flex h-[183px] w-[183px] items-center justify-center bg-[radial-gradient(circle_at_center,#42BDB7_0%,#21A7A2_72%,#0E8F8B_100%)] text-white ${className}`}>
-      {children}
+    <div className={`relative flex items-center justify-center overflow-hidden bg-[#67BFBC] text-white ${className}`}>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_27%_22%,rgba(232,255,253,0.58)_0%,rgba(196,239,236,0.18)_28%,rgba(255,255,255,0)_52%),radial-gradient(circle_at_78%_78%,rgba(20,124,125,0.30)_0%,rgba(20,124,125,0.10)_34%,rgba(255,255,255,0)_60%),linear-gradient(140deg,#A9DFDC_0%,#6BC6C2_45%,#3AA9A8_100%)]" />
+      <div className="pointer-events-none absolute -left-10 top-6 h-[125px] w-[155px] rounded-full bg-white/20 blur-[22px]" />
+      <div className="pointer-events-none absolute bottom-[-34px] right-[-24px] h-[150px] w-[150px] rounded-full bg-[#1E8F91]/20 blur-[28px]" />
+      <div className="pointer-events-none absolute left-[18%] top-[58%] h-[88px] w-[120px] rounded-full bg-white/10 blur-[18px]" />
+      <div className="pointer-events-none absolute inset-0 shadow-[inset_0_16px_32px_rgba(255,255,255,0.18),inset_0_-22px_32px_rgba(18,112,112,0.18)]" />
+      <div className="relative z-10 flex flex-col items-center text-center text-white drop-shadow-[0_2px_3px_rgba(15,91,91,0.28)]">
+        {children}
+      </div>
     </div>
   )
 }
 
-function SectorContent({ icon, label }: { icon: ReactNode; label: ReactNode }) {
+function WheelSectorContent({ icon, label }: { icon: ReactNode; label: ReactNode }) {
   return (
-    <div className="flex flex-col items-center text-center">
-      {icon}
-      <p className="mt-2 text-[14px] font-bold leading-[1.15] text-white">{label}</p>
+    <>
+      <div className="text-white drop-shadow-[0_2px_3px_rgba(15,91,91,0.18)]">{icon}</div>
+      <p className="mt-2.5 max-w-[128px] text-[15px] font-semibold leading-[1.12] text-white">{label}</p>
+    </>
+  )
+}
+
+function D3SupportWheel() {
+  return (
+    <div className="relative mx-auto mt-10 h-[380px] w-[380px] rounded-full border-[7px] border-white bg-white p-[8px] shadow-[0_20px_42px_rgba(33,137,137,0.24),0_0_30px_rgba(255,255,255,0.82),0_0_44px_rgba(159,218,215,0.36)]">
+      <div className="pointer-events-none absolute inset-[3px] rounded-full border border-white/80" />
+      <div className="h-full w-full overflow-hidden rounded-full bg-white shadow-[inset_0_0_34px_rgba(255,255,255,0.68)]">
+        <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-[9px] bg-white">
+          <WheelSector className="rounded-tl-full pl-7 pt-8">
+            <WheelSectorContent icon={<BrainIcon className="h-[54px] w-[54px]" />} label={<>Концентрация<br />и обучение</>} />
+          </WheelSector>
+          <WheelSector className="rounded-tr-full pr-7 pt-8">
+            <WheelSectorContent icon={<ShieldIcon className="h-[54px] w-[54px]" />} label={<>Иммунитет<br />и защита</>} />
+          </WheelSector>
+          <WheelSector className="rounded-bl-full pb-8 pl-7">
+            <WheelSectorContent icon={<SleepZzzIcon className="h-[55px] w-[55px]" />} label={<>Настроение<br />и сон</>} />
+          </WheelSector>
+          <WheelSector className="rounded-br-full pb-8 pr-7">
+            <WheelSectorContent icon={<GrowthArrowIcon className="h-[56px] w-[56px]" />} label={<>Рост<br />и развитие</>} />
+          </WheelSector>
+        </div>
+      </div>
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[172px] w-[172px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,230,92,0.62)_0%,rgba(255,202,64,0.32)_38%,rgba(255,177,38,0.16)_58%,rgba(255,177,38,0)_74%)] blur-[8px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[146px] w-[146px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_36%_28%,#FFF176_0%,#FFD84A_34%,#F8B534_68%,#F5A623_100%)] shadow-[0_0_0_8px_rgba(255,255,255,0.84),0_0_42px_rgba(255,213,74,0.88),0_0_72px_rgba(245,166,35,0.45),0_15px_28px_rgba(164,101,15,0.28),inset_0_7px_14px_rgba(255,255,255,0.38),inset_0_-10px_18px_rgba(194,111,8,0.18)]" />
+      <div className="absolute left-1/2 top-1/2 flex h-[146px] w-[146px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-[42px] font-extrabold leading-none text-white drop-shadow-[0_2px_4px_rgba(143,83,5,0.34)]">
+        D3
+      </div>
     </div>
   )
 }
@@ -182,23 +227,7 @@ export default function Slide01Audience() {
           Комплексная поддержка здоровья и развития<br />ребёнка каждый день
         </p>
 
-        <div className="relative mx-auto mt-10 h-[380px] w-[380px] overflow-hidden rounded-full bg-white shadow-[0_14px_32px_rgba(33,167,162,0.18)]">
-          <Sector className="left-0 top-0 rounded-tl-full border-r-[7px] border-b-[7px] border-white pl-7 pt-7">
-            <SectorContent icon={<BrainIcon className="h-10 w-10" />} label={<>Концентрация<br />и обучение</>} />
-          </Sector>
-          <Sector className="right-0 top-0 rounded-tr-full border-b-[7px] border-l-[7px] border-white pr-7 pt-7">
-            <SectorContent icon={<ShieldIcon className="h-10 w-10" />} label={<>Иммунитет<br />и защита</>} />
-          </Sector>
-          <Sector className="bottom-0 left-0 rounded-bl-full border-t-[7px] border-r-[7px] border-white pb-7 pl-7">
-            <SectorContent icon={<MoonIcon className="h-10 w-10" />} label={<>Настроение<br />и сон</>} />
-          </Sector>
-          <Sector className="bottom-0 right-0 rounded-br-full border-t-[7px] border-l-[7px] border-white pb-7 pr-7">
-            <SectorContent icon={<GrowthIcon className="h-10 w-10" />} label={<>Рост<br />и развитие</>} />
-          </Sector>
-          <div className="absolute left-1/2 top-1/2 flex h-[116px] w-[116px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[radial-gradient(circle,#FFD45C_0%,#F8B534_70%)] text-[34px] font-bold text-white shadow-[0_0_35px_rgba(248,181,52,0.65)]">
-            D3
-          </div>
-        </div>
+        <D3SupportWheel />
 
         <div className="mt-12 flex h-[170px] items-center justify-between rounded-[16px] border border-[#E4E8EB] bg-white p-6">
           <div>

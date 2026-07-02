@@ -6,6 +6,8 @@
   --color-source: #9CA3AF;
   --color-detrimax: #D32F2F;
   --color-bg: #F8FBFF;
-  --slide-width: 1024px;
-  --slide-height: 1366px;
+  --ipad-pro-width: 1024px;
+  --ipad-pro-height: 1366px;
+  --slide-width: var(--ipad-pro-width);
+  --slide-height: var(--ipad-pro-height);
 }

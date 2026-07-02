@@ -28,10 +28,10 @@ function SmileIcon({ className = 'h-8 w-8' }: { className?: string }) {
 function BulbIcon() { return <svg viewBox="0 0 56 56" className="h-10 w-10" fill="none" aria-hidden><path d="M28 7c-8 0-14.5 6.4-14.5 14.2 0 5.2 2.7 8.6 6.1 11.7 1.8 1.6 2.9 3.8 2.9 6.2h11c0-2.4 1.1-4.6 2.9-6.2 3.4-3.1 6.1-6.5 6.1-11.7C42.5 13.4 36 7 28 7Z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" /><path d="M22.5 45h11M24.5 50h7M28 14v6M19 22h6M31 22h6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg> }
 
 function MiniBenefit({ icon, children }: { icon: ReactNode; children: ReactNode }) {
-  return <div className="flex h-[94px] w-[92px] flex-col items-center justify-center gap-2 rounded-[14px] border border-[#E4E8EB] bg-white px-1 text-center text-[#21A7A2]"><div>{icon}</div><p className="text-[11px] font-bold leading-[1.1] text-[#18324A]">{children}</p></div>
+  return <div className="flex h-[104px] min-w-0 flex-col items-center justify-center gap-2 rounded-[14px] border border-[#E4E8EB] bg-white px-2 text-center text-[#21A7A2] shadow-[0_8px_18px_rgba(0,0,0,0.035)]"><div>{icon}</div><p className="text-[11.5px] font-bold leading-[1.12] text-[#18324A]">{children}</p></div>
 }
 function Advantage({ icon, title, text }: { icon: ReactNode; title: string; text: ReactNode }) {
-  return <article className="mb-[14px] flex items-center gap-4 rounded-[16px] border border-[#E4E8EB] bg-white px-[18px] py-4 shadow-[0_6px_16px_rgba(0,0,0,0.04)]"><div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">{icon}</div><div><h3 className="text-[16px] font-bold leading-tight text-[#18324A]">{title}</h3><p className="mt-1 text-[13px] font-medium leading-[1.25] text-[#6D7A86]">{text}</p></div></article>
+  return <article className="flex h-[98px] items-center gap-3.5 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.045)]"><div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">{icon}</div><div className="min-w-0"><h3 className="text-[15.5px] font-bold leading-tight text-[#18324A]">{title}</h3><p className="mt-1 text-[12.5px] font-medium leading-[1.18] text-[#6D7A86]">{text}</p></div></article>
 }
 
 export default function Slide05Product() {
@@ -45,23 +45,23 @@ export default function Slide05Product() {
         <p className="mt-2 text-[16px] font-medium leading-none text-[#6D7A86]">Витамин D3 в каплях • с 3 лет</p>
       </header>
 
-      <div className="absolute left-[35px] top-[91px] h-[1000px] w-[470px] rounded-[22px] bg-white px-[34px] py-10 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[35px] top-[88px] h-[982px] w-[470px] rounded-[18px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         {activeProductTab === 'dose' ? (
           <>
-            <h2 className="text-center text-[25px] font-bold leading-[1.2] text-[#18324A]"><span className="text-[#21A7A2]">500 МЕ</span> в 1 капле —<br />суточная доза для школьника</h2>
+            <h2 className="text-center text-[23px] font-bold leading-[1.16] text-[#18324A]"><span className="text-[#21A7A2]">500 МЕ</span> в 1 капле —<br />суточная доза для школьника</h2>
 
-            <div className="relative mx-auto mt-6 h-[440px] w-[402px]">
-              <div className="absolute left-1/2 top-6 h-[350px] w-[350px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,#EAF8F7_0%,#F7FFFF_58%,rgba(234,248,247,0)_74%)]" />
-              <div className="absolute left-[20px] top-[250px] flex h-[118px] w-[92px] items-center justify-center rounded-[52%_48%_55%_45%/62%_58%_42%_38%] bg-[linear-gradient(145deg,#FFD45C,#FFA726)] text-center text-[20px] font-extrabold leading-tight text-[#0E6F73] shadow-[0_12px_24px_rgba(255,167,38,0.25)]">500<br />МЕ</div>
-              <span className="absolute right-[56px] top-[40px] h-4 w-4 rounded-full bg-[#C8F1EF]" />
-              <span className="absolute right-[24px] top-[142px] h-7 w-7 rounded-full bg-[#EAF8F7]" />
-              <span className="absolute left-[70px] top-[66px] h-5 w-5 rounded-full bg-[#C8F1EF]" />
-              <img src="/products/detrimax-active-pack.png" alt="Детримакс Актив" className="absolute left-1/2 top-[42px] h-[340px] w-auto -translate-x-1/2 object-contain drop-shadow-[0_18px_28px_rgba(24,50,74,0.18)]" draggable={false} />
+            <div className="relative mx-auto mt-4 h-[430px] w-[414px]">
+              <div className="absolute left-1/2 top-[18px] h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,#EAF8F7_0%,#F7FFFF_58%,rgba(234,248,247,0)_74%)]" />
+              <div className="absolute left-[22px] top-[286px] flex h-[96px] w-[86px] items-center justify-center rounded-[52%_48%_55%_45%/62%_58%_42%_38%] bg-[linear-gradient(145deg,#FFD45C,#FFA726)] text-center text-[18px] font-extrabold leading-tight text-[#0E6F73] shadow-[0_12px_24px_rgba(255,167,38,0.25)]">500<br />МЕ</div>
+              <span className="absolute right-[52px] top-[30px] h-4 w-4 rounded-full bg-[#C8F1EF]" />
+              <span className="absolute right-[20px] top-[138px] h-7 w-7 rounded-full bg-[#EAF8F7]" />
+              <span className="absolute left-[64px] top-[54px] h-5 w-5 rounded-full bg-[#C8F1EF]" />
+              <img src="/products/detrimax-active-pack.png" alt="Детримакс Актив" className="absolute left-1/2 top-[28px] h-[378px] w-auto -translate-x-1/2 object-contain drop-shadow-[0_18px_28px_rgba(24,50,74,0.18)]" draggable={false} />
             </div>
 
-            <p className="mt-1 text-center text-[15.5px] font-medium leading-[1.45] text-[#18324A]">Одна капля содержит <strong>500 МЕ витамина D3</strong> —<br />рекомендуемая профилактическая доза<br />для детей <span className="font-bold text-[#21A7A2]">с 3 лет</span>.</p>
+            <p className="mt-2 text-center text-[16px] font-medium leading-[1.38] text-[#18324A]">Одна капля содержит <strong>500 МЕ витамина D3</strong> —<br />рекомендуемая профилактическая доза<br />для детей <span className="font-bold text-[#21A7A2]">с 3 лет</span>.</p>
 
-            <div className="mt-6 flex justify-between">
+            <div className="mt-5 grid grid-cols-4 gap-3">
               <MiniBenefit icon={<DropIcon />} >Удобная<br />форма<br />в каплях</MiniBenefit>
               <MiniBenefit icon={<ShieldIcon />} >Сохранение<br />активности<br />витамина D3</MiniBenefit>
               <MiniBenefit icon={<CalendarIcon />} >Ежедневная<br />профилактика</MiniBenefit>
@@ -74,14 +74,14 @@ export default function Slide05Product() {
           </div>
         )}
 
-        <div className="absolute bottom-[34px] left-[34px] right-[34px] flex justify-between gap-2">
-          {productTabs.map(([id, label]) => <button key={id} type="button" className={`h-[42px] cursor-pointer rounded-[10px] px-[18px] text-[14px] font-bold transition duration-200 ease-in-out ${activeProductTab === id ? 'bg-[#21A7A2] text-white' : 'border border-[#E4E8EB] bg-white text-[#6D7A86]'}`} onClick={() => setActiveProductTab(id)}>{label}</button>)}
+        <div className="absolute bottom-[28px] left-7 right-7 grid grid-cols-4 gap-3">
+          {productTabs.map(([id, label]) => <button key={id} type="button" className={`h-11 cursor-pointer rounded-[12px] px-3 text-[14px] font-bold transition duration-200 ease-in-out ${activeProductTab === id ? 'bg-[#21A7A2] text-white' : 'border border-[#E4E8EB] bg-white text-[#6D7A86]'}`} onClick={() => setActiveProductTab(id)}>{label}</button>)}
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[91px] h-[1000px] w-[455px] rounded-[22px] bg-white px-[34px] py-11 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="text-center text-[25px] font-bold leading-[1.2] text-[#18324A]">Почему Детримакс® Актив<br /><span className="text-[#21A7A2]">подходит для школьников</span></h2>
-        <div className="mt-7">
+      <div className="absolute right-[35px] top-[88px] h-[982px] w-[455px] rounded-[18px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+        <h2 className="text-center text-[23px] font-bold leading-[1.16] text-[#18324A]">Почему Детримакс® Актив<br /><span className="text-[#21A7A2]">подходит для школьников</span></h2>
+        <div className="mt-5 space-y-2.5">
           <Advantage icon={<TargetIcon />} title="Оптимальная доза" text={<>500 МЕ в 1 капле — суточная доза<br />для школьника</>} />
           <Advantage icon={<ShieldIcon />} title="Поддержка роста и развития" text={<>Способствует усвоению кальция<br />и фосфора, укреплению костей<br />и зубов</>} />
           <Advantage icon={<BrainIcon />} title="Поддержка мозга и нервной системы" text={<>Участвует в работе нейронов,<br />концентрации, обучении и памяти</>} />
@@ -89,18 +89,18 @@ export default function Slide05Product() {
           <Advantage icon={<ShieldIcon />} title="Иммунная защита" text={<>Способствует поддержке врожденного<br />иммунитета и снижению частоты ОРВИ</>} />
           <Advantage icon={<DropIcon />} title="Масляная форма" text={<>Лучшее усвоение и стабильность<br />витамина D3</>} />
         </div>
-        <div className="mt-5 flex gap-4 rounded-[16px] bg-[#EAF8F7] p-5">
+        <div className="mt-4 flex gap-3.5 rounded-[14px] bg-[#EAF8F7] px-4 py-4">
           <div className="shrink-0 text-[#21A7A2]"><BulbIcon /></div>
-          <p className="text-[16px] font-bold leading-[1.35] text-[#18324A]">Регулярный приём Детримакс® Актив —<br />простой способ поддержать здоровье,<br />развитие и активность ребёнка каждый день.</p>
+          <p className="text-[14.5px] font-bold leading-[1.28] text-[#18324A]">Регулярный приём Детримакс® Актив —<br />простой способ поддержать здоровье,<br />развитие и активность ребёнка каждый день.</p>
         </div>
       </div>
 
-      <div className="absolute left-[35px] right-[35px] top-[1138px] grid h-12 grid-cols-2 gap-4">
-        <button type="button" className="h-12 cursor-pointer rounded-[10px] border-[1.5px] border-[#18324A] bg-white text-[16px] font-bold text-[#18324A] transition duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(24,50,74,0.08)]">Когда рекомендовать</button>
-        <button type="button" className="h-12 cursor-pointer rounded-[10px] bg-[#21A7A2] text-[16px] font-bold text-white transition duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(33,167,162,0.22)]">Как принимать</button>
+      <div className="absolute left-[35px] right-[35px] top-[1112px] grid h-12 grid-cols-2 gap-4">
+        <button type="button" className="h-12 cursor-pointer rounded-[12px] border-[1.5px] border-[#18324A] bg-white text-[16px] font-bold text-[#18324A] transition duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(24,50,74,0.08)]">Когда рекомендовать</button>
+        <button type="button" className="h-12 cursor-pointer rounded-[12px] bg-[#21A7A2] text-[16px] font-bold text-white transition duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(33,167,162,0.22)]">Как принимать</button>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-white/38 backdrop-blur-[1px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-white/52 backdrop-blur-[1.5px]" />
     </section>
   )
 }

@@ -1,23 +1,45 @@
 import { useEffect } from 'react'
 
-const FRAME_W = 1024
-const FRAME_H = 1366
+const BASE_WIDTH = 1024
+const BASE_HEIGHT = 1366
+const MIN_SCALE = 0.25
+const MAX_SCALE = 1
 
 export function computeFrameScale(): number {
-  const w = window.innerWidth
-  const h = window.innerHeight
-  if (w <= 0 || h <= 0) return 1
-  return Math.max(0.25, Math.min(w / FRAME_W, h / FRAME_H, 1))
+  const viewport = window.visualViewport
+  const width = viewport?.width ?? window.innerWidth
+  const height = viewport?.height ?? window.innerHeight
+
+  if (width <= 0 || height <= 0) return 1
+  if (width >= BASE_WIDTH && height >= BASE_HEIGHT) return 1
+
+  const scale = Math.min(width / BASE_WIDTH, height / BASE_HEIGHT)
+
+  return Math.max(MIN_SCALE, Math.min(scale, MAX_SCALE))
 }
 
 export function applyFrameScale(): void {
-  document.documentElement.style.setProperty('--frame-scale', String(computeFrameScale()))
+  const scale = computeFrameScale()
+  const roundedScale = Number(scale.toFixed(6))
+  const root = document.documentElement
+
+  root.style.setProperty('--frame-scale', roundedScale.toFixed(6))
+  root.style.setProperty('--scaled-frame-width', `${BASE_WIDTH * roundedScale}px`)
+  root.style.setProperty('--scaled-frame-height', `${BASE_HEIGHT * roundedScale}px`)
 }
 
 export function useFrameScale() {
   useEffect(() => {
     applyFrameScale()
+
     window.addEventListener('resize', applyFrameScale)
-    return () => window.removeEventListener('resize', applyFrameScale)
+    window.addEventListener('orientationchange', applyFrameScale)
+    window.visualViewport?.addEventListener('resize', applyFrameScale)
+
+    return () => {
+      window.removeEventListener('resize', applyFrameScale)
+      window.removeEventListener('orientationchange', applyFrameScale)
+      window.visualViewport?.removeEventListener('resize', applyFrameScale)
+    }
   }, [])
 }

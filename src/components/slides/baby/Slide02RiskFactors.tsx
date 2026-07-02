@@ -168,7 +168,7 @@ function WarningTriangleIcon({ className = 'h-9 w-9' }: { className?: string }) 
 
 function AccentIcon({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-full bg-white text-[#6E5AEF] shadow-[0_10px_25px_rgba(24,50,74,0.12)]">
+    <div className="flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-full bg-white text-[#6E5AEF] shadow-[0_10px_25px_rgba(24,50,74,0.12)]">
       <div className="text-[#FFA726] [--tw-text-opacity:1]" style={{ color: PURPLE }}>
         {children}
       </div>
@@ -178,7 +178,7 @@ function AccentIcon({ children }: { children: ReactNode }) {
 
 function RiskIcon({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-full bg-white text-[#F28C00] shadow-[0_8px_18px_rgba(24,50,74,0.08)]">
+    <div className="flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-full bg-white text-[#F28C00] shadow-[0_8px_18px_rgba(24,50,74,0.08)]">
       {children}
     </div>
   )
@@ -186,7 +186,7 @@ function RiskIcon({ children }: { children: ReactNode }) {
 
 function SunAccentIcon({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#F6B24B] bg-white text-[#F28C00] shadow-[0_8px_18px_rgba(0,0,0,0.06)]">
+    <div className="flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#F6B24B] bg-white text-[#F28C00] shadow-[0_8px_18px_rgba(0,0,0,0.06)]">
       {children}
     </div>
   )
@@ -194,7 +194,7 @@ function SunAccentIcon({ children }: { children: ReactNode }) {
 
 function GvAccentIcon({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-[74px] w-[74px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#E4E8EB] bg-white text-[#5B4BD6] shadow-[0_8px_18px_rgba(0,0,0,0.06)]">
+    <div className="flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#E4E8EB] bg-white text-[#5B4BD6] shadow-[0_8px_18px_rgba(0,0,0,0.06)]">
       <div className="relative">
         {children}
         <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-[#FFA726]" />
@@ -205,7 +205,7 @@ function GvAccentIcon({ children }: { children: ReactNode }) {
 
 function GvListIcon({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-[82px] w-[82px] shrink-0 items-center justify-center rounded-full bg-white text-[#5B4BD6] shadow-[0_6px_14px_rgba(0,0,0,0.05)]">
+    <div className="flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-full bg-white text-[#5B4BD6] shadow-[0_6px_14px_rgba(0,0,0,0.05)]">
       <div className="relative">
         {children}
         <span className="absolute -right-1 -top-1 h-3.5 w-3.5 rounded-full bg-[#FFA726]" />
@@ -240,7 +240,7 @@ const riskBlocks: RiskBlock[] = [
 function MamaContent() {
   return (
     <>
-      <div className="absolute left-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-4">
           <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#FFF4E1] text-[#F28C00]">
             <PregnancyIcon className="h-9 w-9" />
@@ -289,7 +289,7 @@ function MamaContent() {
           </div>
         </div>
 
-        <div className="mt-2 flex h-[130px] items-start gap-4 rounded-[16px] border border-[#D9DEE5] bg-white p-[22px]">
+        <div className="mt-2 flex h-[130px] items-start gap-4 rounded-[16px] border border-[#D9DEE5] bg-white p-5">
           <div className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-[#FFA726] text-[22px] font-bold leading-none text-white">
             1
           </div>
@@ -299,7 +299,7 @@ function MamaContent() {
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-4">
           <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#FFF4E1] text-[#F28C00]">
             <StarShieldIcon />
@@ -308,9 +308,9 @@ function MamaContent() {
         </div>
         <div className="mt-5 h-px w-full bg-[#E4E8EB]" />
 
-        <div className="mt-5 space-y-4">
+        <div className="mt-5 space-y-3">
           {riskBlocks.map((block, index) => (
-            <article key={index} className="flex min-h-[118px] items-center gap-[18px] rounded-[16px] bg-[#F8F8F8] px-5 py-[18px]">
+            <article key={index} className="flex min-h-[104px] items-center gap-4 rounded-[16px] bg-[#F8F8F8] px-4 py-4">
               <RiskIcon>{block.icon}</RiskIcon>
               <div className="min-w-0">
                 <h3 className="text-[16px] font-bold leading-[1.18] text-[#18324A]">{block.title}</h3>
@@ -320,11 +320,11 @@ function MamaContent() {
           ))}
         </div>
 
-        <div className="mt-5 flex gap-[18px] rounded-[16px] border-[1.5px] border-[#F6B24B] bg-[#FFF9EF] p-[22px]">
+        <div className="mt-5 flex gap-4 rounded-[16px] border-[1.5px] border-[#F6B24B] bg-[#FFF9EF] p-5">
           <div className="shrink-0 text-[#F28C00]"><BulbIcon /></div>
           <div>
             <p className="text-[15px] font-bold leading-tight text-[#F28C00]">Главный вывод</p>
-            <p className="mt-2 text-[18px] font-bold leading-[1.22] text-[#18324A]">
+            <p className="mt-2 text-[16.5px] font-bold leading-[1.22] text-[#18324A]">
               Первые 1000 дней жизни начинаются<br />ещё до рождения.
             </p>
             <p className="mt-2 text-[15px] font-bold leading-[1.25] text-[#F28C00]">
@@ -365,7 +365,7 @@ function GvContent() {
 
   return (
     <>
-      <div className="absolute left-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-4">
           <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#F0EEFF] text-[#5B4BD6]">
             <MotherBabyIcon />
@@ -398,24 +398,24 @@ function GvContent() {
           <div className="absolute right-[-10px] bottom-[76px] flex w-[132px] flex-col items-center text-center"><GvAccentIcon><ShieldIcon /></GvAccentIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Профилактика<br />с рождения</p></div>
         </div>
 
-        <div className="mt-2 flex items-start gap-[18px] rounded-[16px] border border-[#D9DEE5] bg-white p-6">
+        <div className="mt-2 flex items-start gap-4 rounded-[16px] border border-[#D9DEE5] bg-white p-5">
           <div className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full border-2 border-[#FFA726] text-[20px] font-bold leading-none text-[#FFA726]">i</div>
-          <p className="text-[18px] font-bold leading-[1.38] text-[#18324A]">Даже при полноценном грудном<br />вскармливании младенцу требуется<br />дополнительный витамин D.</p>
+          <p className="text-[16.5px] font-bold leading-[1.32] text-[#18324A]">Даже при полноценном грудном<br />вскармливании младенцу требуется<br />дополнительный витамин D.</p>
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-4">
           <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#FFF4E1] text-[#F28C00]">
             <StarShieldIcon />
           </div>
           <h2 className="text-[24px] font-bold leading-tight text-[#18324A]">Почему это важно?</h2>
         </div>
-        <div className="mb-[30px] mt-6 h-px w-full bg-[#E4E8EB]" />
+        <div className="mb-[30px] mt-5 h-px w-full bg-[#E4E8EB]" />
 
-        <div className="space-y-[18px]">
+        <div className="space-y-3">
           {gvBlocks.map((block, index) => (
-            <article key={index} className="flex min-h-[118px] items-start gap-5 rounded-[16px] border border-[#F0F0F0] bg-[#F8F8F8] px-5 py-[18px] shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
+            <article key={index} className="flex min-h-[104px] items-start gap-4 rounded-[16px] border border-[#F0F0F0] bg-[#F8F8F8] px-4 py-4 shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
               <GvListIcon>{block.icon}</GvListIcon>
               <div className="min-w-0">
                 <h3 className="text-[16px] font-bold leading-[1.18] text-[#18324A]">{block.title}</h3>
@@ -425,12 +425,12 @@ function GvContent() {
           ))}
         </div>
 
-        <div className="mt-5 flex gap-[18px] rounded-[16px] border-[1.5px] border-[#F6B24B] bg-[#FFF9EF] p-[22px]">
+        <div className="mt-5 flex gap-4 rounded-[16px] border-[1.5px] border-[#F6B24B] bg-[#FFF9EF] p-5">
           <div className="shrink-0 text-[#FFA726]"><BulbIcon /></div>
           <div>
             <p className="text-[17px] font-bold leading-tight text-[#F28C00]">Главный вывод</p>
-            <p className="mt-2 text-[17px] font-bold leading-[1.22] text-[#18324A]">Грудное вскармливание — лучший<br />вид питания, но по витамину D оно<br />не покрывает потребность младенца.</p>
-            <p className="mt-2 text-[16px] font-bold leading-[1.25] text-[#F28C00]">Профилактика D3 нужна с первых<br />дней жизни.</p>
+            <p className="mt-2 text-[16px] font-bold leading-[1.22] text-[#18324A]">Грудное вскармливание — лучший<br />вид питания, но по витамину D оно<br />не покрывает потребность младенца.</p>
+            <p className="mt-2 text-[15px] font-bold leading-[1.22] text-[#F28C00]">Профилактика D3 нужна с первых<br />дней жизни.</p>
           </div>
         </div>
       </div>
@@ -441,7 +441,7 @@ function GvContent() {
 function SunContent() {
   return (
     <>
-      <div className="absolute left-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-4">
           <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#FFF4E1] text-[#F28C00]"><SunIcon /></div>
           <div>
@@ -469,29 +469,29 @@ function SunContent() {
           <div className="absolute right-[-8px] bottom-[70px] flex w-[126px] flex-col items-center text-center"><SunAccentIcon><HeartIcon /></SunAccentIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Общее<br />благополучие<br />ребенка</p></div>
         </div>
 
-        <div className="mt-4 flex items-start gap-[14px] rounded-[16px] border border-[#D9DEE5] bg-white p-[22px]">
+        <div className="mt-4 flex items-start gap-[14px] rounded-[16px] border border-[#D9DEE5] bg-white p-5">
           <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full border border-[#FFA726] text-[20px] font-bold leading-none text-[#FFA726]">1</div>
           <p className="text-[16px] font-medium leading-[1.38] text-[#18324A]"><strong>Солнечный свет запускает синтез<br />витамина D3 в коже.</strong><br /><br />Но в реальной жизни этого чаще всего<br />недостаточно.</p>
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-4"><div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#FFF4E1] text-[#F28C00]"><StarShieldIcon /></div><h2 className="text-[22px] font-bold leading-tight text-[#18324A]">Почему это важно?</h2></div>
         <div className="mt-5 h-px w-full bg-[#E4E8EB]" />
-        <div className="mt-5 space-y-4">
+        <div className="mt-5 space-y-3">
           {[
             [<HomeSunIcon />, 'Младенцы мало бывают на солнце', 'Большую часть дня проводят в помещении,\nна прогулках их защищают от солнца\nради безопасности.'],
             [<ClothesIcon />, <>Плотная одежда и сезонность<br />снижают синтез D3 в коже</>, 'Закрытая одежда, холодное время года\nи короткий световой день уменьшают\nвоздействие солнечных лучей.'],
             [<HomeSunIcon />, <>Закрытые помещения<br />и низкая инсоляция</>, 'В квартирах, офисах и детских учреждениях\nсолнечного света недостаточно для\nестественной выработки витамина D.'],
             [<ShieldIcon d3 />, <>Профилактика помогает<br />компенсировать недостаток<br />солнечного синтеза</>, 'Дополнительный приём витамина D\nобеспечивает организм ребенка\nнеобходимым уровнем.'],
           ].map(([icon, title, text], index) => (
-            <article key={index} className="flex min-h-[112px] items-start gap-[18px] rounded-[16px] border border-[#F0F0F0] bg-[#F8F8F8] px-5 py-[18px] shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
+            <article key={index} className="flex min-h-[104px] items-start gap-4 rounded-[16px] border border-[#F0F0F0] bg-[#F8F8F8] px-4 py-4 shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
               <RiskIcon>{icon as ReactNode}</RiskIcon>
               <div className="min-w-0"><h3 className="text-[16px] font-bold leading-[1.18] text-[#18324A]">{title}</h3><p className="mt-2 whitespace-pre-line text-[13px] font-medium leading-[1.26] text-[#6D7A86]">{text}</p></div>
             </article>
           ))}
         </div>
-        <div className="mt-5 flex gap-[18px] rounded-[16px] border-[1.5px] border-[#F6B24B] bg-[#FFF9EF] p-[22px]"><div className="shrink-0 text-[#FFA726]"><BulbIcon /></div><div><p className="text-[15px] font-bold leading-tight text-[#F28C00]">Главный вывод</p><p className="mt-2 text-[18px] font-bold leading-[1.22] text-[#18324A]">Современный образ жизни ограничивает<br />доступ к солнцу.</p><p className="mt-2 text-[15px] font-bold leading-[1.25] text-[#F28C00]">Дополнительный приём витамина D —<br />важная часть заботы о здоровье ребёнка<br />с первых дней жизни.</p></div></div>
+        <div className="mt-5 flex gap-4 rounded-[16px] border-[1.5px] border-[#F6B24B] bg-[#FFF9EF] p-5"><div className="shrink-0 text-[#FFA726]"><BulbIcon /></div><div><p className="text-[15px] font-bold leading-tight text-[#F28C00]">Главный вывод</p><p className="mt-2 text-[16.5px] font-bold leading-[1.22] text-[#18324A]">Современный образ жизни ограничивает<br />доступ к солнцу.</p><p className="mt-2 text-[15px] font-bold leading-[1.25] text-[#F28C00]">Дополнительный приём витамина D —<br />важная часть заботы о здоровье ребёнка<br />с первых дней жизни.</p></div></div>
       </div>
     </>
   )
@@ -524,7 +524,7 @@ function GrowthContent() {
 
   return (
     <>
-      <div className="absolute left-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-4">
           <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#F0EEFF] text-[#5B4BD6]">
             <GrowthChartIcon />
@@ -557,24 +557,24 @@ function GrowthContent() {
           <div className="absolute right-[-10px] bottom-[70px] flex w-[132px] flex-col items-center text-center"><GvAccentIcon><ActiveBabyIcon /></GvAccentIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Развитие<br />двигательной<br />активности</p></div>
         </div>
 
-        <div className="mt-4 flex items-start gap-[18px] rounded-[16px] border border-[#D9DEE5] bg-white p-6">
+        <div className="mt-4 flex items-start gap-4 rounded-[16px] border border-[#D9DEE5] bg-white p-5">
           <div className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full border-2 border-[#FFA726] text-[20px] font-bold leading-none text-[#FFA726]">i</div>
-          <p className="text-[18px] font-bold leading-[1.45] text-[#18324A]">Темпы роста наиболее высоки<br />в первые 12 месяцев жизни ребёнка.</p>
+          <p className="text-[16.5px] font-bold leading-[1.35] text-[#18324A]">Темпы роста наиболее высоки<br />в первые 12 месяцев жизни ребёнка.</p>
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-4">
           <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#FFF4E1] text-[#F28C00]">
             <StarShieldIcon />
           </div>
           <h2 className="text-[24px] font-bold leading-tight text-[#18324A]">Почему это важно?</h2>
         </div>
-        <div className="mb-[24px] mt-6 h-px w-full bg-[#E4E8EB]" />
+        <div className="mb-[24px] mt-5 h-px w-full bg-[#E4E8EB]" />
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {growthBlocks.map((block, index) => (
-            <article key={index} className="flex min-h-[116px] items-start gap-5 rounded-[16px] border border-[#F0F0F0] bg-[#F8F8F8] px-5 py-[18px] shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
+            <article key={index} className="flex min-h-[106px] items-start gap-4 rounded-[16px] border border-[#F0F0F0] bg-[#F8F8F8] px-4 py-4 shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
               <GvListIcon>{block.icon}</GvListIcon>
               <div className="min-w-0">
                 <h3 className="text-[16px] font-bold leading-[1.18] text-[#18324A]">{block.title}</h3>
@@ -584,11 +584,11 @@ function GrowthContent() {
           ))}
         </div>
 
-        <div className="mt-5 flex gap-[18px] rounded-[16px] border-[1.5px] border-[#F6B24B] bg-[#FFF9EF] p-[22px]">
+        <div className="mt-5 flex gap-4 rounded-[16px] border-[1.5px] border-[#F6B24B] bg-[#FFF9EF] p-5">
           <div className="shrink-0 text-[#FFA726]"><BulbIcon /></div>
           <div>
             <p className="text-[17px] font-bold leading-tight text-[#F28C00]">Главный вывод</p>
-            <p className="mt-2 text-[17px] font-bold leading-[1.22] text-[#18324A]">Высокая скорость роста в первый год<br />жизни делает профилактический приём<br />витамина D3 необходимым условием<br />для крепкого скелета и здоровья ребёнка<br />в будущем.</p>
+            <p className="mt-2 text-[16px] font-bold leading-[1.22] text-[#18324A]">Высокая скорость роста в первый год<br />жизни делает профилактический приём<br />витамина D3 необходимым условием<br />для крепкого скелета и здоровья ребёнка<br />в будущем.</p>
           </div>
         </div>
       </div>
@@ -612,7 +612,7 @@ const riskTabs: Array<{ id: RiskTab; label: string; placeholder: string }> = [
 ]
 
 export default function Slide02RiskFactors() {
-  const [activeRiskTab, setActiveRiskTab] = useState<RiskTab>('growth')
+  const [activeRiskTab, setActiveRiskTab] = useState<RiskTab>('mama')
 
   const placeholder = riskTabs.find((tab) => tab.id === activeRiskTab)?.placeholder ?? activeRiskTab
 

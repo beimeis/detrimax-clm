@@ -151,7 +151,7 @@ const lateCategories = [
 function EarlyContent() {
   return (
     <>
-      <div className="absolute left-[35px] top-[96px] h-[1000px] w-[390px] rounded-[22px] bg-white px-7 py-[34px] shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[35px] top-[90px] h-[990px] w-[390px] rounded-[22px] bg-white px-6 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <h2 className="text-[23px] font-bold leading-tight text-[#18324A]">Как проявляется дефицит?</h2>
 
         <div className="relative mx-auto mt-6 h-[330px] w-[320px]">
@@ -209,43 +209,43 @@ function EarlyContent() {
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[1000px] w-[500px] rounded-[22px] bg-white p-9 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[35px] top-[90px] h-[990px] w-[500px] rounded-[22px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <span className="inline-flex rounded-[20px] bg-[#EAF8F7] px-4 py-2 text-[14px] font-bold text-[#21A7A2]">Начальная стадия</span>
-        <h2 className="mt-5 text-[25px] font-bold leading-[1.25] text-[#18324A]">
+        <h2 className="mt-3 text-[22px] font-bold leading-[1.22] text-[#18324A]">
           Дефицит D3 может начинаться<br />с легких и неспецифичных симптомов.
         </h2>
 
-        <div className="mt-7 space-y-4">
+        <div className="mt-4 space-y-2.5">
           {[
             ['Усталость и слабость', 'Ребёнок быстрее утомляется,\nснижается общий тонус и энергия.', <BatteryIcon />],
             ['Снижение концентрации', 'Труднее сосредоточиться на учёбе,\nснижается внимание и память.', <BrainIcon />],
             ['Частые простуды / ОРВИ', 'Иммунитет ослабевает, ребёнок\nчаще болеет простудными заболеваниями.', <ShieldIcon />],
           ].map(([title, text, icon]) => (
-            <article key={String(title)} className="flex items-center gap-[18px] rounded-[16px] border border-[#E4E8EB] bg-white p-5 shadow-[0_8px_20px_rgba(0,0,0,0.05)]">
+            <article key={String(title)} className="flex items-center gap-3 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-3.5 shadow-[0_8px_20px_rgba(0,0,0,0.05)]">
               <IconCircle>{icon as ReactNode}</IconCircle>
               <div className="min-w-0 flex-1">
-                <h3 className="text-[17px] font-bold leading-tight text-[#18324A]">{title}</h3>
-                <p className="mt-2 whitespace-pre-line text-[14px] font-medium leading-[1.3] text-[#6D7A86]">{text}</p>
+                <h3 className="text-[15.5px] font-bold leading-tight text-[#18324A]">{title}</h3>
+                <p className="mt-1 whitespace-pre-line text-[12.5px] font-medium leading-[1.2] text-[#6D7A86]">{text}</p>
               </div>
               <span className="text-[34px] leading-none text-[#21A7A2]">›</span>
             </article>
           ))}
         </div>
 
-        <h3 className="mt-8 text-[20px] font-bold leading-[1.25] text-[#18324A]">
+        <h3 className="mt-4 text-[17px] font-bold leading-[1.2] text-[#18324A]">
           Что может происходить дальше,<br />если дефицит сохраняется?
         </h3>
-        <div className="mt-5 flex items-start justify-between">
+        <div className="mt-3 flex items-start justify-between">
           <div className="flex w-[118px] flex-col items-center text-center"><IconCircle><ChildActivityIcon /></IconCircle><p className="mt-2 text-[12px] font-bold leading-[1.2] text-[#18324A]">Снижение активности</p></div>
-          <div className="mt-8 h-px w-[38px] border-t-2 border-dashed border-[#21A7A2]" />
+          <div className="mt-7 h-px w-[34px] border-t-2 border-dashed border-[#21A7A2]" />
           <div className="flex w-[132px] flex-col items-center text-center"><IconCircle><ChartIcon /></IconCircle><p className="mt-2 text-[12px] font-bold leading-[1.2] text-[#18324A]">Нарушение адаптации к нагрузке</p></div>
-          <div className="mt-8 h-px w-[38px] border-t-2 border-dashed border-[#FFA726]" />
+          <div className="mt-7 h-px w-[34px] border-t-2 border-dashed border-[#FFA726]" />
           <div className="flex w-[122px] flex-col items-center text-center"><IconCircle orange><WarningIcon /></IconCircle><p className="mt-2 text-[12px] font-bold leading-[1.2] text-[#18324A]">Риск дальнейших осложнений</p></div>
         </div>
 
-        <div className="mt-8 flex items-center gap-[18px] rounded-[16px] border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] p-[22px]">
-          <div className="shrink-0 text-[#21A7A2]"><ShieldIcon className="h-12 w-12" check /></div>
-          <p className="text-[17px] font-bold leading-[1.28] text-[#18324A]">
+        <div className="mt-4 flex items-center gap-3 rounded-[14px] border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] px-4 py-3.5">
+          <div className="shrink-0 text-[#21A7A2]"><ShieldIcon className="h-10 w-10" check /></div>
+          <p className="text-[14px] font-bold leading-[1.22] text-[#18324A]">
             Итог: раннее выявление дефицита D3<br />помогает предотвратить дальнейшее<br />прогрессирование симптомов.
           </p>
         </div>
@@ -257,7 +257,7 @@ function EarlyContent() {
 function LateContent() {
   return (
     <>
-      <div className="absolute left-[35px] top-[96px] h-[1000px] w-[390px] rounded-[22px] bg-white px-7 py-[34px] shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[35px] top-[90px] h-[990px] w-[390px] rounded-[22px] bg-white px-6 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <h2 className="text-[23px] font-bold leading-tight text-[#18324A]">К чему может привести дефицит?</h2>
 
         <div className="relative mx-auto mt-6 h-[318px] w-[320px]">
@@ -311,40 +311,40 @@ function LateContent() {
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[1000px] w-[500px] rounded-[22px] bg-white p-9 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[35px] top-[90px] h-[990px] w-[500px] rounded-[22px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <span className="inline-flex rounded-[20px] bg-[#EAF8F7] px-4 py-2 text-[14px] font-bold text-[#21A7A2]">Поздние осложнения</span>
-        <h2 className="mt-5 text-[25px] font-bold leading-[1.3] text-[#18324A]">
+        <h2 className="mt-3 text-[22px] font-bold leading-[1.22] text-[#18324A]">
           Длительный дефицит D3 может приводить<br />к выраженным нарушениям роста и<br />костного развития.
         </h2>
 
-        <div className="mt-6 space-y-4">
+        <div className="mt-4 space-y-2.5">
           {[
             ['Рахит', 'Классическое осложнение дефицита\nвитамина D у детей раннего возраста,\nсвязанное с нарушением минерализации\nкостей.', <RibsIcon />],
             ['Размягчение костей и деформации', 'Могут формироваться изменения\nкостей черепа, грудной клетки\nи нижних конечностей.', <LegsIcon />],
             ['Задержка прорезывания зубов\nи развития', 'Дефицит может сопровождаться\nзадержкой роста, прорезывания зубов\nи общего физического развития.', <ToothIcon />],
           ].map(([title, text, icon]) => (
-            <article key={String(title)} className="flex items-start gap-4 rounded-[16px] border border-[#E4E8EB] bg-white p-5 shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
+            <article key={String(title)} className="flex items-start gap-3 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-3.5 shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
               <IconCircle>{icon as ReactNode}</IconCircle>
               <div className="min-w-0 flex-1">
-                <h3 className="whitespace-pre-line text-[17px] font-bold leading-[1.18] text-[#18324A]">{title}</h3>
-                <p className="mt-2 whitespace-pre-line text-[13.5px] font-medium leading-[1.28] text-[#6D7A86]">{text}</p>
+                <h3 className="whitespace-pre-line text-[15.5px] font-bold leading-[1.14] text-[#18324A]">{title}</h3>
+                <p className="mt-1 whitespace-pre-line text-[12.5px] font-medium leading-[1.2] text-[#6D7A86]">{text}</p>
               </div>
             </article>
           ))}
         </div>
 
-        <h3 className="mt-7 text-[20px] font-bold leading-tight text-[#18324A]">Что особенно важно заметить вовремя?</h3>
-        <div className="mt-5 flex items-start justify-between">
+        <h3 className="mt-4 text-[17px] font-bold leading-tight text-[#18324A]">Что особенно важно заметить вовремя?</h3>
+        <div className="mt-3 flex items-start justify-between">
           <div className="flex w-[112px] flex-col items-center text-center"><IconCircle><D3Icon /></IconCircle><p className="mt-2 text-[12px] font-bold leading-[1.2] text-[#18324A]">Дефицит D3</p></div>
-          <div className="mt-8 h-px w-[44px] border-t-2 border-dashed border-[#21A7A2]" />
+          <div className="mt-7 h-px w-[38px] border-t-2 border-dashed border-[#21A7A2]" />
           <div className="flex w-[132px] flex-col items-center text-center"><IconCircle><BoneIcon /></IconCircle><p className="mt-2 text-[12px] font-bold leading-[1.2] text-[#18324A]">Нарушение минерализации</p></div>
-          <div className="mt-8 h-px w-[44px] border-t-2 border-dashed border-[#FFA726]" />
+          <div className="mt-7 h-px w-[38px] border-t-2 border-dashed border-[#FFA726]" />
           <div className="flex w-[112px] flex-col items-center text-center"><IconCircle orange><WarningIcon /></IconCircle><p className="mt-2 text-[12px] font-bold leading-[1.2] text-[#18324A]">Осложнения</p></div>
         </div>
 
-        <div className="mt-7 flex items-center gap-4 rounded-[16px] border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] p-[22px]">
-          <div className="shrink-0 text-[#21A7A2]"><ShieldIcon className="h-12 w-12" check /></div>
-          <p className="text-[17px] font-bold leading-[1.28] text-[#18324A]">
+        <div className="mt-4 flex items-center gap-3 rounded-[14px] border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] px-4 py-3.5">
+          <div className="shrink-0 text-[#21A7A2]"><ShieldIcon className="h-10 w-10" check /></div>
+          <p className="text-[14px] font-bold leading-[1.22] text-[#18324A]">
             Итог: своевременная профилактика<br />и коррекция дефицита D3 помогают<br />снизить риск поздних осложнений.
           </p>
         </div>
@@ -365,17 +365,17 @@ export default function Slide03Complications() {
 
       {activeStageTab === 'early' ? <EarlyContent /> : <LateContent />}
 
-      <div className="absolute left-[35px] top-[1130px] flex h-12 items-center gap-3">
+      <div className="absolute left-[35px] top-[1110px] flex h-11 items-center gap-3">
         <button
           type="button"
-          className={`h-12 cursor-pointer rounded-[10px] px-[22px] text-[16px] font-bold transition duration-200 ease-in-out hover:-translate-y-0.5 ${activeStageTab === 'early' ? 'bg-[#21A7A2] text-white shadow-[0_8px_18px_rgba(33,167,162,0.22)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86]'}`}
+          className={`h-11 cursor-pointer rounded-[12px] px-5 text-[15px] font-bold transition duration-200 ease-in-out hover:-translate-y-0.5 ${activeStageTab === 'early' ? 'bg-[#21A7A2] text-white shadow-[0_8px_18px_rgba(33,167,162,0.22)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86]'}`}
           onClick={() => setActiveStageTab('early')}
         >
           ⚠️ Ранние признаки
         </button>
         <button
           type="button"
-          className={`h-12 cursor-pointer rounded-[10px] px-[22px] text-[16px] font-bold transition duration-200 ease-in-out hover:-translate-y-0.5 ${activeStageTab === 'late' ? 'bg-[#21A7A2] text-white shadow-[0_8px_18px_rgba(33,167,162,0.22)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86]'}`}
+          className={`h-11 cursor-pointer rounded-[12px] px-5 text-[15px] font-bold transition duration-200 ease-in-out hover:-translate-y-0.5 ${activeStageTab === 'late' ? 'bg-[#21A7A2] text-white shadow-[0_8px_18px_rgba(33,167,162,0.22)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86]'}`}
           onClick={() => setActiveStageTab('late')}
         >
           ⚡ Поздние осложнения

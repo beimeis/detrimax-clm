@@ -26,7 +26,7 @@ function InfoIcon() { return <svg viewBox="0 0 56 56" className="h-7 w-7" fill="
 function CapIcon({ className = 'h-8 w-8' }: { className?: string }) {
   return <svg viewBox="0 0 56 56" className={className} fill="none" aria-hidden><path d="M6 22 28 11l22 11-22 11L6 22Z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" /><path d="M16 28v9c5.9 4.2 18.1 4.2 24 0v-9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /><path d="M46 24v12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg>
 }
-function StarIcon() { return <svg viewBox="0 0 56 56" className="h-9 w-9" fill="none" aria-hidden><path d="m28 7 5.7 13.5 14.5 1.2-11 9.5 3.3 14.2L28 37.8 15.5 45.4l3.3-14.2-11-9.5 14.5-1.2L28 7Z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" /></svg> }
+function StarIcon() { return <svg viewBox="0 0 56 56" className="h-8 w-8" fill="none" aria-hidden><path d="m28 7 5.7 13.5 14.5 1.2-11 9.5 3.3 14.2L28 37.8 15.5 45.4l3.3-14.2-11-9.5 14.5-1.2L28 7Z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" /></svg> }
 
 function SmileIcon({ className = 'h-8 w-8' }: { className?: string }) {
   return <svg viewBox="0 0 56 56" className={className} fill="none" aria-hidden><path d="M28 48c11 0 20-9 20-20S39 8 28 8 8 17 8 28s9 20 20 20Z" stroke="currentColor" strokeWidth="3" /><path d="M20 24h.1M36 24h.1" stroke="currentColor" strokeWidth="5" strokeLinecap="round" /><path d="M19.5 34c5.5 5 11.5 5 17 0" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg>
@@ -55,16 +55,16 @@ function BarrierIcon({ className = 'h-8 w-8' }: { className?: string }) {
 }
 
 function IconCircle({ children }: { children: ReactNode }) {
-  return <div className="flex h-[70px] w-[70px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] text-[#21A7A2]">{children}</div>
+  return <div className="flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] text-[#21A7A2]">{children}</div>
 }
 function SmallIconBox({ children }: { children: ReactNode }) {
-  return <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-[14px] bg-[#EAF8F7] text-[#21A7A2]">{children}</div>
+  return <div className="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-[14px] bg-[#EAF8F7] text-[#21A7A2]">{children}</div>
 }
 
 function CognitionContent() {
   return (
     <>
-      <div className="absolute left-[35px] top-[96px] h-[1010px] w-[455px] rounded-[22px] bg-white px-7 py-[34px] shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[35px] top-[90px] h-[990px] w-[455px] rounded-[22px] bg-white px-6 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="relative mx-auto h-[490px] w-[390px]">
           <svg className="pointer-events-none absolute left-[34px] top-[22px] h-[396px] w-[322px]" viewBox="0 0 322 396" fill="none" aria-hidden>
             <path d="M161 58C72 58 31 138 45 225c12 78 73 129 147 118 66-10 106-67 100-133" stroke="#21A7A2" strokeWidth="2" strokeDasharray="7 10" strokeLinecap="round" />
@@ -116,29 +116,29 @@ function CognitionContent() {
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[1010px] w-[500px] rounded-[22px] bg-white p-9 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[500px] top-[90px] h-[990px] w-[489px] rounded-[22px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <span className="inline-flex rounded-[20px] bg-[#EAF8F7] px-4 py-2 text-[14px] font-bold text-[#21A7A2]">Когнитивная поддержка</span>
-        <h2 className="mt-5 text-[25px] font-bold leading-[1.3] text-[#18324A]">Нервная система и витамин D3:<br />основа внимания и обучения у школьников</h2>
-        <div className="mt-4 space-y-3 text-[14.5px] font-medium leading-[1.5] text-[#6D7A86]">
+        <h2 className="mt-3 text-[22px] font-bold leading-[1.22] text-[#18324A]">Нервная система и витамин D3:<br />основа внимания и обучения у школьников</h2>
+        <div className="mt-3 space-y-2 text-[13.5px] font-medium leading-[1.34] text-[#6D7A86]">
           <p>VDR (рецепторы витамина D) широко представлены в мозге: в гиппокампе, префронтальной коре, мозжечке и других областях, отвечающих за память, мышление и обучение.</p>
           <p>Витамин D3 участвует в регуляции нейропластичности, нейромедиаторных систем и нейропротекции, обеспечивая адаптацию к учебной нагрузке.</p>
         </div>
 
-        <div className="mt-5 space-y-4">
+        <div className="mt-4 space-y-2.5">
           {[
             ['Нейропластичность', 'D3 стимулирует рост связей между нейронами\nи синаптическую пластичность — основу обучения\nи формирования навыков.', <NeuronIcon />],
             ['Поддержка когнитивных функций', 'D3 способствует работе внимания, памяти, скорости\nобработки информации и навыкам решения задач.', <BrainIcon />],
             ['Адаптация к учебной нагрузке', 'Поддерживает устойчивость нервной системы\nк стрессу, помогает сохранять концентрацию\nи продуктивность в течение дня.', <CapIcon />],
           ].map(([title, text, icon]) => (
-            <article key={String(title)} className="flex items-start gap-4 rounded-[16px] border border-[#E4E8EB] bg-white px-5 py-[18px] shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
+            <article key={String(title)} className="flex items-start gap-3 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-3.5 shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
               <SmallIconBox>{icon as ReactNode}</SmallIconBox>
-              <div className="min-w-0"><h3 className="text-[17px] font-bold leading-tight text-[#18324A]">{title}</h3><p className="mt-2 whitespace-pre-line text-[13.5px] font-medium leading-[1.28] text-[#6D7A86]">{text}</p></div>
+              <div className="min-w-0"><h3 className="text-[15.5px] font-bold leading-tight text-[#18324A]">{title}</h3><p className="mt-1 whitespace-pre-line text-[12.5px] font-medium leading-[1.2] text-[#6D7A86]">{text}</p></div>
             </article>
           ))}
         </div>
 
-        <h3 className="mt-6 text-[18px] font-bold leading-tight text-[#18324A]">Как работает витамин D3 для когнитивной адаптации</h3>
-        <div className="mt-4 flex items-start justify-between">
+        <h3 className="mt-4 text-[16px] font-bold leading-tight text-[#18324A]">Как работает витамин D3 для когнитивной адаптации</h3>
+        <div className="mt-3 flex items-start justify-between">
           {[
             ['D3', 'Витамин D3'],
             ['VDR', 'VDR в мозге'],
@@ -147,17 +147,17 @@ function CognitionContent() {
           ].map(([abbr, label], index) => (
             <div key={abbr} className="flex items-start">
               <div className="flex w-[76px] flex-col items-center text-center">
-                <div className="flex h-[54px] w-[54px] items-center justify-center rounded-[14px] bg-[#EAF8F7] text-[13px] font-extrabold text-[#21A7A2]">{abbr}</div>
+                <div className="flex h-[48px] w-[48px] items-center justify-center rounded-[14px] bg-[#EAF8F7] text-[13px] font-extrabold text-[#21A7A2]">{abbr}</div>
                 <p className="mt-2 whitespace-pre-line text-[11px] font-bold leading-[1.15] text-[#18324A]">{label}</p>
               </div>
-              {index < 3 && <div className="mt-[26px] h-px w-[22px] border-t-2 border-dashed border-[#21A7A2]" />}
+              {index < 3 && <div className="mt-[23px] h-px w-[22px] border-t-2 border-dashed border-[#21A7A2]" />}
             </div>
           ))}
         </div>
 
-        <div className="mt-5 flex gap-3.5 rounded-[16px] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-4 flex gap-3 rounded-[14px] bg-[#EAF8F7] px-4 py-3.5">
           <div className="shrink-0 text-[#21A7A2]"><StarIcon /></div>
-          <p className="text-[15.5px] font-bold leading-[1.32] text-[#18324A]">Вывод: витамин D3 поддерживает когнитивную адаптацию<br />и успешное обучение школьника, обеспечивая работу мозга<br />на высоком уровне.</p>
+          <p className="text-[13.5px] font-bold leading-[1.24] text-[#18324A]">Вывод: витамин D3 поддерживает когнитивную адаптацию<br />и успешное обучение школьника, обеспечивая работу мозга<br />на высоком уровне.</p>
         </div>
       </div>
     </>
@@ -167,7 +167,7 @@ function CognitionContent() {
 function MoodSleepContent() {
   return (
     <>
-      <div className="absolute left-[35px] top-[96px] h-[1010px] w-[455px] rounded-[22px] bg-white px-7 py-[34px] shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[35px] top-[90px] h-[990px] w-[455px] rounded-[22px] bg-white px-6 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="relative mx-auto h-[490px] w-[390px]">
           <svg className="pointer-events-none absolute left-[34px] top-[22px] h-[396px] w-[322px]" viewBox="0 0 322 396" fill="none" aria-hidden>
             <path d="M161 58C72 58 31 138 45 225c12 78 73 129 147 118 66-10 106-67 100-133" stroke="#21A7A2" strokeWidth="2" strokeDasharray="7 10" strokeLinecap="round" />
@@ -219,28 +219,28 @@ function MoodSleepContent() {
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[1010px] w-[500px] rounded-[22px] bg-white p-9 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[500px] top-[90px] h-[990px] w-[489px] rounded-[22px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <span className="inline-flex rounded-[20px] bg-[#EAF8F7] px-4 py-2 text-[14px] font-bold text-[#21A7A2]">Психоэмоциональная поддержка</span>
-        <h2 className="mt-5 text-[25px] font-bold leading-[1.3] text-[#18324A]">Витамин D3, серотонин и мелатонин:<br />основа хорошего настроения и сна<br />у школьников</h2>
-        <p className="mt-4 text-[14.5px] font-medium leading-[1.5] text-[#6D7A86]">
+        <h2 className="mt-3 text-[22px] font-bold leading-[1.22] text-[#18324A]">Витамин D3, серотонин и мелатонин:<br />основа хорошего настроения и сна<br />у школьников</h2>
+        <p className="mt-3 text-[13.5px] font-medium leading-[1.34] text-[#6D7A86]">
           Витамин D3 поддерживает синтез серотонина и мелатонина — ключевых регуляторов настроения и сна. Это способствует эмоциональной устойчивости, качественному отдыху и успешной адаптации к учебным нагрузкам.
         </p>
 
-        <div className="mt-5 space-y-4">
+        <div className="mt-4 space-y-2.5">
           {[
             ['Серотонин и настроение', 'D3 участвует в синтезе серотонина —\nнейромедиатора, который отвечает за хорошее\nнастроение, спокойствие и эмоциональный баланс.', <BrainIcon />],
             ['Мелатонин и сон', 'D3 способствует выработке мелатонина —\nгормона сна, который помогает быстрее\nзасыпать и улучшает его качество.', <MoonIcon />],
             ['Адаптация к нагрузке', 'Сбалансированное настроение и полноценный сон\nповышают устойчивость к стрессу, улучшают\nконцентрацию и успеваемость.', <ShieldIcon />],
           ].map(([title, text, icon]) => (
-            <article key={String(title)} className="flex items-start gap-4 rounded-[16px] border border-[#E4E8EB] bg-white px-5 py-[18px] shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
+            <article key={String(title)} className="flex items-start gap-3 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-3.5 shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
               <SmallIconBox>{icon as ReactNode}</SmallIconBox>
-              <div className="min-w-0"><h3 className="text-[17px] font-bold leading-tight text-[#18324A]">{title}</h3><p className="mt-2 whitespace-pre-line text-[13.5px] font-medium leading-[1.28] text-[#6D7A86]">{text}</p></div>
+              <div className="min-w-0"><h3 className="text-[15.5px] font-bold leading-tight text-[#18324A]">{title}</h3><p className="mt-1 whitespace-pre-line text-[12.5px] font-medium leading-[1.2] text-[#6D7A86]">{text}</p></div>
             </article>
           ))}
         </div>
 
-        <h3 className="mt-6 text-[18px] font-bold leading-tight text-[#18324A]">Как работает витамин D3 для настроения и сна</h3>
-        <div className="mt-4 flex items-start justify-between">
+        <h3 className="mt-4 text-[16px] font-bold leading-tight text-[#18324A]">Как работает витамин D3 для настроения и сна</h3>
+        <div className="mt-3 flex items-start justify-between">
           {[
             ['D3', 'Витамин D3'],
             ['5-HT', 'Синтез\nсеротонина\nи мелатонина'],
@@ -249,17 +249,17 @@ function MoodSleepContent() {
           ].map(([abbr, label], index) => (
             <div key={abbr} className="flex items-start">
               <div className="flex w-[76px] flex-col items-center text-center">
-                <div className="flex h-[54px] w-[54px] items-center justify-center rounded-[14px] bg-[#EAF8F7] text-[12px] font-extrabold text-[#21A7A2]">{abbr}</div>
+                <div className="flex h-[48px] w-[48px] items-center justify-center rounded-[14px] bg-[#EAF8F7] text-[12px] font-extrabold text-[#21A7A2]">{abbr}</div>
                 <p className="mt-2 whitespace-pre-line text-[10.5px] font-bold leading-[1.12] text-[#18324A]">{label}</p>
               </div>
-              {index < 3 && <div className="mt-[26px] h-px w-[22px] border-t-2 border-dashed border-[#21A7A2]" />}
+              {index < 3 && <div className="mt-[23px] h-px w-[22px] border-t-2 border-dashed border-[#21A7A2]" />}
             </div>
           ))}
         </div>
 
-        <div className="mt-5 flex gap-3.5 rounded-[16px] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-4 flex gap-3 rounded-[14px] bg-[#EAF8F7] px-4 py-3.5">
           <div className="shrink-0 text-[#21A7A2]"><StarIcon /></div>
-          <p className="text-[15.5px] font-bold leading-[1.32] text-[#18324A]">Вывод: витамин D3 способствует психоэмоциональной<br />стабильности и здоровому сну, помогая школьнику легче<br />справляться с учебными и повседневными задачами.</p>
+          <p className="text-[13.5px] font-bold leading-[1.24] text-[#18324A]">Вывод: витамин D3 способствует психоэмоциональной<br />стабильности и здоровому сну, помогая школьнику легче<br />справляться с учебными и повседневными задачами.</p>
         </div>
       </div>
     </>
@@ -269,7 +269,7 @@ function MoodSleepContent() {
 function ImmunityContent() {
   return (
     <>
-      <div className="absolute left-[35px] top-[96px] h-[1010px] w-[455px] rounded-[22px] bg-white px-7 py-[34px] shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[35px] top-[90px] h-[990px] w-[455px] rounded-[22px] bg-white px-6 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="relative mx-auto h-[490px] w-[390px]">
           <svg className="pointer-events-none absolute left-[34px] top-[22px] h-[396px] w-[322px]" viewBox="0 0 322 396" fill="none" aria-hidden>
             <path d="M161 58C72 58 31 138 45 225c12 78 73 129 147 118 66-10 106-67 100-133" stroke="#21A7A2" strokeWidth="2" strokeDasharray="7 10" strokeLinecap="round" />
@@ -321,28 +321,28 @@ function ImmunityContent() {
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[1010px] w-[500px] rounded-[22px] bg-white p-9 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[500px] top-[90px] h-[990px] w-[489px] rounded-[22px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <span className="inline-flex rounded-[20px] bg-[#EAF8F7] px-4 py-2 text-[14px] font-bold text-[#21A7A2]">Иммунная защита</span>
-        <h2 className="mt-5 text-[25px] font-bold leading-[1.3] text-[#18324A]">Витамин D3 поддерживает врожденный<br />и адаптивный иммунитет школьников</h2>
-        <p className="mt-4 text-[14.5px] font-medium leading-[1.5] text-[#6D7A86]">
+        <h2 className="mt-3 text-[22px] font-bold leading-[1.22] text-[#18324A]">Витамин D3 поддерживает врожденный<br />и адаптивный иммунитет школьников</h2>
+        <p className="mt-3 text-[13.5px] font-medium leading-[1.34] text-[#6D7A86]">
           Витамин D3 — важный регулятор иммунной системы. Он укрепляет барьерные функции, активирует врожденный иммунитет и способствует формированию эффективного адаптивного ответа.
         </p>
 
-        <div className="mt-5 space-y-4">
+        <div className="mt-4 space-y-2.5">
           {[
             ['Барьерная защита', 'D3 укрепляет слизистые оболочки и кожный барьер,\nснижая проникновение вирусов и бактерий\nв организм.', <BarrierIcon />],
             ['Врожденный иммунитет', 'D3 усиливает активность макрофагов,\nдендритных клеток и антимикробных пептидов,\nобеспечивая быструю защиту.', <VirusIcon />],
             ['Адаптивный иммунный ответ', 'D3 способствует созреванию T- и B-клеток\nи выработке антител, формируя устойчивый\nспецифический иммунитет.', <AntibodyIcon />],
           ].map(([title, text, icon]) => (
-            <article key={String(title)} className="flex items-start gap-4 rounded-[16px] border border-[#E4E8EB] bg-white px-5 py-[18px] shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
+            <article key={String(title)} className="flex items-start gap-3 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-3.5 shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
               <SmallIconBox>{icon as ReactNode}</SmallIconBox>
-              <div className="min-w-0"><h3 className="text-[17px] font-bold leading-tight text-[#18324A]">{title}</h3><p className="mt-2 whitespace-pre-line text-[13.5px] font-medium leading-[1.28] text-[#6D7A86]">{text}</p></div>
+              <div className="min-w-0"><h3 className="text-[15.5px] font-bold leading-tight text-[#18324A]">{title}</h3><p className="mt-1 whitespace-pre-line text-[12.5px] font-medium leading-[1.2] text-[#6D7A86]">{text}</p></div>
             </article>
           ))}
         </div>
 
-        <h3 className="mt-6 text-[18px] font-bold leading-tight text-[#18324A]">Как работает витамин D3 для иммунной защиты</h3>
-        <div className="mt-4 flex items-start justify-between">
+        <h3 className="mt-4 text-[16px] font-bold leading-tight text-[#18324A]">Как работает витамин D3 для иммунной защиты</h3>
+        <div className="mt-3 flex items-start justify-between">
           {[
             ['D3', 'Витамин D3'],
             ['INN', 'Врожденный\nиммунный\nответ'],
@@ -351,17 +351,17 @@ function ImmunityContent() {
           ].map(([abbr, label], index) => (
             <div key={abbr} className="flex items-start">
               <div className="flex w-[76px] flex-col items-center text-center">
-                <div className="flex h-[54px] w-[54px] items-center justify-center rounded-[14px] bg-[#EAF8F7] text-[12px] font-extrabold text-[#21A7A2]">{abbr}</div>
+                <div className="flex h-[48px] w-[48px] items-center justify-center rounded-[14px] bg-[#EAF8F7] text-[12px] font-extrabold text-[#21A7A2]">{abbr}</div>
                 <p className="mt-2 whitespace-pre-line text-[10.5px] font-bold leading-[1.12] text-[#18324A]">{label}</p>
               </div>
-              {index < 3 && <div className="mt-[26px] h-px w-[22px] border-t-2 border-dashed border-[#21A7A2]" />}
+              {index < 3 && <div className="mt-[23px] h-px w-[22px] border-t-2 border-dashed border-[#21A7A2]" />}
             </div>
           ))}
         </div>
 
-        <div className="mt-5 flex gap-3.5 rounded-[16px] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-4 flex gap-3 rounded-[14px] bg-[#EAF8F7] px-4 py-3.5">
           <div className="shrink-0 text-[#21A7A2]"><StarIcon /></div>
-          <p className="text-[15.5px] font-bold leading-[1.32] text-[#18324A]">Вывод: витамин D3 укрепляет барьерную защиту,<br />активирует врожденный и адаптивный иммунитет,<br />снижая риск инфекций у школьников.</p>
+          <p className="text-[13.5px] font-bold leading-[1.24] text-[#18324A]">Вывод: витамин D3 укрепляет барьерную защиту,<br />активирует врожденный и адаптивный иммунитет,<br />снижая риск инфекций у школьников.</p>
         </div>
       </div>
     </>
@@ -380,7 +380,7 @@ export default function Slide04MechanismD3() {
 
       {activeRoleTab === 'cognition' ? <CognitionContent /> : activeRoleTab === 'moodSleep' ? <MoodSleepContent /> : <ImmunityContent />}
 
-      <div className="absolute left-[35px] top-[1138px] flex h-11 items-center gap-3">
+      <div className="absolute left-[35px] top-[1110px] flex h-11 items-center gap-3">
         {[
           ['cognition', '🧠 Когниция'],
           ['moodSleep', '😴 Настроение и сон'],

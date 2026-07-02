@@ -83,7 +83,7 @@ function ActivityIcon({ className = 'h-9 w-9' }: { className?: string }) {
 
 function CircleIcon({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-[78px] w-[78px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] text-[#21A7A2] shadow-[0_8px_18px_rgba(0,0,0,0.06)]">
+    <div className="flex h-[70px] w-[70px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] text-[#21A7A2] shadow-[0_8px_18px_rgba(0,0,0,0.06)]">
       {children}
     </div>
   )
@@ -92,11 +92,11 @@ function CircleIcon({ children }: { children: ReactNode }) {
 function InfoCard({ icon, title, text, accent = 'teal' }: { icon: ReactNode; title: string; text: string; accent?: 'teal' | 'orange' }) {
   const isOrange = accent === 'orange'
   return (
-    <article className="flex min-h-[128px] items-start gap-[18px] rounded-[16px] border border-[#E4E8EB] bg-white px-[22px] py-5 shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
-      <div className={`flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-full ${isOrange ? 'bg-[#FFF9EF] text-[#FFA726]' : 'bg-[#EAF8F7] text-[#21A7A2]'}`}>{icon}</div>
+    <article className="flex min-h-[112px] items-start gap-4 rounded-[16px] border border-[#E4E8EB] bg-white px-5 py-4 shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
+      <div className={`flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-full ${isOrange ? 'bg-[#FFF9EF] text-[#FFA726]' : 'bg-[#EAF8F7] text-[#21A7A2]'}`}>{icon}</div>
       <div className="min-w-0">
-        <h3 className={`text-[18px] font-bold leading-tight ${isOrange ? 'text-[#FFA726]' : 'text-[#21A7A2]'}`}>{title}</h3>
-        <p className="mt-2 whitespace-pre-line text-[14px] font-medium leading-[1.38] text-[#6D7A86]">{text}</p>
+        <h3 className={`text-[16.5px] font-bold leading-tight ${isOrange ? 'text-[#FFA726]' : 'text-[#21A7A2]'}`}>{title}</h3>
+        <p className="mt-2 whitespace-pre-line text-[13px] font-medium leading-[1.3] text-[#6D7A86]">{text}</p>
       </div>
     </article>
   )
@@ -127,7 +127,7 @@ function BonesContent() {
           <div className="absolute right-[-12px] bottom-[246px] flex w-[126px] flex-col items-center text-center"><CircleIcon><ShieldIcon /></CircleIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Защита от<br />дефицита</p></div>
         </div>
 
-        <div className="mt-2 flex gap-[14px] rounded-[16px] border border-[#E4E8EB] bg-white px-5 py-[18px] shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
+        <div className="mt-2 flex gap-[14px] rounded-[16px] border border-[#E4E8EB] bg-white px-5 py-4 shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
           <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2]"><HeartIcon /></div>
           <div>
             <h3 className="text-[16px] font-bold leading-tight text-[#18324A]">Основа прочного будущего</h3>
@@ -137,21 +137,21 @@ function BonesContent() {
       </div>
 
       <div className="absolute right-[35px] top-[96px] h-[1010px] w-[555px] rounded-[22px] bg-white px-9 py-10 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="text-[28px] font-bold leading-[1.25] text-[#21A7A2]">Роль витамина D3<br />в формировании скелета у младенца</h2>
-        <p className="mt-[22px] text-[15.5px] font-medium leading-[1.5] text-[#6D7A86]">Витамин D3 играет ключевую роль в развитии<br />костной системы и обеспечивает прочную основу<br />для активного роста и движения.</p>
+        <h2 className="text-[26px] font-bold leading-[1.22] text-[#21A7A2]">Роль витамина D3<br />в формировании скелета у младенца</h2>
+        <p className="mt-4 text-[14.5px] font-medium leading-[1.42] text-[#6D7A86]">Витамин D3 играет ключевую роль в развитии<br />костной системы и обеспечивает прочную основу<br />для активного роста и движения.</p>
 
-        <div className="mt-7 space-y-[18px]">
+        <div className="mt-5 space-y-3">
           <InfoCard icon={<BoneIcon />} title="Минерализация костей" text={'Витамин D3 способствует отложению кальция\nи фосфора в костной ткани, делая её более\nплотной и прочной.'} />
           <InfoCard icon={<CaPIcon />} title="Усвоение кальция и фосфора" text={'Усиливает всасывание кальция и фосфора\nв кишечнике и их поступление в кровь —\nнеобходимых минералов для костей.'} accent="orange" />
           <InfoCard icon={<GrowthIcon />} title="Рост скелета" text={'Необходим для нормального роста костей\nи формирования их правильной формы\nв период активного роста ребёнка.'} />
           <InfoCard icon={<ShieldIcon />} title="Профилактика дефицита" text={'Достаточный уровень витамина D3 снижает\nриск рахита и других нарушений минерализации\nкостей.'} accent="orange" />
         </div>
 
-        <div className="mt-6 flex gap-4 rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-4 flex gap-4 rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-4">
           <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-white"><CheckIcon /></div>
           <div>
             <h3 className="text-[17px] font-bold leading-tight text-[#21A7A2]">Итог</h3>
-            <p className="mt-2 text-[14.5px] font-medium leading-[1.4] text-[#18324A]">Витамин D3 — незаменимый элемент для крепких<br />костей и здорового развития вашего малыша<br />с первых дней жизни.</p>
+            <p className="mt-2 text-[13.5px] font-medium leading-[1.32] text-[#18324A]">Витамин D3 — незаменимый элемент для крепких<br />костей и здорового развития вашего малыша<br />с первых дней жизни.</p>
           </div>
         </div>
       </div>
@@ -188,7 +188,7 @@ function SleepContent() {
           <div className="absolute right-[-12px] bottom-[42px] flex w-[126px] flex-col items-center text-center"><CircleIcon><CareHeartIcon /></CircleIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Комфорт<br />и восстановление<br />каждый день</p></div>
         </div>
 
-        <div className="mt-4 flex gap-[14px] rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-4 flex gap-[14px] rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-4">
           <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-white"><ShieldIcon className="h-8 w-8" /></div>
           <div>
             <h3 className="text-[16px] font-bold leading-tight text-[#21A7A2]">Поддержка сна — поддержка развития</h3>
@@ -198,21 +198,21 @@ function SleepContent() {
       </div>
 
       <div className="absolute right-[35px] top-[96px] h-[1010px] w-[555px] rounded-[22px] bg-white px-9 py-10 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="text-[28px] font-bold leading-[1.25] text-[#21A7A2]">Как витамин D3 влияет на сон<br />и суточные ритмы малыша</h2>
-        <p className="mt-[18px] text-[15.5px] font-medium leading-[1.5] text-[#6D7A86]">Витамин D3 участвует в сложных биологических<br />процессах, которые помогают малышу адаптироваться<br />к окружающему миру, засыпать спокойнее и спать крепче.</p>
+        <h2 className="text-[26px] font-bold leading-[1.22] text-[#21A7A2]">Как витамин D3 влияет на сон<br />и суточные ритмы малыша</h2>
+        <p className="mt-[18px] text-[14.5px] font-medium leading-[1.42] text-[#6D7A86]">Витамин D3 участвует в сложных биологических<br />процессах, которые помогают малышу адаптироваться<br />к окружающему миру, засыпать спокойнее и спать крепче.</p>
 
-        <div className="mt-7 space-y-[18px]">
+        <div className="mt-5 space-y-3">
           <InfoCard icon={<ClockIcon />} title="Циркадные ритмы" text={'D3 способствует формированию\nи стабильности суточных ритмов,\nпомогая малышу различать день\nи ночь.'} />
           <InfoCard icon={<BrainMoonIcon />} title="Мелатонин" text={'Витамин D3 участвует в регуляции\nсинтеза мелатонина — гормона сна,\nчто облегчает засыпание\nи продлевает глубокие фазы сна.'} />
           <InfoCard icon={<SleepCloudIcon />} title="Качество сна" text={'Адекватный уровень D3 связан\nс более продолжительным сном\nи меньшим количеством ночных\nпробуждений.'} />
           <InfoCard icon={<CareHeartIcon />} title={'Спокойствие\nи восстановление'} text={'D3 помогает снизить возбудимость\nнервной системы и способствует\nэмоциональному комфорту\nв течение дня.'} />
         </div>
 
-        <div className="mt-6 flex gap-4 rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-4 flex gap-4 rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-4">
           <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-white"><StarIcon /></div>
           <div>
             <h3 className="text-[17px] font-bold leading-tight text-[#21A7A2]">Здоровый сон сегодня — уверенное развитие завтра</h3>
-            <p className="mt-2 text-[14.5px] font-medium leading-[1.4] text-[#18324A]">Достаточный уровень витамина D3 закладывает<br />основу для гармоничного роста, обучения<br />и эмоционального благополучия ребёнка.</p>
+            <p className="mt-2 text-[13.5px] font-medium leading-[1.32] text-[#18324A]">Достаточный уровень витамина D3 закладывает<br />основу для гармоничного роста, обучения<br />и эмоционального благополучия ребёнка.</p>
           </div>
         </div>
       </div>
@@ -246,7 +246,7 @@ function ImmunityContent() {
           <div className="absolute right-[-12px] bottom-[238px] flex w-[126px] flex-col items-center text-center"><CircleIcon><ShieldIcon /></CircleIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Защита<br />от инфекций</p></div>
         </div>
 
-        <div className="mt-2 flex gap-[14px] rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-2 flex gap-[14px] rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-4">
           <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-white"><MedicalShieldIcon className="h-8 w-8" /></div>
           <div>
             <h3 className="text-[16px] font-bold leading-tight text-[#21A7A2]">Поддержка каждый день</h3>
@@ -256,22 +256,22 @@ function ImmunityContent() {
       </div>
 
       <div className="absolute right-[35px] top-[96px] h-[1010px] w-[555px] rounded-[22px] bg-white px-9 py-10 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="text-[28px] font-bold leading-[1.25] text-[#21A7A2]">Иммунная роль витамина D3<br />у младенца</h2>
+        <h2 className="text-[26px] font-bold leading-[1.22] text-[#21A7A2]">Иммунная роль витамина D3<br />у младенца</h2>
         <div className="mt-[14px] h-[3px] w-12 rounded-full bg-[#21A7A2]" />
-        <p className="mt-[26px] text-[15.5px] font-medium leading-[1.5] text-[#6D7A86]">Витамин D3 участвует в ключевых звеньях иммунной<br />системы, помогая организму ребёнка эффективно<br />защищаться и сохранять баланс.</p>
+        <p className="mt-5 text-[14.5px] font-medium leading-[1.42] text-[#6D7A86]">Витамин D3 участвует в ключевых звеньях иммунной<br />системы, помогая организму ребёнка эффективно<br />защищаться и сохранять баланс.</p>
 
-        <div className="mt-7 space-y-[18px]">
+        <div className="mt-5 space-y-3">
           <InfoCard icon={<ShieldIcon />} title="Барьерная защита" text={'D3 поддерживает целостность кожи и слизистых\nоболочек, укрепляя естественный барьер\nпротив бактерий, вирусов и аллергенов.'} />
           <InfoCard icon={<ImmuneCellIcon />} title="Врожденный иммунитет" text={'Активирует клетки врожденного иммунитета\nи усиливает выработку антимикробных пептидов.'} />
           <InfoCard icon={<AntibodyIcon />} title="Адаптивный ответ" text={'Способствует созреванию T- и B-клеток,\nподдерживает выработку антител и формирование\nэффективного иммунного ответа.'} />
           <InfoCard icon={<ShieldIcon />} title="Профилактика инфекций" text={'Снижает частоту и тяжесть респираторных\nинфекций, поддерживая сбалансированную\nиммунную реактивность.'} accent="orange" />
         </div>
 
-        <div className="mt-6 flex gap-4 rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-4 flex gap-4 rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-4">
           <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-white"><StarIcon /></div>
           <div>
             <h3 className="text-[17px] font-bold leading-tight text-[#21A7A2]">Главное</h3>
-            <p className="mt-2 text-[14.5px] font-medium leading-[1.4] text-[#18324A]">Витамин D3 помогает иммунной системе работать<br />гармонично — защищать, адаптироваться и сохранять<br />здоровье ребёнка каждый день.</p>
+            <p className="mt-2 text-[13.5px] font-medium leading-[1.32] text-[#18324A]">Витамин D3 помогает иммунной системе работать<br />гармонично — защищать, адаптироваться и сохранять<br />здоровье ребёнка каждый день.</p>
           </div>
         </div>
       </div>
@@ -304,7 +304,7 @@ function MusclesContent() {
           <div className="absolute right-[-12px] bottom-[238px] flex w-[126px] flex-col items-center text-center"><CircleIcon><ActivityIcon /></CircleIcon><p className="mt-2 text-[12px] font-semibold leading-[1.15] text-[#18324A]">Физическая<br />активность</p></div>
         </div>
 
-        <div className="mt-2 flex gap-[14px] rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-2 flex gap-[14px] rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-4">
           <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-white"><ShieldIcon className="h-8 w-8" /></div>
           <div>
             <h3 className="text-[16px] font-bold leading-tight text-[#21A7A2]">Поддержка движения<br />с первых месяцев жизни</h3>
@@ -314,22 +314,22 @@ function MusclesContent() {
       </div>
 
       <div className="absolute right-[35px] top-[96px] h-[1010px] w-[555px] rounded-[22px] bg-white px-9 py-10 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="text-[28px] font-bold leading-[1.25] text-[#21A7A2]">Мышечная и двигательная роль<br />витамина D3 у младенца</h2>
+        <h2 className="text-[26px] font-bold leading-[1.22] text-[#21A7A2]">Мышечная и двигательная роль<br />витамина D3 у младенца</h2>
         <div className="mt-[14px] h-[3px] w-12 rounded-full bg-[#21A7A2]" />
-        <p className="mt-[26px] text-[15.5px] font-medium leading-[1.5] text-[#6D7A86]">Витамин D3 действует не только на кости, но и на мышцы.<br />Он играет ключевую роль в формировании силы,<br />координации и двигательной активности ребёнка.</p>
+        <p className="mt-5 text-[14.5px] font-medium leading-[1.42] text-[#6D7A86]">Витамин D3 действует не только на кости, но и на мышцы.<br />Он играет ключевую роль в формировании силы,<br />координации и двигательной активности ребёнка.</p>
 
-        <div className="mt-7 space-y-[18px]">
+        <div className="mt-5 space-y-3">
           <InfoCard icon={<MuscleIcon />} title="Мышечный тонус" text={'D3 способствует поддержанию оптимального\nтонуса скелетных мышц, предотвращая\nмышечную слабость и гипотонию.'} />
           <InfoCard icon={<CoordinationIcon />} title="Координация движений" text={'Витамин D3 участвует в передаче нервных\nимпульсов и работе мышц, улучшая\nкоординацию и точность движений.'} />
           <InfoCard icon={<CrawlingBabyIcon />} title="Моторное развитие" text={'D3 поддерживает своевременное освоение\nдвигательных навыков: перевороты, ползание,\nсидение, ходьба.'} />
           <InfoCard icon={<ActivityIcon />} title="Физическая активность" text={'Достаточный уровень D3 помогает малышу\nбыть активным, выносливым и меньше\nуставать в течение дня.'} />
         </div>
 
-        <div className="mt-6 flex gap-4 rounded-[16px] border border-[#F6B24B] bg-[#FFF9EF] px-5 py-[18px]">
+        <div className="mt-4 flex gap-4 rounded-[16px] border border-[#F6B24B] bg-[#FFF9EF] px-5 py-4">
           <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#FFA726] text-white"><StarIcon /></div>
           <div>
             <h3 className="text-[17px] font-bold leading-tight text-[#FFA726]">Активное движение — здоровое будущее</h3>
-            <p className="mt-2 text-[14.5px] font-medium leading-[1.4] text-[#18324A]">Поддерживая мышцы и двигательную систему,<br />витамин D3 создаёт фундамент для гармоничного<br />физического развития и уверенных шагов в жизни.</p>
+            <p className="mt-2 text-[13.5px] font-medium leading-[1.32] text-[#18324A]">Поддерживая мышцы и двигательную систему,<br />витамин D3 создаёт фундамент для гармоничного<br />физического развития и уверенных шагов в жизни.</p>
           </div>
         </div>
       </div>

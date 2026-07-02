@@ -162,16 +162,16 @@ const riskContent: Record<RiskTab, RiskContent> = {
 }
 
 function CircleIcon({ children }: { children: ReactNode }) {
-  return <div className="flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] text-[#21A7A2] shadow-[0_8px_18px_rgba(0,0,0,0.06)]">{children}</div>
+  return <div className="flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#21A7A2] bg-[#EAF8F7] text-[#21A7A2] shadow-[0_8px_18px_rgba(0,0,0,0.06)]">{children}</div>
 }
 
 function InfoRow({ icon, title, text }: { icon: ReactNode; title: ReactNode; text: string }) {
   return (
-    <article className="flex min-h-[118px] items-start gap-[18px] rounded-[16px] border border-[#E4E8EB] bg-white px-5 py-[18px] shadow-[0_6px_16px_rgba(0,0,0,0.04)]">
-      <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2]">{icon}</div>
+    <article className="flex min-h-[106px] items-start gap-3.5 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-4 shadow-[0_8px_20px_rgba(0,0,0,0.045)]">
+      <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2]">{icon}</div>
       <div className="min-w-0">
-        <h3 className="text-[17px] font-bold leading-tight text-[#18324A]">{title}</h3>
-        <p className="mt-2 text-[13.5px] font-medium leading-[1.35] text-[#6D7A86]">{text}</p>
+        <h3 className="text-[16px] font-bold leading-tight text-[#18324A]">{title}</h3>
+        <p className="mt-1.5 text-[13px] font-medium leading-[1.3] text-[#6D7A86]">{text}</p>
       </div>
     </article>
   )
@@ -185,69 +185,69 @@ export default function Slide02RiskFactors() {
   return (
     <section className="relative h-full overflow-hidden px-[35px]" style={{ color: NAVY }}>
       <header className="absolute left-[35px] top-[4px]">
-        <h1 className="font-display text-[36px] font-bold leading-[1.08] tracking-normal text-[#18324A]">Факторы риска дефицита</h1>
-        <p className="mt-2 text-[16px] font-medium leading-none text-[#6D7A86]">Почему школьники в группе риска</p>
+        <h1 className="font-display text-[34px] font-bold leading-[1.04] tracking-normal text-[#18324A]">Факторы риска дефицита</h1>
+        <p className="mt-1.5 text-[16px] font-medium leading-none text-[#6D7A86]">Почему школьники в группе риска</p>
       </header>
 
-      <div className="absolute left-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <div className="flex items-center gap-4">
+      <div className="absolute left-[35px] top-[88px] h-[982px] w-[455px] rounded-[18px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+        <div className="flex items-center gap-3.5">
           <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2]">{active.heroIcon}</div>
           <div>
-            <h2 className="text-[23px] font-bold leading-tight text-[#18324A]">{active.title}</h2>
-            <p className="mt-1 text-[15px] font-medium leading-[1.32] text-[#6D7A86]">{active.subtitle}</p>
+            <h2 className="text-[22px] font-bold leading-tight text-[#18324A]">{active.title}</h2>
+            <p className="mt-1 text-[14.5px] font-medium leading-[1.28] text-[#6D7A86]">{active.subtitle}</p>
           </div>
         </div>
 
-        <div className="relative mt-5 h-[560px] w-full overflow-visible">
-          <div className="absolute left-1/2 top-[6px] h-[505px] w-[350px] -translate-x-1/2 overflow-hidden rounded-[24px] bg-[#F4FBFB] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.72)]">
+        <div className="relative mt-4 h-[548px] w-full overflow-visible">
+          <div className="absolute left-1/2 top-[10px] h-[492px] w-[342px] -translate-x-1/2 overflow-hidden rounded-[22px] bg-[#F4FBFB] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.72)]">
             <img src={active.image} alt={active.imageAlt} className="h-full w-full object-cover object-[50%_34%]" draggable={false} />
             <div className="absolute inset-x-0 bottom-0 h-[155px] bg-gradient-to-t from-white via-white/82 to-transparent" />
           </div>
 
-          <svg className="pointer-events-none absolute left-[32px] top-[36px] h-[430px] w-[330px]" viewBox="0 0 330 430" fill="none" aria-hidden>
+          <svg className="pointer-events-none absolute left-[38px] top-[42px] h-[410px] w-[318px]" viewBox="0 0 330 430" fill="none" aria-hidden>
             <path d="M66 84C22 142 16 263 78 338" stroke="#21A7A2" strokeWidth="2" strokeDasharray="7 10" strokeLinecap="round" />
             <path d="M264 84c44 58 50 179-12 254" stroke="#21A7A2" strokeWidth="2" strokeDasharray="7 10" strokeLinecap="round" />
             <circle cx="66" cy="84" r="4" fill="#21A7A2" /><circle cx="264" cy="84" r="4" fill="#21A7A2" /><circle cx="78" cy="338" r="4" fill="#21A7A2" /><circle cx="252" cy="338" r="4" fill="#21A7A2" />
           </svg>
 
-          <div className="absolute left-[-8px] top-[52px] flex w-[126px] flex-col items-center text-center"><CircleIcon>{active.chips[0].icon}</CircleIcon><p className="mt-2 text-[12px] font-bold leading-[1.15] text-[#18324A]">{active.chips[0].label}</p></div>
-          <div className="absolute right-[-8px] top-[52px] flex w-[126px] flex-col items-center text-center"><CircleIcon>{active.chips[1].icon}</CircleIcon><p className="mt-2 text-[12px] font-bold leading-[1.15] text-[#18324A]">{active.chips[1].label}</p></div>
-          <div className="absolute left-[-8px] bottom-[78px] flex w-[126px] flex-col items-center text-center"><CircleIcon>{active.chips[2].icon}</CircleIcon><p className="mt-2 text-[12px] font-bold leading-[1.15] text-[#18324A]">{active.chips[2].label}</p></div>
-          <div className="absolute right-[-8px] bottom-[78px] flex w-[126px] flex-col items-center text-center"><CircleIcon>{active.chips[3].icon}</CircleIcon><p className="mt-2 text-[12px] font-bold leading-[1.15] text-[#18324A]">{active.chips[3].label}</p></div>
+          <div className="absolute left-[0px] top-[58px] flex w-[126px] flex-col items-center text-center"><CircleIcon>{active.chips[0].icon}</CircleIcon><p className="mt-2 text-[12.5px] font-bold leading-[1.14] text-[#18324A]">{active.chips[0].label}</p></div>
+          <div className="absolute right-[0px] top-[58px] flex w-[126px] flex-col items-center text-center"><CircleIcon>{active.chips[1].icon}</CircleIcon><p className="mt-2 text-[12.5px] font-bold leading-[1.14] text-[#18324A]">{active.chips[1].label}</p></div>
+          <div className="absolute left-[0px] bottom-[88px] flex w-[126px] flex-col items-center text-center"><CircleIcon>{active.chips[2].icon}</CircleIcon><p className="mt-2 text-[12.5px] font-bold leading-[1.14] text-[#18324A]">{active.chips[2].label}</p></div>
+          <div className="absolute right-[0px] bottom-[88px] flex w-[126px] flex-col items-center text-center"><CircleIcon>{active.chips[3].icon}</CircleIcon><p className="mt-2 text-[12.5px] font-bold leading-[1.14] text-[#18324A]">{active.chips[3].label}</p></div>
         </div>
 
-        <div className="mt-3 flex gap-[14px] rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-3 flex gap-3.5 rounded-[14px] border border-[#B7E7E4] bg-[#EAF8F7] px-4 py-4">
           <div className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-[20px] font-bold text-white">i</div>
-          <p className="text-[15.5px] font-bold leading-[1.38] text-[#18324A]">{active.leftNote}</p>
+          <p className="text-[14.5px] font-bold leading-[1.32] text-[#18324A]">{active.leftNote}</p>
         </div>
       </div>
 
-      <div className="absolute right-[35px] top-[96px] h-[930px] w-[455px] rounded-[22px] bg-white p-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[35px] top-[88px] h-[982px] w-[455px] rounded-[18px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="inline-flex rounded-full bg-[#EAF8F7] px-4 py-2 text-[14px] font-bold text-[#21A7A2]">{active.badge}</div>
-        <h2 className="mt-5 text-[24px] font-bold leading-[1.28] text-[#18324A]">{active.rightTitle}</h2>
-        <p className="mt-4 text-[14.5px] font-medium leading-[1.45] text-[#6D7A86]">{active.rightText}</p>
+        <h2 className="mt-4 text-[22px] font-bold leading-[1.22] text-[#18324A]">{active.rightTitle}</h2>
+        <p className="mt-3 text-[13.5px] font-medium leading-[1.34] text-[#6D7A86]">{active.rightText}</p>
 
-        <div className="mt-6 space-y-4">
+        <div className="mt-4 space-y-3">
           {active.points.map((point, index) => <InfoRow key={index} icon={point.icon} title={point.title} text={point.text} />)}
         </div>
 
-        <div className="mt-6 flex gap-4 rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-5 py-[18px]">
+        <div className="mt-4 flex gap-3.5 rounded-[14px] border border-[#B7E7E4] bg-[#EAF8F7] px-4 py-4">
           <div className="shrink-0 text-[#21A7A2]"><BulbIcon /></div>
           <div>
-            <p className="text-[16px] font-bold leading-tight text-[#21A7A2]">Главный вывод</p>
-            <p className="mt-2 text-[15.5px] font-bold leading-[1.35] text-[#18324A]">{active.conclusion}</p>
+            <p className="text-[15px] font-bold leading-tight text-[#21A7A2]">Главный вывод</p>
+            <p className="mt-1.5 text-[14.5px] font-bold leading-[1.28] text-[#18324A]">{active.conclusion}</p>
           </div>
         </div>
       </div>
 
-      <div className="absolute left-[35px] top-[1082px] flex h-11 items-center gap-3">
+      <div className="absolute left-[35px] top-[1106px] grid h-11 grid-cols-4 gap-3">
         {tabs.map((tab) => {
           const isActive = activeRiskTab === tab.id
           return (
             <button
               key={tab.id}
               type="button"
-              className={`h-11 cursor-pointer rounded-[12px] px-[20px] text-[16px] font-bold transition duration-200 ease-in-out ${isActive ? 'bg-[#21A7A2] text-white shadow-[0_8px_20px_rgba(33,167,162,0.22)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86] shadow-[0_6px_14px_rgba(0,0,0,0.05)] hover:-translate-y-px hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)]'}`}
+              className={`h-11 min-w-[112px] cursor-pointer rounded-[12px] px-4 text-[15px] font-bold transition duration-200 ease-in-out ${isActive ? 'bg-[#21A7A2] text-white shadow-[0_8px_20px_rgba(33,167,162,0.22)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86] shadow-[0_6px_14px_rgba(0,0,0,0.05)] hover:-translate-y-px hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)]'}`}
               onClick={() => setActiveRiskTab(tab.id)}
             >
               {tab.label}
@@ -256,7 +256,7 @@ export default function Slide02RiskFactors() {
         })}
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-white/38 backdrop-blur-[1px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-white/52 backdrop-blur-[1.5px]" />
     </section>
   )
 }
