@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 
 const BASE_WIDTH = 1024
 const BASE_HEIGHT = 1366
-const MIN_SCALE = 0.25
-const MAX_SCALE = 1
+const MIN_SCALE = 0.2
+const MAX_SCALE = 4
 
 export function computeFrameScale(): number {
   const viewport = window.visualViewport
@@ -11,8 +11,10 @@ export function computeFrameScale(): number {
   const height = viewport?.height ?? window.innerHeight
 
   if (width <= 0 || height <= 0) return 1
-  if (width >= BASE_WIDTH && height >= BASE_HEIGHT) return 1
 
+  // Contain-fit: keep the 1024×1366 aspect ratio, filling as much of the
+  // viewport as possible. On an iPad Pro 12.9" (exactly 1024×1366 CSS px)
+  // this resolves to 1 → pixel-perfect native rendering.
   const scale = Math.min(width / BASE_WIDTH, height / BASE_HEIGHT)
 
   return Math.max(MIN_SCALE, Math.min(scale, MAX_SCALE))

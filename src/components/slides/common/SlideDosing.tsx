@@ -44,10 +44,10 @@ export default function Slide06Dosing() {
   return (
     <section className="relative h-full overflow-hidden px-[45px] pb-[112px]" style={{ color: NAVY }}>
       <header className="absolute left-[45px] right-[45px] top-[4px]">
-        <h1 className="mt-[58px] max-w-[930px] font-display text-[41px] font-extrabold uppercase leading-[1.1] tracking-[0.3px] text-[#18324A]">
+        <h1 className="mt-4 max-w-[930px] font-display text-[41px] font-extrabold uppercase leading-[1.1] tracking-[0.3px] text-[#18324A]">
           Как подобрать оптимальную дозу витамина D3?
         </h1>
-        <div className="mt-5 h-[3px] w-[930px] bg-[#F8B534]" />
+        <div className="mt-4 h-[3px] w-[930px] bg-[#F8B534]" />
       </header>
 
       <div className="absolute left-[45px] top-[190px] h-[850px] w-[390px] rounded-[24px] bg-white px-7 py-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
@@ -55,7 +55,7 @@ export default function Slide06Dosing() {
           Уровень содержания витамина<br />D3 в крови и оценка статуса
         </h2>
 
-        <div className="mt-8 overflow-hidden rounded-lg">
+        <div className="mt-4 overflow-hidden rounded-lg">
           <table className="w-full border-separate border-spacing-0 text-[15px] font-bold leading-[1.12]">
             <tbody>
               {statusRows.map(([label, value, bg, color]) => (
@@ -68,7 +68,7 @@ export default function Slide06Dosing() {
           </table>
         </div>
 
-        <p className="mt-9 text-[18px] font-medium leading-[1.38] text-[#18324A]">
+        <p className="mt-4 text-[18px] font-medium leading-[1.38] text-[#18324A]">
           Рекомендуемые целевые значения<br />25(OH)D при коррекции дефицита<br />витамина D - 30–60 нг/мл<br />(Уровень доказательности A I)
         </p>
 
@@ -80,7 +80,7 @@ export default function Slide06Dosing() {
 
       <div className="absolute right-[45px] top-[190px] h-[850px] w-[532px] rounded-[24px] bg-white px-7 py-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <h2 className="text-[23px] font-bold leading-[1.22] text-[#18324A]">Алгоритм подбора оптимальной дозы:</h2>
-        <ol className="mt-5">
+        <ol className="mt-4">
           <Step n={1}>Сдать анализ на определение уровня 25(OH)D3</Step>
           <Step n={2}>Определить рекомендованную дозу</Step>
           <Step n={3}>Исследовать кровь повторно через 3–6 месяцев</Step>
@@ -118,12 +118,11 @@ export default function Slide06Dosing() {
         </div>
       </div>
 
-      <div className="absolute left-[45px] right-[45px] top-[1062px] flex h-[78px] items-center justify-center gap-5 rounded-[18px] bg-[linear-gradient(135deg,#21A7A2,#009688)] px-8 text-center text-white shadow-[0_10px_25px_rgba(33,167,162,0.18)]">
+      <div className="absolute left-[45px] right-[45px] top-[1062px] flex h-[78px] items-center justify-center gap-4 rounded-[18px] bg-[linear-gradient(135deg,#21A7A2,#009688)] px-8 text-center text-white shadow-[0_10px_25px_rgba(33,167,162,0.18)]">
         <TargetIcon />
         <p className="text-[20px] font-bold leading-[1.22] text-white">Рекомендуемые целевые значения 25(OH)D: 30–60 нг/мл • контроль через 3–6 месяцев</p>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-white/38 backdrop-blur-[1px]" />
     </section>
   )
 }

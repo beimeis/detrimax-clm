@@ -41,7 +41,7 @@ export default function SlideLayout({
   showNav = true,
 }: SlideLayoutProps) {
   return (
-    <div className="slide-frame">
+    <div className={`slide-frame theme-${branch}`}>
       <SlideBackground />
       <WiresLogo />
       <Breadcrumb branchLabel={branchLabel} branchColor={branchColor} />

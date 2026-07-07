@@ -19,7 +19,7 @@ export default function Home() {
     <div className="slide-frame">
       <SlideBackground />
       <WiresLogo />
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-12 px-12 pb-[24px]">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-4 px-12 pb-[24px]">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: -20 }}
@@ -27,21 +27,21 @@ export default function Home() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <h1 className="home-hero-title mt-0">ДЕТРИМАКС</h1>
-          <p className="home-hero-subtitle mt-5">
+          <p className="home-hero-subtitle mt-4">
             <span>УНИВЕРСАЛЬНЫЙ ИСТОЧНИК</span>
             <span>ВИТАМИНА D3</span>
           </p>
         </motion.div>
 
         <motion.div
-          className="grid w-full max-w-[820px] grid-cols-2 gap-8"
+          className="grid w-full max-w-[820px] grid-cols-2 gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
         >
           <button
             type="button"
-            className="card-panel group flex min-h-[410px] flex-col items-center justify-center gap-5 p-8 transition-transform duration-200 hover:scale-[1.02]"
+            className="card-panel group flex min-h-[410px] flex-col items-center justify-center gap-4 p-8 transition-transform duration-200 hover:scale-[1.02]"
             onClick={() => selectBranch('baby')}
           >
             <div className="flex h-[260px] w-full items-center justify-center">
@@ -64,7 +64,7 @@ export default function Home() {
 
           <button
             type="button"
-            className="card-panel group flex min-h-[410px] flex-col items-center justify-center gap-5 p-8 transition-transform duration-200 hover:scale-[1.02]"
+            className="card-panel group flex min-h-[410px] flex-col items-center justify-center gap-4 p-8 transition-transform duration-200 hover:scale-[1.02]"
             onClick={() => selectBranch('active')}
           >
             <div className="flex h-[260px] w-full items-center justify-center">

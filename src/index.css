@@ -34,7 +34,7 @@
   .slide-viewport {
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     width: 100vw;
     height: 100vh;
@@ -135,3 +135,76 @@
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
   }
 }
+
+/* Global readability boost for CLM tablet use: keep layout proportions, but make text easier to read from distance. */
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[9px]"] { font-size: 10.5px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[10px]"] { font-size: 11.5px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[10.5px]"] { font-size: 12px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[11px]"] { font-size: 12.4px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[11.5px]"] { font-size: 12.9px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[12px]"] { font-size: 13.4px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[12.3px]"] { font-size: 13.6px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[12.5px]"] { font-size: 13.9px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[13px]"] { font-size: 14.3px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[13.2px]"] { font-size: 14.5px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[13.5px]"] { font-size: 14.8px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[14px]"] { font-size: 15.3px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[14.5px]"] { font-size: 15.8px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[15px]"] { font-size: 16.3px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[15.5px]"] { font-size: 16.8px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[16px]"] { font-size: 17.2px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[16.5px]"] { font-size: 17.7px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[17px]"] { font-size: 18.1px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[18px]"] { font-size: 19.1px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[18.5px]"] { font-size: 19.6px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[19px]"] { font-size: 20.2px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[20px]"] { font-size: 21.1px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[21px]"] { font-size: 22.1px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[22px]"] { font-size: 23.1px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[23px]"] { font-size: 24.1px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[24px]"] { font-size: 25.1px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[25px]"] { font-size: 26.1px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[26px]"] { font-size: 27.1px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[28px]"] { font-size: 29.2px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[30px]"] { font-size: 31.2px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[31px]"] { font-size: 32.2px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[32px]"] { font-size: 33.2px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[34px]"] { font-size: 35.2px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[36px]"] { font-size: 37.2px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[38px]"] { font-size: 39.2px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[40px]"] { font-size: 41.2px; }
+.slide-frame :is(p, h1, h2, h3, h4, button, span, td, th)[class*="text-[46px]"] { font-size: 47.2px; }
+
+/* ── Branch accent theming ────────────────────────────────
+   Common (shared) slides are authored in teal. In the baby flow
+   we recolor those teal tokens to the baby orange accent so each
+   flow reads in one consistent colour. Active keeps the teal. */
+.theme-baby [class*="text-[#21A7A2]"] { color: #F2960E; }
+.theme-baby [class*="text-[#0E8F8B]"] { color: #CE7A08; }
+.theme-baby [class*="text-[#009688]"] { color: #E28609; }
+
+.theme-baby [class*="bg-[#21A7A2]"] { background-color: #F2960E; }
+.theme-baby [class*="bg-[#009688]"] { background-color: #E28609; }
+.theme-baby [class*="bg-[#EAF8F7]"] { background-color: #FFF3E2; }
+.theme-baby [class*="bg-[#F4FAF9]"] { background-color: #FFF7EC; }
+.theme-baby [class*="bg-[#DDF3F0]"] { background-color: #FCE9D0; }
+.theme-baby [class*="bg-[#F2F7F6]"] { background-color: #FBF4EA; }
+
+.theme-baby [class*="border-[#21A7A2]"] { border-color: #F2960E; }
+.theme-baby [class*="border-[#CBEBE8]"] { border-color: #F6DCB0; }
+.theme-baby [class*="ring-[#21A7A2]"] { --tw-ring-color: #F2960E; }
+
+.theme-baby [class*="linear-gradient(135deg,#21A7A2,#0E8F8B)"] { background-image: linear-gradient(135deg, #F2960E, #CE7A08); }
+.theme-baby [class*="linear-gradient(135deg,#21A7A2,#009688)"] { background-image: linear-gradient(135deg, #F2960E, #E28609); }
+
+.theme-baby [fill="#21A7A2"] { fill: #F2960E; }
+.theme-baby [stroke="#21A7A2"] { stroke: #F2960E; }
+.theme-baby [fill="#0E8F8B"] { fill: #CE7A08; }
+.theme-baby [stroke="#0E8F8B"] { stroke: #CE7A08; }
+.theme-baby [fill="#EAF8F7"] { fill: #FFF3E2; }
+.theme-baby [stroke="#EAF8F7"] { stroke: #FFF3E2; }
+.theme-baby [fill="#7FCFCA"] { fill: #F2C478; }
+.theme-baby [stroke="#7FCFCA"] { stroke: #F2C478; }
+.theme-baby [fill="#A9DFDC"] { fill: #F7D49A; }
+.theme-baby [fill="#8FD6D1"] { fill: #F5CD86; }
+.theme-baby [stroke="#8FD6D1"] { stroke: #F5CD86; }

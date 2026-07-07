@@ -14,7 +14,7 @@ export default function Finale() {
     <div className="slide-frame">
       <SlideBackground />
       <WiresLogo />
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-8 px-12">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-4 px-12">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: -16 }}
@@ -27,7 +27,7 @@ export default function Finale() {
         </motion.div>
 
         <motion.div
-          className="grid w-full max-w-3xl grid-cols-2 gap-6"
+          className="grid w-full max-w-3xl grid-cols-2 gap-4"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, ease: 'easeOut', delay: 0.1 }}
