@@ -82,7 +82,7 @@ function FeatureChip({ icon, label }: { icon: ReactNode; label: ReactNode }) {
       <div className="flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-white shadow-[0_10px_24px_rgba(33,167,162,0.24)]">
         {icon}
       </div>
-      <p className="text-[11.5px] font-extrabold uppercase leading-[1.16] tracking-[0.03em] text-[#21A7A2]">{label}</p>
+      <p className="text-[13px] font-extrabold uppercase leading-[1.14] tracking-[0.03em] text-[#21A7A2]">{label}</p>
     </div>
   )
 }
@@ -171,17 +171,17 @@ export default function SlideAudience() {
         <h1 className="font-display text-[36px] font-bold leading-[1.08] tracking-normal text-[#18324A]">
           Аудитория и потребность
         </h1>
-        <p className="mt-2 text-[16px] font-medium leading-none text-[#6D7A86]">
+        <p className="mt-2 text-[18px] font-medium leading-none text-[#6D7A86]">
           Пациент: ребёнок школьного возраста
         </p>
       </header>
 
       <div className="absolute left-[48px] top-[96px] flex h-[1060px] w-[448px] flex-col rounded-[22px] bg-white px-[28px] py-12 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="mt-8 text-center text-[24px] font-bold leading-[1.16] text-[#18324A]">
+        <h2 className="mt-8 text-center text-[28px] font-bold leading-[1.14] text-[#18324A]">
           Интеллектуальная нагрузка<br />
           <span className="text-[#21A7A2]">требует поддержки</span>
         </h2>
-        <p className="mt-4 text-center text-[16px] font-medium leading-[1.35] text-[#6D7A86]">
+        <p className="mt-4 text-center text-[18.5px] font-medium leading-[1.32] text-[#6D7A86]">
           Витамин D3 важен для нормального<br />
           развития ребёнка и помогает<br />
           поддерживать общее самочувствие<br />
@@ -206,17 +206,17 @@ export default function SlideAudience() {
 
         <div className="mb-10 mt-auto flex h-[120px] items-center gap-4 rounded-[18px] bg-[#C8F1EF] px-7 py-6">
           <div className="shrink-0 text-[#0E8F8B]"><ShieldIcon className="h-12 w-12" /></div>
-          <p className="text-[16px] font-bold leading-[1.3] text-[#0E6F73]">
+          <p className="text-[19px] font-bold leading-[1.28] text-[#0E6F73]">
             D3 — часть ежедневной поддержки роста,<br />развития и уверенности ребёнка.
           </p>
         </div>
       </div>
 
       <div className="absolute right-[48px] top-[96px] flex h-[1060px] w-[448px] flex-col rounded-[22px] bg-white px-[20px] py-12 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="mt-8 text-center text-[26px] font-bold leading-[1.16] text-[#18324A]">
+        <h2 className="mt-8 text-center text-[29px] font-bold leading-[1.14] text-[#18324A]">
           Витамин D3 — больше,<br />чем просто витамин
         </h2>
-        <p className="mt-4 text-center text-[16px] font-medium leading-[1.35] text-[#6D7A86]">
+        <p className="mt-4 text-center text-[18.5px] font-medium leading-[1.32] text-[#6D7A86]">
           Комплексная поддержка здоровья<br />ребёнка каждый день
         </p>
 
@@ -224,8 +224,8 @@ export default function SlideAudience() {
 
         <div className="relative mt-auto mb-10 rounded-[16px] border border-[#E4E8EB] bg-white px-6 py-7">
           <div className="pr-[104px]">
-            <h3 className="text-[20px] font-bold leading-tight text-[#21A7A2]">Активная формула</h3>
-            <ul className="mt-4 space-y-3 text-[14px] font-semibold leading-[1.3] text-[#18324A]">
+            <h3 className="text-[23px] font-bold leading-tight text-[#21A7A2]">Активная формула</h3>
+            <ul className="mt-4 space-y-3 text-[17px] font-semibold leading-[1.28] text-[#18324A]">
               <li className="flex gap-2"><span className="mt-px shrink-0 text-[#21A7A2]">✓</span>Поддержка усвоения кальция и фосфора</li>
               <li className="flex gap-2"><span className="mt-px shrink-0 text-[#21A7A2]">✓</span>Участие в формировании костной системы</li>
               <li className="flex gap-2"><span className="mt-px shrink-0 text-[#21A7A2]">✓</span>Помощь в поддержании нормального уровня D3</li>

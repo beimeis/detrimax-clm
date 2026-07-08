@@ -235,7 +235,7 @@ const physiology: Factor[] = [
 
 function FactorRow({ f }: { f: Factor }) {
   return (
-    <article className="relative flex gap-4 rounded-[16px] border border-[#EAEEF1] bg-white px-5 py-4 shadow-[0_6px_16px_rgba(24,50,74,0.05)]">
+    <article className="relative flex gap-4 rounded-[16px] border border-[#EAEEF1] bg-white px-5 py-3 shadow-[0_6px_16px_rgba(24,50,74,0.05)]">
       <span className="absolute -left-2.5 -top-2.5 flex h-8 w-8 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-[15px] font-bold text-white shadow-[0_6px_14px_rgba(33,167,162,0.3)]">
         {f.num}
       </span>
@@ -243,10 +243,10 @@ function FactorRow({ f }: { f: Factor }) {
         {f.icon}
       </div>
       <div className="min-w-0">
-        <h3 className="text-[17.5px] font-bold leading-tight text-[#18324A]">
+        <h3 className="text-[19px] font-bold leading-tight text-[#18324A]">
           {f.title}
         </h3>
-        <p className="mt-1.5 text-[13.5px] font-medium leading-[1.36] text-[#6D7A86]">
+        <p className="mt-1.5 text-[15px] font-medium leading-[1.3] text-[#6D7A86]">
           {f.text}
         </p>
       </div>
@@ -264,14 +264,14 @@ function CategoryCard({
   factors: Factor[];
 }) {
   return (
-    <div className="w-full rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+    <div className="w-full rounded-[24px] bg-white px-7 py-5 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
       <div className="flex items-center gap-3">
         <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
           {icon}
         </span>
-        <h2 className="text-[23px] font-bold text-[#18324A]">{title}</h2>
+        <h2 className="text-[24px] font-bold text-[#18324A]">{title}</h2>
       </div>
-      <div className="mt-5 flex flex-col gap-4">
+      <div className="mt-4 flex flex-col gap-3">
         {factors.map((f) => (
           <FactorRow key={f.num} f={f} />
         ))}
@@ -292,7 +292,7 @@ export default function SlideRiskFactorsSchool() {
         <h1 className="font-display text-[35px] font-extrabold leading-[1.05] tracking-tight text-[#18324A]">
           Факторы риска дефицита витамина D3 у школьников
         </h1>
-        <p className="mt-1.5 text-[17px] font-medium leading-none text-[#6D7A86]">
+        <p className="mt-1.5 text-[19px] font-medium leading-none text-[#6D7A86]">
           Образ жизни, рост и питание
         </p>
         <div className="mt-3 h-[3px] w-[150px] rounded-full bg-[#21A7A2]" />
@@ -313,7 +313,7 @@ export default function SlideRiskFactorsSchool() {
           <span className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-white text-[#21A7A2] shadow-[0_4px_12px_rgba(33,167,162,0.16)]">
             <ClockIcon />
           </span>
-          <p className="text-[15.5px] font-bold leading-[1.3] text-[#18324A]">
+          <p className="text-[18.5px] font-bold leading-[1.28] text-[#18324A]">
             Большую часть дня школьник проводит{" "}
             <span className="text-[#0E8F8B]">в помещении и за экраном</span> —
             синтез D3 в коже почти не работает.
@@ -322,7 +322,7 @@ export default function SlideRiskFactorsSchool() {
       </div>
 
       {/* Right category cards */}
-      <div className="absolute right-[45px] top-[190px] flex w-[500px] flex-col gap-5">
+      <div className="absolute right-[45px] top-[190px] flex w-[500px] flex-col gap-4">
         <CategoryCard
           icon={<ClockIcon className="h-6 w-6" />}
           title="Образ жизни"
@@ -338,8 +338,8 @@ export default function SlideRiskFactorsSchool() {
       {/* Summary */}
       <div className="absolute left-[45px] right-[45px] top-[1036px] flex items-center gap-4 rounded-[20px] bg-[linear-gradient(135deg,#EAF8F7,#DDF3F0)] px-7 py-4 shadow-[0_10px_25px_rgba(33,167,162,0.12)]">
         <D3Shield className="h-[58px] w-[58px] shrink-0" />
-        <p className="text-[16px] font-medium leading-[1.3] text-[#18324A]">
-          <span className="text-[18px] font-extrabold text-[#0E8F8B]">
+        <p className="text-[19px] font-medium leading-[1.28] text-[#18324A]">
+          <span className="text-[22px] font-extrabold text-[#0E8F8B]">
             Итог:
           </span>{" "}
           риск дефицита D3 у школьника растёт, когда{" "}

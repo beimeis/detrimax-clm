@@ -161,7 +161,7 @@ function StepChip({ icon, label, accent = false }: Step) {
       >
         {icon}
       </span>
-      <p className="mt-2 text-[11.5px] font-bold leading-[1.16] text-[#18324A]">{label}</p>
+      <p className="mt-2 text-[13.5px] font-bold leading-[1.14] text-[#18324A]">{label}</p>
     </div>
   )
 }
@@ -312,16 +312,16 @@ function ViewContent({ view }: { view: ImmunityView }) {
   return (
     <>
       {/* Left card */}
-      <div className="absolute left-[45px] top-[128px] flex h-[964px] w-[418px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[45px] top-[120px] flex h-[1002px] w-[418px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-3">
           <span className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2]">
             <ShieldIcon />
           </span>
-          <h2 className="text-[23px] font-bold leading-[1.1] text-[#21A7A2]">{view.leftTitle}</h2>
+          <h2 className="text-[27px] font-bold leading-[1.1] text-[#21A7A2]">{view.leftTitle}</h2>
         </div>
 
         {/* Two stacked photos */}
-        <div className="relative mx-auto mt-3 h-[350px] w-[300px]">
+        <div className="relative mx-auto mt-3 h-[290px] w-[300px]">
           <div
             className="absolute inset-0 rounded-[30px] blur-[6px]"
             style={{ background: `radial-gradient(ellipse at 50% 42%, ${view.glow} 0%, ${view.glow.replace(/0\.55\)/, '0.16)')} 44%, rgba(255,255,255,0) 68%)` }}
@@ -343,7 +343,7 @@ function ViewContent({ view }: { view: ImmunityView }) {
               <span className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full bg-white text-[#21A7A2] shadow-[0_4px_12px_rgba(33,167,162,0.16)]">
                 {t.icon}
               </span>
-              <p className="text-[14px] font-bold leading-[1.24] text-[#18324A]">{t.title}</p>
+              <p className="text-[17px] font-bold leading-[1.22] text-[#18324A]">{t.title}</p>
             </div>
           ))}
         </div>
@@ -355,14 +355,14 @@ function ViewContent({ view }: { view: ImmunityView }) {
       </div>
 
       {/* Right card */}
-      <div className="absolute right-[45px] top-[128px] flex h-[964px] w-[472px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[45px] top-[120px] flex h-[1002px] w-[472px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-3">
           <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
             <ShieldIcon check />
           </span>
           <div>
-            <h2 className="text-[22px] font-bold leading-tight text-[#18324A]">{view.rightTitle}</h2>
-            <p className="text-[15px] font-bold leading-tight text-[#21A7A2]">{view.rightSub}</p>
+            <h2 className="text-[25px] font-bold leading-tight text-[#18324A]">{view.rightTitle}</h2>
+            <p className="text-[17px] font-bold leading-tight text-[#21A7A2]">{view.rightSub}</p>
           </div>
         </div>
 
@@ -372,9 +372,9 @@ function ViewContent({ view }: { view: ImmunityView }) {
               <span className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-[14px] border border-[#CBEBE8] bg-[#EAF8F7] text-[#21A7A2]">
                 {m.icon}
               </span>
-              <h3 className="text-[18px] font-bold leading-tight text-[#18324A]">{m.title}</h3>
+              <h3 className="text-[21px] font-bold leading-tight text-[#18324A]">{m.title}</h3>
             </div>
-            <p className="mt-3 text-[13.5px] font-medium leading-[1.38] text-[#6D7A86]">{m.text}</p>
+            <p className="mt-3 text-[16px] font-medium leading-[1.34] text-[#6D7A86]">{m.text}</p>
             <StepScheme steps={m.steps} />
           </div>
         ))}
@@ -383,7 +383,7 @@ function ViewContent({ view }: { view: ImmunityView }) {
           <span className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
             <ShieldIcon check className="h-7 w-7" />
           </span>
-          <p className="text-[14.5px] font-medium leading-[1.3] text-[#18324A]">{view.summary}</p>
+          <p className="text-[17px] font-medium leading-[1.28] text-[#18324A]">{view.summary}</p>
         </div>
       </div>
     </>

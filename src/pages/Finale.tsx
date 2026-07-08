@@ -46,11 +46,11 @@ export default function Finale() {
                 draggable={false}
               />
             </div>
-            <p className="font-display text-lg font-bold" style={{ color: BABY_COLOR }}>
+            <p className="font-display text-[22px] font-bold" style={{ color: BABY_COLOR }}>
               Бэби · 200 МЕ
             </p>
-            <p className="mt-2 text-sm text-brand-muted">С рождения</p>
-            <p className="mt-1 text-[17px] font-medium text-brand-heading">
+            <p className="mt-2 text-[17px] text-brand-muted">С рождения</p>
+            <p className="mt-1 text-[20px] font-medium text-brand-heading">
               1 капля = точная доза
             </p>
           </button>
@@ -69,11 +69,11 @@ export default function Finale() {
                 draggable={false}
               />
             </div>
-            <p className="font-display text-lg font-bold" style={{ color: ACTIVE_COLOR }}>
+            <p className="font-display text-[22px] font-bold" style={{ color: ACTIVE_COLOR }}>
               Актив · 500 МЕ
             </p>
-            <p className="mt-2 text-sm text-brand-muted">С 3 лет</p>
-            <p className="mt-1 text-[17px] font-medium text-brand-heading">
+            <p className="mt-2 text-[17px] text-brand-muted">С 3 лет</p>
+            <p className="mt-1 text-[20px] font-medium text-brand-heading">
               1 капля = точная доза
             </p>
           </button>

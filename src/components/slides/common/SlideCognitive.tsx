@@ -215,7 +215,7 @@ interface Step {
 
 function StepScheme({ steps }: { steps: Step[] }) {
   return (
-    <div className="mt-3 flex items-start justify-between">
+    <div className="mt-2 flex items-start justify-between">
       {steps.map((s, i) => (
         <div key={s.label} className="flex items-start">
           {i > 0 && <span className="mt-[16px] text-[24px] leading-none text-[#B7CBD0]">›</span>}
@@ -227,7 +227,7 @@ function StepScheme({ steps }: { steps: Step[] }) {
             >
               {s.icon}
             </span>
-            <p className="mt-1.5 text-[11px] font-bold leading-[1.14] text-[#18324A]">{s.label}</p>
+            <p className="mt-1.5 text-[11.5px] font-bold leading-[1.12] text-[#18324A]">{s.label}</p>
           </div>
         </div>
       ))}
@@ -368,16 +368,16 @@ function ViewContent({ view }: { view: CogView }) {
   return (
     <>
       {/* Left card */}
-      <div className="absolute left-[45px] top-[128px] flex h-[986px] w-[418px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute left-[45px] top-[122px] flex h-[1000px] w-[418px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-3">
           <span className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2]">
             {view.leftIcon}
           </span>
-          <h2 className="text-[23px] font-bold leading-tight text-[#21A7A2]">{view.leftTitle}</h2>
+          <h2 className="text-[26px] font-bold leading-tight text-[#21A7A2]">{view.leftTitle}</h2>
         </div>
 
         {/* Photo + glow */}
-        <div className="relative mx-auto mt-3 h-[352px] w-[300px]">
+        <div className="relative mx-auto mt-3 h-[300px] w-[300px]">
           <div className="absolute inset-0 rounded-[30px] blur-[6px]" style={{ background: view.glowGrad }} />
           <div className="absolute inset-x-[16px] inset-y-[6px] overflow-hidden rounded-[26px] bg-[#EEF3F8] shadow-[0_12px_30px_rgba(24,50,74,0.14)]">
             <img src={view.photo} alt={view.photoAlt} className="h-full w-full object-cover object-[50%_12%]" draggable={false} />
@@ -406,7 +406,7 @@ function ViewContent({ view }: { view: CogView }) {
               <span className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full bg-white text-[#21A7A2] shadow-[0_4px_12px_rgba(33,167,162,0.16)]">
                 {t.icon}
               </span>
-              <p className="text-[15px] font-bold leading-[1.2] text-[#18324A]">{t.title}</p>
+              <p className="text-[17px] font-bold leading-[1.18] text-[#18324A]">{t.title}</p>
             </div>
           ))}
         </div>
@@ -418,35 +418,35 @@ function ViewContent({ view }: { view: CogView }) {
       </div>
 
       {/* Right card */}
-      <div className="absolute right-[45px] top-[128px] flex h-[986px] w-[472px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[45px] top-[122px] flex h-[1000px] w-[472px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <div className="flex items-center gap-3">
           <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
             <BrainIcon />
           </span>
           <div>
-            <h2 className="text-[21px] font-bold leading-tight text-[#18324A]">{view.rightTitle}</h2>
+            <h2 className="text-[23px] font-bold leading-tight text-[#18324A]">{view.rightTitle}</h2>
             <p className="text-[15px] font-bold leading-tight text-[#21A7A2]">{view.rightSub}</p>
           </div>
         </div>
 
         {view.mechanisms.map((m, i) => (
-          <div key={i} className={`${i === 0 ? 'mt-3.5' : 'mt-3'} rounded-[16px] border border-[#EAEEF1] bg-white p-4 shadow-[0_6px_16px_rgba(24,50,74,0.05)]`}>
+          <div key={i} className={`${i === 0 ? 'mt-3' : 'mt-2.5'} rounded-[16px] border border-[#EAEEF1] bg-white px-4 py-3 shadow-[0_6px_16px_rgba(24,50,74,0.05)]`}>
             <div className="flex items-center gap-3">
               <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-[13px] border border-[#CBEBE8] bg-[#EAF8F7] text-[#21A7A2]">
                 {m.icon}
               </span>
-              <h3 className="text-[17px] font-bold leading-tight text-[#18324A]">{m.title}</h3>
+              <h3 className="text-[18px] font-bold leading-tight text-[#18324A]">{m.title}</h3>
             </div>
-            <p className="mt-2 text-[12.5px] font-medium leading-[1.34] text-[#6D7A86]">{m.text}</p>
+            <p className="mt-2 text-[13.5px] font-medium leading-[1.3] text-[#6D7A86]">{m.text}</p>
             <StepScheme steps={m.steps} />
           </div>
         ))}
 
-        <div className="mt-auto flex items-center gap-4 rounded-[16px] bg-[#EAF8F7] px-5 py-3.5">
+        <div className="mt-auto flex items-center gap-4 rounded-[16px] bg-[#EAF8F7] px-5 py-3">
           <span className="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
             <ShieldIcon check className="h-6 w-6" />
           </span>
-          <p className="text-[14px] font-medium leading-[1.3] text-[#18324A]">
+          <p className="text-[15px] font-medium leading-[1.26] text-[#18324A]">
             <span className="font-extrabold text-[#0E8F8B]">Итог:</span>
             {' '}{view.summary.replace('Итог: ', '')}
           </p>

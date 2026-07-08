@@ -29,7 +29,7 @@ function SoftInfoBlock({ icon, children }: { icon: ReactNode; children: ReactNod
   return (
     <div className="flex gap-4 rounded-[16px] border border-[#F6E2BD] bg-[#FFF9EF] p-[22px]">
       <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center text-[#FFA726]">{icon}</div>
-      <p className="text-[16px] font-bold leading-[1.42] text-[#18324A]">{children}</p>
+      <p className="text-[18px] font-bold leading-[1.4] text-[#18324A]">{children}</p>
     </div>
   )
 }
@@ -65,8 +65,8 @@ function DoseRightContent() {
 
   return (
     <>
-      <p className="text-[15px] font-medium leading-none text-[#6D7A86]">Дозировка</p>
-      <h2 className="mt-4 text-[30px] font-bold leading-[1.25] text-[#18324A]"><span className="text-[#FFA726]">200 МЕ</span> в 1 капле —<br />точная суточная доза</h2>
+      <p className="text-[17px] font-medium leading-none text-[#6D7A86]">Дозировка</p>
+      <h2 className="mt-4 text-[34px] font-bold leading-[1.22] text-[#18324A]"><span className="text-[#FFA726]">200 МЕ</span> в 1 капле —<br />точная суточная доза</h2>
 
       <div className="my-4 flex items-center justify-center gap-4">
         <div className="h-px flex-1 bg-[#F6B24B]" />
@@ -74,13 +74,13 @@ function DoseRightContent() {
         <div className="h-px flex-1 bg-[#F6B24B]" />
       </div>
 
-      <p className="text-[16px] font-medium leading-[1.5] text-[#6D7A86]">Одна капля содержит <span className="font-bold text-[#18324A]">200 МЕ витамина D3</span> —<br />рекомендуемая профилактическая доза<br />для младенцев <span className="font-bold text-[#FFA726]">с рождения</span>.</p>
+      <p className="text-[18.5px] font-medium leading-[1.46] text-[#6D7A86]">Одна капля содержит <span className="font-bold text-[#18324A]">200 МЕ витамина D3</span> —<br />рекомендуемая профилактическая доза<br />для младенцев <span className="font-bold text-[#FFA726]">с рождения</span>.</p>
 
       <div className="mt-4 rounded-[16px] border border-[#F6E2BD] bg-[#FFF9EF] px-7 py-[26px]">
-        <h3 className="text-[16px] font-bold leading-tight text-[#FFA726]">Рекомендуется для:</h3>
+        <h3 className="text-[19px] font-bold leading-tight text-[#FFA726]">Рекомендуется для:</h3>
         <div className="mt-4 space-y-[14px]">
           {items.map((item) => (
-            <div key={item} className="flex items-start gap-3 text-[15.5px] font-semibold leading-[1.25] text-[#18324A]">
+            <div key={item} className="flex items-start gap-3 text-[18px] font-semibold leading-[1.22] text-[#18324A]">
               <span className="mt-[1px] flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-[#FFA726] text-white"><CheckIcon /></span>
               <span>{item}</span>
             </div>
@@ -90,7 +90,7 @@ function DoseRightContent() {
 
       <div className="mt-4 flex gap-4 rounded-[16px] border border-[#B7E7E4] bg-[#EAF8F7] px-[22px] py-5">
         <div className="shrink-0 text-[#FFA726]"><BulbIcon /></div>
-        <p className="text-[16px] font-bold leading-[1.35] text-[#18324A]">Педиатры рекомендуют витамин D3<br />для всех детей с рождения,<br />независимо от времени года и режима питания.</p>
+        <p className="text-[18.5px] font-bold leading-[1.32] text-[#18324A]">Педиатры рекомендуют витамин D3<br />для всех детей с рождения,<br />независимо от времени года и режима питания.</p>
       </div>
     </>
   )
@@ -117,7 +117,7 @@ export default function SlideProduct() {
     <section className="relative h-full overflow-hidden px-[35px]" style={{ color: NAVY }}>
       <header className="absolute left-[35px] top-[4px]">
         <h1 className="font-display text-[40px] font-extrabold leading-[1.1] tracking-normal"><span className="text-[#D93632]">Детримакс®</span> <span className="text-[#FFA726]">Беби</span></h1>
-        <p className="mt-2 text-[16px] font-medium leading-none text-[#6D7A86]">Витамин D3 в каплях • с рождения</p>
+        <p className="mt-2 text-[18px] font-medium leading-none text-[#6D7A86]">Витамин D3 в каплях • с рождения</p>
       </header>
 
       <div className="absolute left-[35px] top-[91px] h-[970px] w-[435px] rounded-[22px] bg-white px-[30px] py-9 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">

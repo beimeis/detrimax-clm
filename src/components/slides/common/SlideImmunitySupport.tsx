@@ -178,7 +178,7 @@ export default function SlideImmunitySupport() {
         <h1 className="font-display text-[37px] font-extrabold leading-[1.05] tracking-tight text-[#18324A]">
           Влияние витамина D3 на иммунную систему
         </h1>
-        <p className="mt-1.5 text-[17px] font-medium leading-none text-[#6D7A86]">
+        <p className="mt-1.5 text-[19px] font-medium leading-none text-[#6D7A86]">
           Поддержка защитной функции организма
         </p>
         <div className="mt-3 h-[3px] w-[150px] rounded-full bg-[#21A7A2]" />
@@ -215,7 +215,7 @@ export default function SlideImmunitySupport() {
               <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-white text-[#21A7A2] shadow-[0_4px_12px_rgba(33,167,162,0.16)]">
                 {t.icon}
               </span>
-              <p className="text-[15.5px] font-bold leading-[1.22] text-[#18324A]">{t.title}</p>
+              <p className="text-[18.5px] font-bold leading-[1.22] text-[#18324A]">{t.title}</p>
             </div>
           ))}
         </div>
@@ -232,7 +232,7 @@ export default function SlideImmunitySupport() {
             <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
               {p.icon}
             </div>
-            <p className="min-w-0 flex-1 text-[16px] font-semibold leading-[1.28] text-[#18324A]">
+            <p className="min-w-0 flex-1 text-[20px] font-semibold leading-[1.26] text-[#18324A]">
               <span className="mr-1 font-extrabold text-[#21A7A2]">{p.num}.</span>
               {p.text}
             </p>
@@ -248,8 +248,8 @@ export default function SlideImmunitySupport() {
         <span className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
           <ShieldIcon check className="h-7 w-7" />
         </span>
-        <p className="text-[16px] font-medium leading-[1.3] text-[#18324A]">
-          <span className="text-[18px] font-extrabold text-[#0E8F8B]">Итог:</span> витамин D3
+        <p className="text-[19px] font-medium leading-[1.28] text-[#18324A]">
+          <span className="text-[22px] font-extrabold text-[#0E8F8B]">Итог:</span> витамин D3
           поддерживает иммунную защиту ребёнка, способствует выработке антимикробных факторов и
           помогает снижать риск инфекций.
         </p>

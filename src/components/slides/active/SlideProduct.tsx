@@ -28,10 +28,10 @@ function SmileIcon({ className = 'h-8 w-8' }: { className?: string }) {
 function BulbIcon() { return <svg viewBox="0 0 56 56" className="h-10 w-10" fill="none" aria-hidden><path d="M28 7c-8 0-14.5 6.4-14.5 14.2 0 5.2 2.7 8.6 6.1 11.7 1.8 1.6 2.9 3.8 2.9 6.2h11c0-2.4 1.1-4.6 2.9-6.2 3.4-3.1 6.1-6.5 6.1-11.7C42.5 13.4 36 7 28 7Z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" /><path d="M22.5 45h11M24.5 50h7M28 14v6M19 22h6M31 22h6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg> }
 
 function MiniBenefit({ icon, children }: { icon: ReactNode; children: ReactNode }) {
-  return <div className="flex h-[104px] min-w-0 flex-col items-center justify-center gap-2 rounded-[14px] border border-[#E4E8EB] bg-white px-2 text-center text-[#21A7A2] shadow-[0_8px_18px_rgba(0,0,0,0.035)]"><div>{icon}</div><p className="text-[11.5px] font-bold leading-[1.12] text-[#18324A]">{children}</p></div>
+  return <div className="flex h-[104px] min-w-0 flex-col items-center justify-center gap-2 rounded-[14px] border border-[#E4E8EB] bg-white px-2 text-center text-[#21A7A2] shadow-[0_8px_18px_rgba(0,0,0,0.035)]"><div>{icon}</div><p className="text-[13px] font-bold leading-[1.1] text-[#18324A]">{children}</p></div>
 }
 function Advantage({ icon, title, text }: { icon: ReactNode; title: string; text: ReactNode }) {
-  return <article className="flex h-[98px] items-center gap-3.5 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.045)]"><div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">{icon}</div><div className="min-w-0"><h3 className="text-[15.5px] font-bold leading-tight text-[#18324A]">{title}</h3><p className="mt-1 text-[12.5px] font-medium leading-[1.18] text-[#6D7A86]">{text}</p></div></article>
+  return <article className="flex h-[104px] items-center gap-3.5 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.045)]"><div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">{icon}</div><div className="min-w-0"><h3 className="text-[17.5px] font-bold leading-tight text-[#18324A]">{title}</h3><p className="mt-1 text-[13.8px] font-medium leading-[1.16] text-[#6D7A86]">{text}</p></div></article>
 }
 
 export default function SlideProduct() {
@@ -42,13 +42,13 @@ export default function SlideProduct() {
     <section className="relative h-full overflow-hidden px-[35px]" style={{ color: NAVY }}>
       <header className="absolute left-[35px] top-[4px]">
         <h1 className="font-display text-[40px] font-extrabold leading-[1.1] tracking-normal"><span className="text-[#D93632]">Детримакс®</span> <span className="text-[#21A7A2]">Актив</span></h1>
-        <p className="mt-2 text-[16px] font-medium leading-none text-[#6D7A86]">Витамин D3 в каплях • с 3 лет</p>
+        <p className="mt-2 text-[18px] font-medium leading-none text-[#6D7A86]">Витамин D3 в каплях • с 3 лет</p>
       </header>
 
       <div className="absolute left-[35px] top-[88px] h-[982px] w-[470px] rounded-[18px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         {activeProductTab === 'dose' ? (
           <>
-            <h2 className="text-center text-[23px] font-bold leading-[1.16] text-[#18324A]"><span className="text-[#21A7A2]">500 МЕ</span> в 1 капле —<br />суточная доза для школьника</h2>
+            <h2 className="text-center text-[26px] font-bold leading-[1.14] text-[#18324A]"><span className="text-[#21A7A2]">500 МЕ</span> в 1 капле —<br />суточная доза для школьника</h2>
 
             <div className="relative mx-auto mt-4 h-[430px] w-[414px]">
               <div className="absolute left-1/2 top-[18px] h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,#EAF8F7_0%,#F7FFFF_58%,rgba(234,248,247,0)_74%)]" />
@@ -59,7 +59,7 @@ export default function SlideProduct() {
               <img src="/products/detrimax-active-pack.png" alt="Детримакс Актив" className="absolute left-1/2 top-[28px] h-[378px] w-auto -translate-x-1/2 object-contain drop-shadow-[0_18px_28px_rgba(24,50,74,0.18)]" draggable={false} />
             </div>
 
-            <p className="mt-2 text-center text-[16px] font-medium leading-[1.38] text-[#18324A]">Одна капля содержит <strong>500 МЕ витамина D3</strong> —<br />рекомендуемая профилактическая доза<br />для детей <span className="font-bold text-[#21A7A2]">с 3 лет</span>.</p>
+            <p className="mt-2 text-center text-[18px] font-medium leading-[1.34] text-[#18324A]">Одна капля содержит <strong>500 МЕ витамина D3</strong> —<br />рекомендуемая профилактическая доза<br />для детей <span className="font-bold text-[#21A7A2]">с 3 лет</span>.</p>
 
             <div className="mt-4 grid grid-cols-4 gap-3">
               <MiniBenefit icon={<DropIcon />} >Удобная<br />форма<br />в каплях</MiniBenefit>
@@ -80,8 +80,8 @@ export default function SlideProduct() {
       </div>
 
       <div className="absolute right-[35px] top-[88px] h-[982px] w-[455px] rounded-[18px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="text-center text-[23px] font-bold leading-[1.16] text-[#18324A]">Почему Детримакс® Актив<br /><span className="text-[#21A7A2]">подходит для школьников</span></h2>
-        <div className="mt-4 space-y-2.5">
+        <h2 className="text-center text-[26px] font-bold leading-[1.14] text-[#18324A]">Почему Детримакс® Актив<br /><span className="text-[#21A7A2]">подходит для школьников</span></h2>
+        <div className="mt-4 space-y-2">
           <Advantage icon={<TargetIcon />} title="Оптимальная доза" text={<>500 МЕ в 1 капле — суточная доза<br />для школьника</>} />
           <Advantage icon={<ShieldIcon />} title="Поддержка роста и развития" text={<>Способствует усвоению кальция<br />и фосфора, укреплению костей<br />и зубов</>} />
           <Advantage icon={<BrainIcon />} title="Поддержка мозга и нервной системы" text={<>Участвует в работе нейронов,<br />концентрации, обучении и памяти</>} />
@@ -91,7 +91,7 @@ export default function SlideProduct() {
         </div>
         <div className="mt-4 flex gap-3.5 rounded-[14px] bg-[#EAF8F7] px-4 py-4">
           <div className="shrink-0 text-[#21A7A2]"><BulbIcon /></div>
-          <p className="text-[14.5px] font-bold leading-[1.28] text-[#18324A]">Регулярный приём Детримакс® Актив —<br />простой способ поддержать здоровье,<br />развитие и активность ребёнка каждый день.</p>
+          <p className="text-[16.5px] font-bold leading-[1.26] text-[#18324A]">Регулярный приём Детримакс® Актив —<br />простой способ поддержать здоровье,<br />развитие и активность ребёнка каждый день.</p>
         </div>
       </div>
 

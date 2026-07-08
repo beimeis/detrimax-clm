@@ -157,12 +157,12 @@ export default function SlideComplications() {
       </header>
 
       {/* Left card */}
-      <div className="absolute left-[32px] top-[168px] flex h-[898px] w-[452px] flex-col rounded-[26px] bg-white px-8 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="text-[27px] font-bold leading-tight text-[#18324A]">
+      <div className="absolute left-[32px] top-[150px] flex h-[1016px] w-[452px] flex-col rounded-[26px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+        <h2 className="text-[32px] font-bold leading-[1.1] text-[#18324A]">
           Классическое осложнение — <span className="text-[#21A7A2]">рахит</span>
         </h2>
 
-        <div className="relative mt-4 h-[212px] w-full overflow-hidden rounded-[20px] bg-[#F2F7F6]">
+        <div className="relative mt-3 h-[180px] w-full shrink-0 overflow-hidden rounded-[20px] bg-[#F2F7F6]">
           <img
             src="/assets/characters/baby-audience.webp"
             alt="Спокойный малыш в светлой домашней обстановке"
@@ -172,23 +172,23 @@ export default function SlideComplications() {
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[70px] bg-gradient-to-t from-white/80 to-transparent" />
         </div>
 
-        <p className="mt-4 text-[17.5px] font-medium leading-[1.4] text-[#54616C]">
+        <p className="mt-3 text-[20px] font-medium leading-[1.34] text-[#54616C]">
           <span className="font-bold text-[#18324A]">Рахит</span> — нарушение минерального обмена
-          у детей 2–3 месяцев – 3 лет, ведущее к размягчению и деформации костей из-за дефицита
-          витамина D, кальция и фосфора.
+          у детей до 3 лет: размягчение и деформация костей из-за дефицита витамина D, кальция и
+          фосфора.
         </p>
 
-        <div className="mt-4 flex min-h-0 flex-1 flex-col rounded-[20px] bg-[#EAF8F7] p-5">
-          <h3 className="text-[21px] font-bold leading-tight text-[#0E8F8B]">Ключевые зоны риска</h3>
-          <ul className="mt-3 flex flex-1 flex-col justify-between gap-2.5">
+        <div className="mt-3 flex min-h-0 flex-1 flex-col rounded-[20px] bg-[#EAF8F7] p-4">
+          <h3 className="text-[26px] font-bold leading-tight text-[#0E8F8B]">Ключевые зоны риска</h3>
+          <ul className="mt-3 flex flex-1 flex-col justify-between gap-2">
             {riskZones.map((item) => (
-              <li key={item.title} className="flex items-start gap-3.5">
+              <li key={item.title} className="flex items-start gap-3">
                 <span className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-white text-[#21A7A2] shadow-[0_4px_12px_rgba(33,167,162,0.16)]">
                   {item.icon}
                 </span>
                 <div className="min-w-0 pt-0.5">
-                  <p className="text-[18.5px] font-bold leading-tight text-[#18324A]">{item.title}</p>
-                  <p className="mt-0.5 text-[15px] font-medium leading-[1.3] text-[#6D7A86]">{item.text}</p>
+                  <p className="text-[22px] font-bold leading-[1.12] text-[#18324A]">{item.title}</p>
+                  <p className="mt-0.5 text-[18px] font-medium leading-[1.26] text-[#6D7A86]">{item.text}</p>
                 </div>
               </li>
             ))}
@@ -197,8 +197,8 @@ export default function SlideComplications() {
       </div>
 
       {/* Right card */}
-      <div className="absolute right-[32px] top-[168px] flex h-[898px] w-[476px] flex-col rounded-[26px] bg-white px-8 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="text-[25px] font-bold leading-[1.22] text-[#18324A]">
+      <div className="absolute right-[32px] top-[150px] flex h-[1016px] w-[476px] flex-col rounded-[26px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+        <h2 className="text-[28px] font-bold leading-[1.16] text-[#18324A]">
           Что может произойти при длительном дефиците витамина D у ребёнка
         </h2>
 
@@ -206,7 +206,7 @@ export default function SlideComplications() {
           {stageBlocks.map((block) => (
             <article
               key={block.num}
-              className={`flex items-start gap-4 rounded-[18px] border px-5 py-3.5 ${
+              className={`flex items-start gap-3.5 rounded-[18px] border px-4 py-3 ${
                 block.accent
                   ? 'border-[#21A7A2] bg-[#EAF8F7]'
                   : 'border-[#EAEEF1] bg-white shadow-[0_6px_16px_rgba(24,50,74,0.05)]'
@@ -222,10 +222,10 @@ export default function SlideComplications() {
                 {block.icon}
               </div>
               <div className="min-w-0 pt-0.5">
-                <h3 className="text-[20px] font-bold leading-[1.16] text-[#18324A]">
+                <h3 className="text-[24px] font-bold leading-[1.14] text-[#18324A]">
                   <span className="text-[#21A7A2]">{block.num}.</span> {block.title}
                 </h3>
-                <p className="mt-1 text-[15.5px] font-medium leading-[1.34] text-[#6D7A86]">
+                <p className="mt-1 text-[18px] font-medium leading-[1.3] text-[#6D7A86]">
                   {block.text}
                 </p>
               </div>

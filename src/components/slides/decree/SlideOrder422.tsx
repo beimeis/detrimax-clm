@@ -31,7 +31,7 @@ export default function SlideOrder422() {
       <header className="absolute left-[42px] right-[42px] top-[0px] flex items-start justify-between">
         <div>
           <h1 className="mt-3 font-display text-[40px] font-extrabold leading-[1.08] tracking-normal text-[#D93632]">Приказ №422</h1>
-          <p className="mt-2 text-[18px] font-medium leading-[1.3] text-[#66788F]">Министерства здравоохранения<br />Кыргызской Республики от 23 апреля 2024 г.</p>
+          <p className="mt-2 text-[20px] font-medium leading-[1.28] text-[#66788F]">Министерства здравоохранения<br />Кыргызской Республики от 23 апреля 2024 г.</p>
         </div>
       </header>
 
@@ -55,7 +55,7 @@ export default function SlideOrder422() {
 
             <div className="flex h-[141px] items-center gap-4 bg-white px-7 py-4">
               <img src="/assets/qr/order-422.png" alt="QR-код приказа №422" className="h-[108px] w-[108px] shrink-0 object-contain" draggable={false} />
-              <p className="text-[12.5px] font-bold leading-[1.35] text-[#16324F]">Пожалуйста, наведите камеру на QR-код,<br />чтобы ознакомиться с приказом.</p>
+              <p className="text-[14.5px] font-bold leading-[1.32] text-[#16324F]">Пожалуйста, наведите камеру на QR-код,<br />чтобы ознакомиться с приказом.</p>
             </div>
           </div>
         </article>
@@ -64,7 +64,7 @@ export default function SlideOrder422() {
           <OfficialEmblem />
           <h2 className="mt-4 text-[30px] font-extrabold uppercase leading-[1.14] text-[#2F5F9F]">МИНИСТЕРСТВО<br />ЗДРАВООХРАНЕНИЯ<br />КЫРГЫЗСКОЙ РЕСПУБЛИКИ</h2>
           <Divider />
-          <p className="mt-4 text-[21px] font-medium leading-[1.35] text-[#16324F]">Приказ №422<br />от 23 апреля 2024г</p>
+          <p className="mt-4 text-[23px] font-medium leading-[1.32] text-[#16324F]">Приказ №422<br />от 23 апреля 2024г</p>
           <p className="mx-auto mt-4 max-w-[420px] text-center font-sans text-[34px] font-[850] leading-[1.28] tracking-normal text-[#14366F]">Назначение Витамина Д<br />400 МЕ перорально<br />ежедневно в течение<br />как минимум 12 месяцев<br />для профилактики рахита</p>
         </article>
       </div>

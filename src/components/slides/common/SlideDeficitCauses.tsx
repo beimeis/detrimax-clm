@@ -129,7 +129,7 @@ export default function SlideDeficitCauses() {
             <h1 className="font-display text-[35px] font-extrabold leading-[1.08] tracking-tight text-[#18324A]">
               Почему возникает дефицит<br />витамина D3 у новорождённых?
             </h1>
-            <p className="mt-2 text-[17px] font-medium leading-none text-[#6D7A86]">
+            <p className="mt-2 text-[19px] font-medium leading-none text-[#6D7A86]">
               4 главных фактора «пустого депо» у младенца
             </p>
           </div>
@@ -154,13 +154,13 @@ export default function SlideDeficitCauses() {
               <span className="absolute -left-2.5 -top-2.5 flex h-9 w-9 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-[16px] font-bold text-white shadow-[0_6px_14px_rgba(33,167,162,0.32)]">
                 {card.num}
               </span>
-              <div className="flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-[18px] border border-[#CBEBE8] bg-[#EAF8F7] text-[#21A7A2]">
+              <div className="flex h-[62px] w-[62px] shrink-0 items-center justify-center rounded-[18px] border border-[#CBEBE8] bg-[#EAF8F7] text-[#21A7A2]">
                 {card.icon}
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="text-[18px] font-bold leading-[1.16] text-[#18324A]">{card.title}</h3>
-                <p className="mt-2 text-[14.5px] font-bold leading-tight text-[#21A7A2]">{card.accent}</p>
-                <p className="mt-1.5 text-[13.5px] font-medium leading-[1.4] text-[#6D7A86]">{card.text}</p>
+                <h3 className="text-[21px] font-bold leading-[1.14] text-[#18324A]">{card.title}</h3>
+                <p className="mt-2 text-[17px] font-bold leading-tight text-[#21A7A2]">{card.accent}</p>
+                <p className="mt-1.5 text-[16.5px] font-medium leading-[1.32] text-[#6D7A86]">{card.text}</p>
               </div>
             </article>
           ))}
@@ -169,8 +169,8 @@ export default function SlideDeficitCauses() {
         {/* Summary */}
         <div className="mt-6 flex items-center gap-5 rounded-[22px] bg-[#EAF8F7] px-7 py-5">
           <D3Shield className="h-[64px] w-[64px] shrink-0" />
-          <p className="flex-1 text-[19px] font-medium leading-[1.28] text-[#18324A]">
-            <span className="text-[22px] font-extrabold text-[#0E8F8B]">Итог:</span> у младенца мало
+          <p className="flex-1 text-[22px] font-medium leading-[1.26] text-[#18324A]">
+            <span className="text-[25px] font-extrabold text-[#0E8F8B]">Итог:</span> у младенца мало
             источников витамина D3, а потребность в нём очень высокая.
           </p>
           <SleepingBabyCloud className="h-[74px] w-[150px] shrink-0" />

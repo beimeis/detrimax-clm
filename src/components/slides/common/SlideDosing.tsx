@@ -35,7 +35,7 @@ function Step({ n, children }: { n: number; children: React.ReactNode }) {
       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-[15px] font-bold text-white">
         {n}
       </span>
-      <p className="text-[16.5px] font-semibold leading-[1.18] text-[#18324A]">{children}</p>
+      <p className="text-[19px] font-semibold leading-[1.16] text-[#18324A]">{children}</p>
     </li>
   )
 }
@@ -51,7 +51,7 @@ export default function Slide06Dosing() {
       </header>
 
       <div className="absolute left-[45px] top-[190px] h-[850px] w-[390px] rounded-[24px] bg-white px-7 py-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="text-[23px] font-bold leading-[1.25] text-[#18324A]">
+        <h2 className="text-[26px] font-bold leading-[1.22] text-[#18324A]">
           Уровень содержания витамина<br />D3 в крови и оценка статуса
         </h2>
 
@@ -68,7 +68,7 @@ export default function Slide06Dosing() {
           </table>
         </div>
 
-        <p className="mt-4 text-[18px] font-medium leading-[1.38] text-[#18324A]">
+        <p className="mt-4 text-[20px] font-medium leading-[1.34] text-[#18324A]">
           Рекомендуемые целевые значения<br />25(OH)D при коррекции дефицита<br />витамина D - 30–60 нг/мл<br />(Уровень доказательности A I)
         </p>
 
@@ -79,14 +79,14 @@ export default function Slide06Dosing() {
       </div>
 
       <div className="absolute right-[45px] top-[190px] h-[850px] w-[532px] rounded-[24px] bg-white px-7 py-8 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <h2 className="text-[23px] font-bold leading-[1.22] text-[#18324A]">Алгоритм подбора оптимальной дозы:</h2>
+        <h2 className="text-[26px] font-bold leading-[1.2] text-[#18324A]">Алгоритм подбора оптимальной дозы:</h2>
         <ol className="mt-4">
           <Step n={1}>Сдать анализ на определение уровня 25(OH)D3</Step>
           <Step n={2}>Определить рекомендованную дозу</Step>
           <Step n={3}>Исследовать кровь повторно через 3–6 месяцев</Step>
         </ol>
 
-        <div className="mt-4 space-y-3 text-[15.5px] font-semibold leading-[1.25] text-[#18324A]">
+        <div className="mt-4 space-y-3 text-[17px] font-semibold leading-[1.22] text-[#18324A]">
           <p>Среднее изменения уровня 25(OH)D3 в зависимости<br />от ежедневного потребления витамина</p>
           <p>Средняя доза витамина D3 (МЕ) для повышения<br />показателей для м/ж с весом в пределах для своей<br />возрастной группы</p>
         </div>
@@ -120,7 +120,7 @@ export default function Slide06Dosing() {
 
       <div className="absolute left-[45px] right-[45px] top-[1062px] flex h-[78px] items-center justify-center gap-4 rounded-[18px] bg-[linear-gradient(135deg,#21A7A2,#009688)] px-8 text-center text-white shadow-[0_10px_25px_rgba(33,167,162,0.18)]">
         <TargetIcon />
-        <p className="text-[20px] font-bold leading-[1.22] text-white">Рекомендуемые целевые значения 25(OH)D: 30–60 нг/мл • контроль через 3–6 месяцев</p>
+        <p className="text-[23px] font-bold leading-[1.2] text-white">Рекомендуемые целевые значения 25(OH)D: 30–60 нг/мл • контроль через 3–6 месяцев</p>
       </div>
 
     </section>

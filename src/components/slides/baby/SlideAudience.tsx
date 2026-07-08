@@ -133,11 +133,11 @@ function FeatureRow({ item }: { item: FeatureItem }) {
     <article className="flex items-start gap-4">
       <IconCircle>{item.icon}</IconCircle>
       <div className="min-w-0 pt-0.5">
-        <h4 className="text-[18px] font-bold leading-tight text-[#18324A]">
+        <h4 className="text-[20px] font-bold leading-tight text-[#18324A]">
           {item.title}
           <span className="text-[#FFA726]">:</span>
         </h4>
-        <p className="mt-1.5 text-[14px] font-medium leading-[1.4] text-[#6D7A86]">
+        <p className="mt-1.5 text-[16.5px] font-medium leading-[1.34] text-[#6D7A86]">
           {item.text}
         </p>
       </div>
@@ -151,7 +151,7 @@ function SectionHeading({ icon, children }: { icon: ReactNode; children: ReactNo
       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FFA726] text-white">
         {icon}
       </span>
-      <h3 className="text-[21px] font-bold leading-tight text-[#FFA726]">{children}</h3>
+      <h3 className="text-[24px] font-bold leading-tight text-[#FFA726]">{children}</h3>
     </div>
   )
 }
@@ -163,7 +163,7 @@ export default function SlideAudience() {
         <h1 className="font-display text-[30px] font-bold leading-[1.08] tracking-normal text-[#18324A]">
           Аудитория и потребность
         </h1>
-        <p className="mt-1 text-[16px] font-medium leading-none text-[#6D7A86]">
+        <p className="mt-1 text-[18px] font-medium leading-none text-[#6D7A86]">
           Пациент: младенец 0–12 месяцев
         </p>
       </header>
@@ -180,7 +180,7 @@ export default function SlideAudience() {
       <div className="relative z-10 mb-5 mt-5 grid w-full flex-1 grid-cols-[minmax(0,390px)_minmax(0,1fr)] justify-center gap-6 self-center overflow-hidden">
         {/* Left column */}
         <div className="flex h-full min-h-0 flex-col rounded-[20px] bg-white p-6 shadow-[0_10px_35px_rgba(0,0,0,0.08)]">
-          <div className="h-[300px] w-full overflow-hidden rounded-[14px] bg-[#F7F3ED]">
+          <div className="h-[264px] w-full overflow-hidden rounded-[14px] bg-[#F7F3ED]">
             <img
               src="/assets/characters/baby-audience.webp"
               alt="Младенец"
@@ -190,7 +190,7 @@ export default function SlideAudience() {
           </div>
 
           <div className="mt-5 flex min-h-0 flex-1 flex-col rounded-[16px] bg-[#FFF9EF] p-5">
-            <h3 className="text-center text-[20px] font-bold leading-tight text-[#FFA726]">
+            <h3 className="text-center text-[22px] font-bold leading-tight text-[#FFA726]">
               Ключевая поддержка
               <br />в первый год жизни
             </h3>
@@ -200,7 +200,7 @@ export default function SlideAudience() {
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[#FFA726] shadow-[0_3px_10px_rgba(255,167,38,0.22)]">
                     {item.icon}
                   </span>
-                  <span className="text-[17px] font-bold leading-tight text-[#18324A]">
+                  <span className="text-[19.5px] font-bold leading-tight text-[#18324A]">
                     {item.label}
                   </span>
                 </li>
