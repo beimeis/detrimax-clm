@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { ReactNode } from 'react'
 
 const NAVY = '#18324A'
@@ -100,68 +101,133 @@ function Molecule() {
   )
 }
 
-const WHEEL_ICONS = [
-  { icon: <ShieldIcon className="h-[30px] w-[30px]" />, left: 76, top: 76 },
-  { icon: <BoneIcon className="h-[30px] w-[30px]" />, left: 302, top: 76 },
-  { icon: <GrowthArrowIcon className="h-[30px] w-[30px]" />, left: 76, top: 302 },
-  { icon: <SleepZzzIcon className="h-[30px] w-[30px]" />, left: 302, top: 302 },
+interface WheelPart {
+  key: string
+  label: string
+  icon: ReactNode
+  cx: number
+  cy: number
+  detail: string
+}
+
+const wheelParts: WheelPart[] = [
+  {
+    key: 'immune',
+    label: 'Иммунитет и защита',
+    icon: <ShieldIcon className="h-[36px] w-[36px]" />,
+    cx: 96,
+    cy: 96,
+    detail:
+      'Витамин D3 активирует защитные клетки и способствует выработке собственных антимикробных пептидов, помогая снижать частоту простудных заболеваний у школьника.',
+  },
+  {
+    key: 'bones',
+    label: 'Кости и мышцы',
+    icon: <BoneIcon className="h-[36px] w-[36px]" />,
+    cx: 312,
+    cy: 96,
+    detail:
+      'D3 обеспечивает усвоение кальция и фосфора — основу крепких костей и зубов, а также поддерживает мышечный тонус в период активного роста.',
+  },
+  {
+    key: 'growth',
+    label: 'Рост и развитие',
+    icon: <GrowthArrowIcon className="h-[36px] w-[36px]" />,
+    cx: 96,
+    cy: 312,
+    detail:
+      'В период интенсивного роста потребность в витамине D возрастает: он участвует в формировании скелета и поддерживает гармоничное физическое развитие ребёнка.',
+  },
+  {
+    key: 'mood',
+    label: 'Настроение и сон',
+    icon: <SleepZzzIcon className="h-[36px] w-[36px]" />,
+    cx: 312,
+    cy: 312,
+    detail:
+      'Витамин D связан с синтезом серотонина и регуляцией биоритмов — помогает поддерживать ровное настроение, концентрацию и качественный сон.',
+  },
 ]
 
-function D3SupportWheel() {
+function CloseX({ className = 'h-6 w-6' }: { className?: string }) {
   return (
-    <div className="relative mx-auto mt-16 h-[408px] w-[408px] drop-shadow-[0_22px_44px_rgba(33,137,137,0.22)]">
-      <svg viewBox="0 0 408 408" className="h-full w-full" aria-hidden>
-        <defs>
-          <radialGradient id="secGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#8CD6D0" />
-            <stop offset="55%" stopColor="#53B6B0" />
-            <stop offset="100%" stopColor="#2E9B96" />
-          </radialGradient>
-          <radialGradient id="capGrad" cx="38%" cy="30%" r="75%">
-            <stop offset="0%" stopColor="#FFF176" />
-            <stop offset="45%" stopColor="#FFD84A" />
-            <stop offset="100%" stopColor="#F4A320" />
-          </radialGradient>
-          <filter id="capGlow" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="12" />
-          </filter>
-        </defs>
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+    </svg>
+  )
+}
 
-        <circle cx="204" cy="204" r="198" fill="url(#secGrad)" stroke="#ffffff" strokeWidth="6" />
-        <line x1="204" y1="10" x2="204" y2="398" stroke="#ffffff" strokeWidth="3" />
-        <line x1="10" y1="204" x2="398" y2="204" stroke="#ffffff" strokeWidth="3" />
+function D3SupportWheel({ onSelect }: { onSelect: (part: WheelPart) => void }) {
+  return (
+    <div className="group relative mx-auto mt-14 h-[408px] w-[408px] drop-shadow-[0_22px_44px_rgba(33,137,137,0.22)]">
+      {/* Rotating ring — pauses on hover so it's easy to click */}
+      <div className="vf-wheel-spin absolute inset-0">
+        <svg viewBox="0 0 408 408" className="h-full w-full" aria-hidden>
+          <defs>
+            <radialGradient id="secGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#A6CFCB" />
+              <stop offset="55%" stopColor="#6FA6A1" />
+              <stop offset="100%" stopColor="#4E8A85" />
+            </radialGradient>
+          </defs>
 
-        <path id="arcTL" d="M80.2 197.5 A124 124 0 0 1 197.5 80.2" fill="none" />
-        <path id="arcTR" d="M210.5 80.2 A124 124 0 0 1 327.8 197.5" fill="none" />
-        <path id="arcBL" d="M80.2 210.5 A124 124 0 0 0 197.5 327.8" fill="none" />
-        <path id="arcBR" d="M210.5 327.8 A124 124 0 0 0 327.8 210.5" fill="none" />
+          <circle cx="204" cy="204" r="198" fill="url(#secGrad)" stroke="#ffffff" strokeWidth="6" />
+          <line x1="204" y1="10" x2="204" y2="398" stroke="#ffffff" strokeWidth="3" />
+          <line x1="10" y1="204" x2="398" y2="204" stroke="#ffffff" strokeWidth="3" />
 
-        <g fill="#ffffff" fontSize="16.5" fontWeight={700} letterSpacing="0.2">
-          <text textAnchor="middle" dominantBaseline="middle"><textPath href="#arcTL" startOffset="50%">Иммунитет и защита</textPath></text>
-          <text textAnchor="middle" dominantBaseline="middle"><textPath href="#arcTR" startOffset="50%">Кости и мышцы</textPath></text>
-          <text textAnchor="middle" dominantBaseline="middle"><textPath href="#arcBL" startOffset="50%">Рост и развитие</textPath></text>
-          <text textAnchor="middle" dominantBaseline="middle"><textPath href="#arcBR" startOffset="50%">Настроение и сон</textPath></text>
-        </g>
+          <path id="arcTL" d="M80.2 197.5 A124 124 0 0 1 197.5 80.2" fill="none" />
+          <path id="arcTR" d="M210.5 80.2 A124 124 0 0 1 327.8 197.5" fill="none" />
+          <path id="arcBL" d="M80.2 210.5 A124 124 0 0 0 197.5 327.8" fill="none" />
+          <path id="arcBR" d="M210.5 327.8 A124 124 0 0 0 327.8 210.5" fill="none" />
 
-        <circle cx="204" cy="204" r="94" fill="#FFD24A" opacity="0.55" filter="url(#capGlow)" />
-        <circle cx="204" cy="204" r="80" fill="url(#capGrad)" stroke="#ffffff" strokeWidth="7" />
-        <text x="204" y="207" textAnchor="middle" dominantBaseline="middle" fill="#ffffff" fontSize="50" fontWeight={800}>D3</text>
-      </svg>
+          <g fill="#ffffff" fontSize="16.5" fontWeight={700} letterSpacing="0.2">
+            <text textAnchor="middle" dominantBaseline="middle"><textPath href="#arcTL" startOffset="50%">Иммунитет и защита</textPath></text>
+            <text textAnchor="middle" dominantBaseline="middle"><textPath href="#arcTR" startOffset="50%">Кости и мышцы</textPath></text>
+            <text textAnchor="middle" dominantBaseline="middle"><textPath href="#arcBL" startOffset="50%">Рост и развитие</textPath></text>
+            <text textAnchor="middle" dominantBaseline="middle"><textPath href="#arcBR" startOffset="50%">Настроение и сон</textPath></text>
+          </g>
+        </svg>
 
-      {WHEEL_ICONS.map((it, i) => (
-        <div
-          key={i}
-          className="pointer-events-none absolute flex h-[30px] w-[30px] items-center justify-center text-white drop-shadow-[0_2px_3px_rgba(15,91,91,0.35)]"
-          style={{ left: it.left, top: it.top }}
-        >
-          {it.icon}
-        </div>
-      ))}
+        {/* Clickable quadrants */}
+        {wheelParts.map((p) => (
+          <button
+            key={p.key}
+            type="button"
+            aria-label={p.label}
+            onClick={() => onSelect(p)}
+            className="absolute flex h-[116px] w-[116px] -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full text-white ring-white/0 transition duration-200 hover:bg-white/15 hover:ring-2 hover:ring-white/50 focus:outline-none focus-visible:bg-white/20"
+            style={{ left: p.cx, top: p.cy }}
+          >
+            <span className="drop-shadow-[0_2px_3px_rgba(15,91,91,0.35)]">{p.icon}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Static centre cap (stays upright) */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[188px] w-[188px] -translate-x-1/2 -translate-y-1/2">
+        <svg viewBox="0 0 188 188" className="h-full w-full" aria-hidden>
+          <defs>
+            <radialGradient id="capGrad" cx="38%" cy="30%" r="75%">
+              <stop offset="0%" stopColor="#FFF176" />
+              <stop offset="45%" stopColor="#FFD84A" />
+              <stop offset="100%" stopColor="#F4A320" />
+            </radialGradient>
+            <filter id="capGlow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="12" />
+            </filter>
+          </defs>
+          <circle cx="94" cy="94" r="84" fill="#FFD24A" opacity="0.5" filter="url(#capGlow)" />
+          <circle cx="94" cy="94" r="80" fill="url(#capGrad)" stroke="#ffffff" strokeWidth="7" />
+          <text x="94" y="99" textAnchor="middle" dominantBaseline="middle" fill="#ffffff" fontSize="50" fontWeight={800}>D3</text>
+        </svg>
+      </div>
     </div>
   )
 }
 
 export default function SlideAudience() {
+  const [activePart, setActivePart] = useState<WheelPart | null>(null)
+
   return (
     <section
       className="relative h-full overflow-hidden px-[48px]"
@@ -220,7 +286,7 @@ export default function SlideAudience() {
           Комплексная поддержка здоровья<br />ребёнка каждый день
         </p>
 
-        <D3SupportWheel />
+        <D3SupportWheel onSelect={setActivePart} />
 
         <div className="relative mt-auto mb-10 rounded-[16px] border border-[#E4E8EB] bg-white px-6 py-7">
           <div className="pr-[104px]">
@@ -236,6 +302,57 @@ export default function SlideAudience() {
           </div>
         </div>
       </div>
+
+      {/* Wheel part modal */}
+      {activePart && (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center px-10"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="absolute inset-0 bg-[#0E2A3B]/45 backdrop-blur-[3px]"
+            onClick={() => setActivePart(null)}
+          />
+
+          <div className="relative w-[720px] max-w-full overflow-hidden rounded-[30px] bg-[linear-gradient(160deg,#FFFFFF_0%,#F2FBFA_55%,#E7F6F4_100%)] shadow-[0_44px_96px_rgba(14,42,59,0.42)] ring-1 ring-[#CBEBE8]">
+            <div className="h-[9px] w-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)]" />
+
+            <div className="pointer-events-none absolute inset-x-4 bottom-4 top-6 rounded-[22px] border border-dashed border-[#B7E7E4]" />
+
+            <button
+              type="button"
+              onClick={() => setActivePart(null)}
+              aria-label="Закрыть"
+              className="absolute right-6 top-[30px] z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#0E8F8B] shadow-[0_6px_16px_rgba(14,42,59,0.16)] transition hover:bg-[#EAF8F7]"
+            >
+              <CloseX className="h-6 w-6" />
+            </button>
+
+            <div className="relative px-12 pb-12 pt-9">
+              <div className="flex items-center gap-5">
+                <span className="flex h-[86px] w-[86px] shrink-0 items-center justify-center rounded-[24px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_12px_26px_rgba(14,42,59,0.2)]">
+                  {activePart.icon}
+                </span>
+                <div className="min-w-0 pr-14">
+                  <p className="text-[15px] font-extrabold uppercase tracking-[0.08em] text-[#21A7A2]">
+                    Поддержка витамина D3
+                  </p>
+                  <h3 className="mt-1.5 text-[34px] font-extrabold leading-[1.06] text-[#18324A]">
+                    {activePart.label}
+                  </h3>
+                </div>
+              </div>
+
+              <div className="mt-6 h-px w-full bg-[#CBEBE8]" />
+
+              <p className="mt-6 text-[24px] font-medium leading-[1.5] text-[#3C4A57]">
+                {activePart.detail}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
     </section>
   )

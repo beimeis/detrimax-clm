@@ -1,6 +1,23 @@
+import { useState } from 'react'
 import type { ReactNode } from 'react'
 
 const NAVY = '#18324A'
+
+function ChevronRight({ className = 'h-5 w-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function CloseX({ className = 'h-6 w-6' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+    </svg>
+  )
+}
 
 /* ── Icons ─────────────────────────────────────────────── */
 
@@ -137,6 +154,8 @@ const theses = [
 interface Point {
   num: number
   text: string
+  title: string
+  detail: string
   icon: ReactNode
   illus: ReactNode
 }
@@ -145,24 +164,36 @@ const points: Point[] = [
   {
     num: 1,
     text: 'Способствует активации защитной функции организма',
+    title: 'Активация защитной функции',
+    detail:
+      'Витамин D активирует рецепторы врождённого иммунитета и «настраивает» защитные клетки на быстрый ответ, повышая готовность организма встречать патогены уже на первой линии обороны.',
     icon: <ShieldIcon check />,
     illus: <ShieldSparkIllus />,
   },
   {
     num: 2,
     text: 'Снижает риск развития простудных заболеваний',
+    title: 'Меньше простудных заболеваний',
+    detail:
+      'Метаанализы показывают: регулярный приём D3 снижает частоту острых респираторных инфекций, и наибольший эффект наблюдается у детей с исходно низким уровнем 25(OH)D.',
     icon: <HeadCrossIcon />,
     illus: <VirusArrowIllus />,
   },
   {
     num: 3,
     text: 'Запускает в организме синтез собственных антимикробных пептидов',
+    title: 'Синтез антимикробных пептидов',
+    detail:
+      'Через гены-мишени витамин D стимулирует выработку кателицидина (LL-37) и β-дефензинов — молекул, которые разрушают оболочку вирусов и бактерий прямо на слизистых.',
     icon: <MoleculeIcon />,
     illus: <PeptideIllus />,
   },
   {
     num: 4,
     text: 'Регулирует рост, развитие и обновление клеток иммунной системы',
+    title: 'Обновление иммунных клеток',
+    detail:
+      'D3 поддерживает баланс дифференцировки Т-клеток и обновление иммунных клеток, помогая формировать зрелый и сбалансированный иммунный ответ у растущего ребёнка.',
     icon: <CellCycleIcon />,
     illus: <CellClusterIllus />,
   },
@@ -171,6 +202,7 @@ const points: Point[] = [
 /* ── Slide ─────────────────────────────────────────────── */
 
 export default function SlideImmunitySupport() {
+  const [active, setActive] = useState<Point | null>(null)
 
   return (
     <section className="relative h-full overflow-hidden px-[45px]" style={{ color: NAVY }}>
@@ -222,11 +254,13 @@ export default function SlideImmunitySupport() {
       </div>
 
       {/* Right card */}
-      <div className="absolute right-[45px] top-[176px] flex h-[856px] w-[500px] flex-col rounded-[24px] bg-white px-7 py-4 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      <div className="absolute right-[45px] top-[176px] flex h-[856px] w-[500px] flex-col rounded-[24px] bg-white px-4 py-3 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         {points.map((p, i) => (
-          <article
+          <button
             key={p.num}
-            className="flex flex-1 items-center gap-4"
+            type="button"
+            onClick={() => setActive(p)}
+            className="group flex flex-1 items-center gap-4 rounded-[16px] px-3 text-left transition duration-200 ease-out hover:bg-[#F4FAF9] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#21A7A2]"
             style={{ borderTop: i === 0 ? '0' : '1px solid #EEF1F4' }}
           >
             <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
@@ -236,10 +270,13 @@ export default function SlideImmunitySupport() {
               <span className="mr-1 font-extrabold text-[#21A7A2]">{p.num}.</span>
               {p.text}
             </p>
-            <div className="flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-[16px] bg-[#F4FAF9]">
+            <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-[16px] bg-[#F4FAF9] transition group-hover:bg-white">
               {p.illus}
             </div>
-          </article>
+            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2] transition group-hover:bg-[#21A7A2] group-hover:text-white">
+              <ChevronRight className="h-[17px] w-[17px]" />
+            </span>
+          </button>
         ))}
       </div>
 
@@ -259,6 +296,57 @@ export default function SlideImmunitySupport() {
         <span className="text-[#21A7A2]"><DocIcon /></span>
         Источник: <span className="text-[#21A7A2]">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6210343/</span>
       </p>
+
+      {/* Point detail modal */}
+      {active && (
+        <div className="fixed inset-0 z-[80] flex items-center justify-center px-10" role="dialog" aria-modal="true">
+          <div className="absolute inset-0 bg-[#0E2A3B]/45 backdrop-blur-[3px]" onClick={() => setActive(null)} />
+
+          <div className="vf-flip-in relative w-[840px] max-w-full overflow-hidden rounded-[30px] bg-white shadow-[0_44px_96px_rgba(14,42,59,0.42)] ring-1 ring-[#CBEBE8]">
+            <div className="h-[10px] w-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)]" />
+
+            <button
+              type="button"
+              onClick={() => setActive(null)}
+              aria-label="Закрыть"
+              className="absolute right-6 top-[32px] z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#0E8F8B] shadow-[0_6px_16px_rgba(14,42,59,0.16)] transition hover:bg-[#EAF8F7]"
+            >
+              <CloseX className="h-6 w-6" />
+            </button>
+
+            <div className="relative px-14 pb-14 pt-10">
+              <div className="flex items-center gap-6">
+                <span className="flex h-[100px] w-[100px] shrink-0 items-center justify-center rounded-[26px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_14px_30px_rgba(14,42,59,0.22)] [&>svg]:h-[52px] [&>svg]:w-[52px]">
+                  {active.icon}
+                </span>
+                <div className="min-w-0 pr-14">
+                  <p className="text-[17px] font-extrabold uppercase tracking-[0.08em] text-[#21A7A2]">
+                    Действие D3 · {active.num}
+                  </p>
+                  <h3 className="mt-2 text-[36px] font-extrabold leading-[1.08] text-[#18324A]">
+                    {active.title}
+                  </h3>
+                </div>
+              </div>
+
+              <div className="mt-7 h-px w-full bg-[#CBEBE8]" />
+
+              <p className="mt-7 text-[26px] font-medium leading-[1.5] text-[#33475A]">
+                {active.detail}
+              </p>
+
+              <div className="mt-7 flex items-center gap-4 rounded-[22px] bg-[linear-gradient(135deg,#EAF8F7,#DDF3F0)] px-7 py-5">
+                <span className="flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-[16px] bg-white shadow-[0_6px_16px_rgba(33,167,162,0.18)]">
+                  {active.illus}
+                </span>
+                <p className="text-[21px] font-semibold leading-[1.34] text-[#18324A]">
+                  {active.text}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
     </section>
   )

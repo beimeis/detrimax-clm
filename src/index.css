@@ -179,28 +179,28 @@
    Common (shared) slides are authored in teal. In the baby flow
    we recolor those teal tokens to the baby orange accent so each
    flow reads in one consistent colour. Active keeps the teal. */
-.theme-baby [class*="text-[#21A7A2]"] { color: #F2960E; }
-.theme-baby [class*="text-[#0E8F8B]"] { color: #CE7A08; }
-.theme-baby [class*="text-[#009688]"] { color: #E28609; }
+.theme-baby [class*="text-[#21A7A2]"] { color: #D89A4B; }
+.theme-baby [class*="text-[#0E8F8B]"] { color: #B9813C; }
+.theme-baby [class*="text-[#009688]"] { color: #CE9040; }
 
-.theme-baby [class*="bg-[#21A7A2]"] { background-color: #F2960E; }
-.theme-baby [class*="bg-[#009688]"] { background-color: #E28609; }
+.theme-baby [class*="bg-[#21A7A2]"] { background-color: #D89A4B; }
+.theme-baby [class*="bg-[#009688]"] { background-color: #CE9040; }
 .theme-baby [class*="bg-[#EAF8F7]"] { background-color: #FFF3E2; }
 .theme-baby [class*="bg-[#F4FAF9]"] { background-color: #FFF7EC; }
 .theme-baby [class*="bg-[#DDF3F0]"] { background-color: #FCE9D0; }
 .theme-baby [class*="bg-[#F2F7F6]"] { background-color: #FBF4EA; }
 
-.theme-baby [class*="border-[#21A7A2]"] { border-color: #F2960E; }
+.theme-baby [class*="border-[#21A7A2]"] { border-color: #D89A4B; }
 .theme-baby [class*="border-[#CBEBE8]"] { border-color: #F6DCB0; }
-.theme-baby [class*="ring-[#21A7A2]"] { --tw-ring-color: #F2960E; }
+.theme-baby [class*="ring-[#21A7A2]"] { --tw-ring-color: #D89A4B; }
 
-.theme-baby [class*="linear-gradient(135deg,#21A7A2,#0E8F8B)"] { background-image: linear-gradient(135deg, #F2960E, #CE7A08); }
-.theme-baby [class*="linear-gradient(135deg,#21A7A2,#009688)"] { background-image: linear-gradient(135deg, #F2960E, #E28609); }
+.theme-baby [class*="linear-gradient(135deg,#21A7A2,#0E8F8B)"] { background-image: linear-gradient(135deg, #D89A4B, #B9813C); }
+.theme-baby [class*="linear-gradient(135deg,#21A7A2,#009688)"] { background-image: linear-gradient(135deg, #D89A4B, #CE9040); }
 
-.theme-baby [fill="#21A7A2"] { fill: #F2960E; }
-.theme-baby [stroke="#21A7A2"] { stroke: #F2960E; }
-.theme-baby [fill="#0E8F8B"] { fill: #CE7A08; }
-.theme-baby [stroke="#0E8F8B"] { stroke: #CE7A08; }
+.theme-baby [fill="#21A7A2"] { fill: #D89A4B; }
+.theme-baby [stroke="#21A7A2"] { stroke: #D89A4B; }
+.theme-baby [fill="#0E8F8B"] { fill: #B9813C; }
+.theme-baby [stroke="#0E8F8B"] { stroke: #B9813C; }
 .theme-baby [fill="#EAF8F7"] { fill: #FFF3E2; }
 .theme-baby [stroke="#EAF8F7"] { stroke: #FFF3E2; }
 .theme-baby [fill="#7FCFCA"] { fill: #F2C478; }
@@ -208,3 +208,163 @@
 .theme-baby [fill="#A9DFDC"] { fill: #F7D49A; }
 .theme-baby [fill="#8FD6D1"] { fill: #F5CD86; }
 .theme-baby [stroke="#8FD6D1"] { stroke: #F5CD86; }
+
+/* Rotating D3 support wheel (active audience slide) */
+@keyframes vf-wheel-spin {
+  to { transform: rotate(360deg); }
+}
+.vf-wheel-spin {
+  animation: vf-wheel-spin 32s linear infinite;
+  transform-origin: 50% 50%;
+}
+.group:hover .vf-wheel-spin {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .vf-wheel-spin { animation: none; }
+}
+
+/* =====================================================================
+   Soft glassmorphism system — visual layer only (structure unchanged)
+   ===================================================================== */
+
+/* Large card containers → Liquid Glass (sharp, solid clean surface, no haze) */
+.slide-frame :is(
+  [class*="shadow-[0_12px_35px_rgba(0,0,0,0.08)]"],
+  [class*="shadow-[0_10px_35px_rgba(0,0,0,0.08)]"],
+  [class*="shadow-[0_18px_45px_rgba(22,55,92,0.08)]"],
+  [class*="shadow-[0_16px_44px_rgba(24,50,74,0.10)]"]
+) {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(158deg, rgba(255, 255, 255, 1) 0%, rgba(244, 251, 251, 1) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow:
+    0 20px 44px rgba(18, 58, 88, 0.13),
+    0 2px 6px rgba(18, 58, 88, 0.05),
+    inset 0 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 0 0 1px rgba(11, 179, 170, 0.14) !important;
+}
+
+/* Interactive inner cards / chips / buttons → clean sharp glass */
+.slide-frame :is(
+  [class*="shadow-[0_8px_22px_rgba(24,50,74,0.06)]"],
+  [class*="shadow-[0_8px_24px_rgba(24,50,74,0.06)]"],
+  [class*="shadow-[0_6px_16px_rgba(24,50,74,0.05)]"],
+  [class*="shadow-[0_6px_18px_rgba(24,50,74,0.05)]"],
+  [class*="shadow-[0_4px_14px_rgba(24,50,74,0.05)]"],
+  [class*="shadow-[0_8px_20px_rgba(0,0,0,0.045)]"],
+  [class*="shadow-[0_8px_18px_rgba(0,0,0,0.035)]"]
+) {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 1) 0%, rgba(247, 252, 252, 1) 100%) !important;
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow:
+    0 8px 20px rgba(18, 58, 88, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 0 0 1px rgba(11, 179, 170, 0.12) !important;
+}
+
+/* Hover lift for interactive glass cards keeps working (translate handled by utilities) */
+
+/* card-panel (home / finale) → Liquid Glass */
+.card-panel {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(158deg, rgba(255, 255, 255, 1) 0%, rgba(244, 251, 251, 1) 100%);
+  border: 1px solid rgba(255, 255, 255, 1) !important;
+  box-shadow:
+    0 20px 44px rgba(18, 58, 88, 0.13),
+    inset 0 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 0 0 1px rgba(11, 179, 170, 0.14) !important;
+}
+
+/* Secondary nav buttons (Меню / Назад) → clean white glass */
+.btn-secondary {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 1) 0%, rgba(246, 252, 252, 1) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 1) !important;
+  box-shadow:
+    0 6px 16px rgba(18, 58, 88, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 0 0 1px rgba(11, 179, 170, 0.14);
+  color: #17324A !important;
+}
+.btn-secondary:hover:not(:disabled) {
+  box-shadow:
+    0 10px 22px rgba(18, 58, 88, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 0 0 1px rgba(11, 179, 170, 0.22);
+}
+
+/* Primary nav button (Далее) → glossy volumetric (keeps branch hue as gradient base) */
+.btn-primary {
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.12) 40%, rgba(255, 255, 255, 0) 62%) !important;
+  box-shadow:
+    0 12px 26px rgba(18, 58, 88, 0.22),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.10) !important;
+}
+.btn-primary:hover:not(:disabled) {
+  filter: saturate(1.12) brightness(1.03);
+  box-shadow:
+    0 16px 32px rgba(18, 58, 88, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+}
+
+/* =====================================================================
+   Flip cards — slide 4 interactive mechanism buttons
+   ===================================================================== */
+.flip-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.15, 0.2, 1);
+}
+.flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-face--back {
+  transform: rotateY(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner { transition: none; }
+}
+
+/* Flip-in for fullscreen expand (slide 4 right card) */
+@keyframes vf-flip-in {
+  from { transform: perspective(1600px) rotateY(-88deg) scale(0.86); opacity: 0; }
+  to   { transform: perspective(1600px) rotateY(0deg) scale(1); opacity: 1; }
+}
+.vf-flip-in { animation: vf-flip-in 0.5s cubic-bezier(0.34, 1.06, 0.5, 1) both; transform-origin: center; }
+@media (prefers-reduced-motion: reduce) { .vf-flip-in { animation: none; } }
+
+/* =====================================================================
+   Calmer palette — globally soften the saturated teal accents.
+   Bare [class*] selectors (0,1,0) override the Tailwind utilities by
+   source order, while the higher-specificity .theme-baby rules above
+   (0,2,0) still win in the baby flow. Photos are untouched.
+   ===================================================================== */
+[class*="text-[#21A7A2]"] { color: #4E938E; }
+[class*="text-[#0E8F8B]"] { color: #37827D; }
+[class*="text-[#0E6F73]"] { color: #3C6E6F; }
+[class*="text-[#009688]"] { color: #3E8A83; }
+
+[class*="bg-[#21A7A2]"] { background-color: #4E938E; }
+[class*="bg-[#009688]"] { background-color: #3E8A83; }
+[class*="bg-[#C8F1EF]"] { background-color: #D7E9E7; }
+
+[class*="border-[#21A7A2]"] { border-color: #6BA8A3; }
+[class*="ring-[#21A7A2]"] { --tw-ring-color: #6BA8A3; }
+[class*="decoration-[#21A7A2]"] { text-decoration-color: #7FB0AB; }
+
+[class*="linear-gradient(135deg,#21A7A2,#0E8F8B)"] { background-image: linear-gradient(135deg, #4E938E, #37827D); }
+[class*="linear-gradient(135deg,#21A7A2,#009688)"] { background-image: linear-gradient(135deg, #4E938E, #3E8A83); }
+
+[fill="#21A7A2"] { fill: #4E938E; }
+[stroke="#21A7A2"] { stroke: #4E938E; }
+[fill="#0E8F8B"] { fill: #37827D; }
+[stroke="#0E8F8B"] { stroke: #37827D; }
+[stroke="#7FCFCA"] { stroke: #9BC3BF; }
+[fill="#8FD6D1"] { fill: #AFCECA; }
+[stroke="#8FD6D1"] { stroke: #AFCECA; }

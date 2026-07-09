@@ -1,6 +1,33 @@
+import { useState } from "react";
 import type { ReactNode } from "react";
 
 const NAVY = "#18324A";
+
+function ChevronRight({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function TapIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M9 11V6.5a1.6 1.6 0 0 1 3.2 0V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12.2 11.5v-1a1.5 1.5 0 0 1 3 0v1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M15.2 11.7a1.5 1.5 0 0 1 3 0V15c0 2.8-2 4.8-4.8 4.8h-1.2c-1.4 0-2.4-.6-3.3-1.9l-2.4-3.5a1.5 1.5 0 0 1 2.4-1.9l1.2 1.4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function CloseX({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 function SchoolIcon({ className = "h-7 w-7" }: { className?: string }) {
   return (
@@ -200,6 +227,8 @@ interface Factor {
   num: number;
   title: string;
   text: string;
+  detail: string;
+  tip: string;
   icon: ReactNode;
 }
 
@@ -208,12 +237,18 @@ const lifestyle: Factor[] = [
     num: 1,
     title: "Длительное пребывание в помещении",
     text: "Учебный день (6–8 часов) и выполнение домашних заданий проходят в закрытых классах, куда не проникают УФ-лучи нужного спектра.",
+    detail:
+      "Кожа синтезирует витамин D только под прямыми UVB-лучами солнца. За партой и дома этот путь фактически отключён 5–6 дней в неделю, поэтому у школьника почти не остаётся естественного источника D3 в течение учебного года.",
+    tip: "Добавьте дневные прогулки на улице и профилактический приём D3 по рекомендации врача.",
     icon: <SchoolIcon />,
   },
   {
     num: 2,
     title: "Гаджет-зависимость",
     text: "Экранное время заменяет активные прогулки на свежем воздухе, особенно в светлое время суток.",
+    detail:
+      "Каждый час у экрана — это час без солнечного света. Досуг смещается в помещение и на тёмное время суток, сокращая и без того короткое «окно» естественной выработки витамина D.",
+    tip: "Планируйте активные перерывы на улице именно в светлое время суток.",
     icon: <PhoneIcon />,
   },
 ];
@@ -223,26 +258,36 @@ const physiology: Factor[] = [
     num: 3,
     title: "Скачки роста",
     text: "В периоды интенсивного роста (7–9 лет и подростковый возраст) потребность в D3 резко возрастает для построения костной ткани, что быстро истощает запасы.",
+    detail:
+      "Во время ростового скачка костная ткань строится ускоренно и активно «забирает» кальций, для усвоения которого необходим витамин D. Запасы расходуются быстрее, чем восполняются питанием и солнцем.",
+    tip: "В периоды активного роста контролируйте уровень 25(OH)D и поддерживайте D3.",
     icon: <GrowthIcon />,
   },
   {
     num: 4,
     title: "Пищевые привычки",
     text: "Рацион современного школьника часто беден жирной морской рыбой, диким лососем и обогащёнными продуктами.",
+    detail:
+      "Основные пищевые источники D3 — жирная морская рыба, дикий лосось и обогащённые продукты — редко присутствуют в ежедневном меню школьника, поэтому питание почти не компенсирует дефицит витамина D.",
+    tip: "Включайте источники D3 в рацион или добавку по рекомендации специалиста.",
     icon: <FishIcon />,
   },
 ];
 
-function FactorRow({ f }: { f: Factor }) {
+function FactorRow({ f, onOpen }: { f: Factor; onOpen: () => void }) {
   return (
-    <article className="relative flex gap-4 rounded-[16px] border border-[#EAEEF1] bg-white px-5 py-3 shadow-[0_6px_16px_rgba(24,50,74,0.05)]">
+    <button
+      type="button"
+      onClick={onOpen}
+      className="group relative flex w-full items-center gap-4 rounded-[16px] border border-[#EAEEF1] bg-white px-5 py-3 text-left shadow-[0_6px_16px_rgba(24,50,74,0.05)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#CBEBE8] hover:shadow-[0_14px_30px_rgba(24,50,74,0.14)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#21A7A2]"
+    >
       <span className="absolute -left-2.5 -top-2.5 flex h-8 w-8 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-[15px] font-bold text-white shadow-[0_6px_14px_rgba(33,167,162,0.3)]">
         {f.num}
       </span>
       <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] border border-[#CBEBE8] bg-[#EAF8F7] text-[#21A7A2]">
         {f.icon}
       </div>
-      <div className="min-w-0">
+      <div className="min-w-0 flex-1">
         <h3 className="text-[19px] font-bold leading-tight text-[#18324A]">
           {f.title}
         </h3>
@@ -250,7 +295,10 @@ function FactorRow({ f }: { f: Factor }) {
           {f.text}
         </p>
       </div>
-    </article>
+      <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2] transition group-hover:bg-[#21A7A2] group-hover:text-white">
+        <ChevronRight className="h-[17px] w-[17px]" />
+      </span>
+    </button>
   );
 }
 
@@ -258,10 +306,12 @@ function CategoryCard({
   icon,
   title,
   factors,
+  onOpen,
 }: {
   icon: ReactNode;
   title: string;
   factors: Factor[];
+  onOpen: (f: Factor) => void;
 }) {
   return (
     <div className="w-full rounded-[24px] bg-white px-7 py-5 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
@@ -270,10 +320,13 @@ function CategoryCard({
           {icon}
         </span>
         <h2 className="text-[24px] font-bold text-[#18324A]">{title}</h2>
+        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-[#EAF8F7] px-3.5 py-1.5 text-[13px] font-bold text-[#0E8F8B]">
+          <TapIcon className="h-[16px] w-[16px]" /> Подробнее
+        </span>
       </div>
       <div className="mt-4 flex flex-col gap-3">
         {factors.map((f) => (
-          <FactorRow key={f.num} f={f} />
+          <FactorRow key={f.num} f={f} onOpen={() => onOpen(f)} />
         ))}
       </div>
     </div>
@@ -283,6 +336,8 @@ function CategoryCard({
 /* ── Slide ─────────────────────────────────────────────── */
 
 export default function SlideRiskFactorsSchool() {
+  const [active, setActive] = useState<Factor | null>(null);
+
   return (
     <section
       className="relative h-full overflow-hidden px-[45px]"
@@ -327,11 +382,13 @@ export default function SlideRiskFactorsSchool() {
           icon={<ClockIcon className="h-6 w-6" />}
           title="Образ жизни"
           factors={lifestyle}
+          onOpen={setActive}
         />
         <CategoryCard
           icon={<PulseIcon className="h-6 w-6" />}
           title="Физиологические причины"
           factors={physiology}
+          onOpen={setActive}
         />
       </div>
 
@@ -351,6 +408,65 @@ export default function SlideRiskFactorsSchool() {
           источников витамина D.
         </p>
       </div>
+
+      {/* Factor detail modal */}
+      {active && (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center px-10"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="absolute inset-0 bg-[#0E2A3B]/45 backdrop-blur-[3px]"
+            onClick={() => setActive(null)}
+          />
+
+          <div className="vf-flip-in relative w-[840px] max-w-full overflow-hidden rounded-[30px] bg-white shadow-[0_44px_96px_rgba(14,42,59,0.42)] ring-1 ring-[#CBEBE8]">
+            <div className="h-[10px] w-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)]" />
+
+            <button
+              type="button"
+              onClick={() => setActive(null)}
+              aria-label="Закрыть"
+              className="absolute right-6 top-[32px] z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#0E8F8B] shadow-[0_6px_16px_rgba(14,42,59,0.16)] transition hover:bg-[#EAF8F7]"
+            >
+              <CloseX className="h-6 w-6" />
+            </button>
+
+            <div className="relative px-14 pb-14 pt-10">
+              <div className="flex items-center gap-6">
+                <span className="flex h-[100px] w-[100px] shrink-0 items-center justify-center rounded-[26px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_14px_30px_rgba(14,42,59,0.22)] [&>svg]:h-[52px] [&>svg]:w-[52px]">
+                  {active.icon}
+                </span>
+                <div className="min-w-0 pr-14">
+                  <p className="text-[17px] font-extrabold uppercase tracking-[0.08em] text-[#21A7A2]">
+                    Фактор риска {active.num}
+                  </p>
+                  <h3 className="mt-2 text-[38px] font-extrabold leading-[1.06] text-[#18324A]">
+                    {active.title}
+                  </h3>
+                </div>
+              </div>
+
+              <div className="mt-7 h-px w-full bg-[#CBEBE8]" />
+
+              <p className="mt-7 text-[26px] font-medium leading-[1.5] text-[#33475A]">
+                {active.detail}
+              </p>
+
+              <div className="mt-7 flex items-start gap-4 rounded-[22px] bg-[linear-gradient(135deg,#EAF8F7,#DDF3F0)] px-7 py-6">
+                <span className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-white text-[#0E8F8B] shadow-[0_6px_16px_rgba(33,167,162,0.18)]">
+                  <SunIcon className="h-7 w-7" />
+                </span>
+                <p className="text-[22px] font-semibold leading-[1.38] text-[#18324A]">
+                  <span className="font-extrabold text-[#0E8F8B]">Что делать: </span>
+                  {active.tip}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
     </section>
   );

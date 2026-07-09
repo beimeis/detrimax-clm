@@ -1,6 +1,6 @@
 import type { BranchConfig } from './types'
 
-export const ACTIVE_COLOR = '#00A896'
+export const ACTIVE_COLOR = '#42918A'
 
 export const activeBranch: BranchConfig = {
   id: 'active',

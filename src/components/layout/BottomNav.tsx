@@ -24,7 +24,7 @@ export default function BottomNav({
   const setMenuOpen = usePresentationStore((s) => s.setMenuOpen)
 
   return (
-    <footer className="relative z-10 flex h-[110px] shrink-0 items-center border-t border-gray-100 bg-white px-[35px] py-0 shadow-[0_-8px_24px_rgba(24,50,74,0.04)]">
+    <footer className="relative z-10 flex h-[110px] shrink-0 items-center border-t border-white/60 bg-white/55 px-[35px] py-0 shadow-[0_-8px_24px_rgba(18,58,88,0.06)] backdrop-blur-xl">
       <button
         type="button"
         className="btn-secondary absolute left-[35px] top-1/2 h-[44px] min-w-[112px] -translate-y-1/2 rounded-[10px] px-5 py-0 text-[15px]"
