@@ -1,6 +1,6 @@
 import type { BranchConfig } from './types'
 
-export const BABY_COLOR = '#DFA24E'
+export const BABY_COLOR = '#E0942C'
 
 export const babyBranch: BranchConfig = {
   id: 'baby',

@@ -208,15 +208,15 @@ function D3SupportWheel({ onSelect }: { onSelect: (part: WheelPart) => void }) {
         <svg viewBox="0 0 188 188" className="h-full w-full" aria-hidden>
           <defs>
             <radialGradient id="capGrad" cx="38%" cy="30%" r="75%">
-              <stop offset="0%" stopColor="#FFF176" />
-              <stop offset="45%" stopColor="#FFD84A" />
-              <stop offset="100%" stopColor="#F4A320" />
+              <stop offset="0%" stopColor="#FBDD99" />
+              <stop offset="45%" stopColor="#F3B44E" />
+              <stop offset="100%" stopColor="#E28A28" />
             </radialGradient>
             <filter id="capGlow" x="-60%" y="-60%" width="220%" height="220%">
               <feGaussianBlur stdDeviation="12" />
             </filter>
           </defs>
-          <circle cx="94" cy="94" r="84" fill="#FFD24A" opacity="0.5" filter="url(#capGlow)" />
+          <circle cx="94" cy="94" r="84" fill="#F1B24C" opacity="0.5" filter="url(#capGlow)" />
           <circle cx="94" cy="94" r="80" fill="url(#capGrad)" stroke="#ffffff" strokeWidth="7" />
           <text x="94" y="99" textAnchor="middle" dominantBaseline="middle" fill="#ffffff" fontSize="50" fontWeight={800}>D3</text>
         </svg>

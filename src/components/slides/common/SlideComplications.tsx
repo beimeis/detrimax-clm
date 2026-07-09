@@ -229,7 +229,7 @@ export default function SlideComplications() {
           Классическое осложнение — <span className="underline decoration-[#21A7A2]/50 underline-offset-4">рахит</span>
         </h2>
 
-        <div className="relative mt-4 h-[224px] w-full shrink-0 overflow-hidden rounded-[20px] bg-[#F2F7F6]">
+        <div className="relative mt-4 h-[224px] w-full shrink-0 overflow-hidden rounded-[20px] bg-white">
           <img
             src="/assets/characters/complications-rickets.gif"
             alt="Осложнения дефицита витамина D — иллюстрация"
@@ -283,7 +283,7 @@ export default function SlideComplications() {
                   <span className="text-[#21A7A2]">{block.num}.</span> {block.title}
                 </h3>
               </div>
-              <span className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2] transition group-hover:bg-[#21A7A2] group-hover:text-white">
+              <span className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full bg-[#21A7A2] text-white transition group-hover:bg-[#0E8F8B] group-hover:text-white">
                 <ChevronRight className="h-5 w-5" />
               </span>
             </button>

@@ -218,16 +218,28 @@ function StepScheme({ steps }: { steps: Step[] }) {
     <div className="mt-2 flex items-start justify-between">
       {steps.map((s, i) => (
         <div key={s.label} className="flex items-start">
-          {i > 0 && <span className="mt-[16px] text-[24px] leading-none text-[#B7CBD0]">›</span>}
-          <div className="flex w-[104px] flex-col items-center text-center">
+          {i > 0 && (
             <span
-              className={`flex h-[46px] w-[46px] items-center justify-center rounded-full border ${
-                s.accent ? 'border-[#FFC15A] bg-[#FFF6E6] text-[#E79A19]' : 'border-[#CBEBE8] bg-[#EAF8F7] text-[#21A7A2]'
+              className="vf-fade-up mt-[28px] text-[30px] leading-none text-[#B7CBD0]"
+              style={{ animationDelay: `${i * 130 + 70}ms` }}
+            >
+              ›
+            </span>
+          )}
+          <div
+            className="vf-fade-up flex w-[112px] flex-col items-center text-center"
+            style={{ animationDelay: `${i * 130}ms` }}
+          >
+            <span
+              className={`flex h-[74px] w-[74px] items-center justify-center rounded-full border [&>svg]:h-[38px] [&>svg]:w-[38px] ${
+                s.accent
+                  ? 'border-[#FFC15A] bg-[#FFF6E6] text-[#E79A19] shadow-[0_8px_18px_rgba(231,154,25,0.18)]'
+                  : 'border-[#CBEBE8] bg-[#EAF8F7] text-[#21A7A2] shadow-[0_8px_18px_rgba(33,167,162,0.16)]'
               }`}
             >
               {s.icon}
             </span>
-            <p className="mt-1.5 text-[11.5px] font-bold leading-[1.12] text-[#18324A]">{s.label}</p>
+            <p className="mt-2.5 text-[14.5px] font-bold leading-[1.16] text-[#18324A]">{s.label}</p>
           </div>
         </div>
       ))}
@@ -364,141 +376,298 @@ const mood: CogView = {
 
 /* ── View renderer ─────────────────────────────────────── */
 
-function ViewContent({ view }: { view: CogView }) {
+function CloseX({ className = 'h-5 w-5' }: { className?: string }) {
   return (
-    <>
-      {/* Left card */}
-      <div className="absolute left-[45px] top-[122px] flex h-[1000px] w-[418px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <div className="flex items-center gap-3">
-          <span className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2]">
-            {view.leftIcon}
-          </span>
-          <h2 className="text-[26px] font-bold leading-tight text-[#21A7A2]">{view.leftTitle}</h2>
-        </div>
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+    </svg>
+  )
+}
 
-        {/* Photo + glow */}
-        <div className="relative mx-auto mt-3 h-[300px] w-[300px]">
-          <div className="absolute inset-0 rounded-[30px] blur-[6px]" style={{ background: view.glowGrad }} />
-          <div className="absolute inset-x-[16px] inset-y-[6px] overflow-hidden rounded-[26px] bg-[#EEF3F8] shadow-[0_12px_30px_rgba(24,50,74,0.14)]">
-            <img src={view.photo} alt={view.photoAlt} className="h-full w-full object-cover object-[50%_12%]" draggable={false} />
-          </div>
-          <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 300 352" fill="none" aria-hidden>
-            <g stroke={view.glowStroke} strokeWidth="1.8" opacity="0.75">
-              <path d="M150 40 106 66M150 40l44 26M150 40v-22M106 66l-30-6M194 66l30-6" strokeLinecap="round" />
-              <circle cx="150" cy="40" r="4" fill={view.glowStroke} stroke="none" />
-              <circle cx="106" cy="66" r="3" fill={view.glowStroke} stroke="none" />
-              <circle cx="194" cy="66" r="3" fill={view.glowStroke} stroke="none" />
-              <circle cx="76" cy="60" r="2.5" fill={view.glowStroke} stroke="none" />
-              <circle cx="224" cy="60" r="2.5" fill={view.glowStroke} stroke="none" />
-              <circle cx="150" cy="18" r="2.5" fill={view.glowStroke} stroke="none" />
-            </g>
-            <g fill={view.glowStroke} opacity="0.85">
-              <path d="M60 150l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6L60 150Z" />
-              <path d="M244 176l1.4 3.4 3.4 1.4-3.4 1.4-1.4 3.4-1.4-3.4-3.4-1.4 3.4-1.4L244 176Z" />
-            </g>
+/* Interactive "neuron network" board: bubble buttons → neuron → info panel */
+function ViewContent() {
+  const [active, setActive] = useState<number | null>(0)
+  // 0-2 = когнитивное развитие (сверху), 3-5 = настроение (снизу)
+  const mechs = [...cognitive.mechanisms, ...mood.mechanisms]
+  const m = active !== null ? mechs[active] : null
+  const sumView = active !== null && active >= 3 ? mood : cognitive
+
+  // brain centred; cognitive buttons above it, mood buttons below — all clickable
+  const btnGeom = [
+    { left: 8, top: 14, w: 132, h: 128 },
+    { left: 149, top: 14, w: 132, h: 128 },
+    { left: 290, top: 14, w: 132, h: 128 },
+    { left: 8, top: 596, w: 132, h: 132 },
+    { left: 149, top: 596, w: 132, h: 132 },
+    { left: 290, top: 596, w: 132, h: 132 },
+  ]
+  const dots = [
+    { x: 74, y: 142 },
+    { x: 215, y: 142 },
+    { x: 356, y: 142 },
+    { x: 74, y: 596 },
+    { x: 215, y: 596 },
+    { x: 356, y: 596 },
+  ]
+  const paths = [
+    'M215 254 Q 120 200 74 142',
+    'M215 254 L 215 142',
+    'M215 254 Q 310 200 356 142',
+    'M215 478 Q 120 540 74 596',
+    'M215 478 L 215 596',
+    'M215 478 Q 310 540 356 596',
+  ]
+  const brain = { cx: 215, cy: 366, r: 112 }
+  // small nodes sitting on each connection line (glow when active)
+  const mids = [
+    { x: 132, y: 197 },
+    { x: 215, y: 197 },
+    { x: 298, y: 197 },
+    { x: 132, y: 539 },
+    { x: 215, y: 539 },
+    { x: 298, y: 539 },
+  ]
+
+  return (
+    <div className="absolute left-[45px] right-[45px] top-[112px] flex h-[974px] flex-col rounded-[28px] bg-white px-[36px] py-[28px] shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+      {/* Interactive board (fixed 862×770 coordinate space) */}
+      <div className="relative w-full" style={{ height: 748 }}>
+        {/* Decorative "living nervous system" backdrop (sits behind everything) */}
+        <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 862 748" fill="none" aria-hidden>
+          <defs>
+            <radialGradient id="cog-brain-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#21A7A2" stopOpacity="0.13" />
+              <stop offset="55%" stopColor="#21A7A2" stopOpacity="0.045" />
+              <stop offset="100%" stopColor="#21A7A2" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          {/* soft radial glow anchoring the brain */}
+          <ellipse cx="215" cy="366" rx="230" ry="232" fill="url(#cog-brain-glow)" />
+          {/* faint neuron branches in the side gaps */}
+          <g stroke="#CFE9E6" strokeWidth="1.4" fill="none" opacity="0.75">
+            <path d="M104 320 C 58 300 38 258 32 202" />
+            <path d="M32 202 C 30 176 16 162 2 158" />
+            <path d="M96 412 C 50 432 34 476 30 528" />
+            <path d="M326 320 C 372 300 394 258 402 202" />
+            <path d="M402 202 C 406 176 420 162 432 158" />
+            <path d="M334 412 C 380 432 402 476 408 528" />
+          </g>
+          {/* synapse nodes on the branch tips */}
+          <g fill="#B7E0DC" opacity="0.8">
+            <circle cx="2" cy="158" r="3.2" />
+            <circle cx="32" cy="202" r="2.6" />
+            <circle cx="30" cy="528" r="3" />
+            <circle cx="432" cy="158" r="3.2" />
+            <circle cx="402" cy="202" r="2.6" />
+            <circle cx="408" cy="528" r="3" />
+          </g>
+          {/* scattered translucent synapse dots */}
+          <g fill="#8FD0CB" opacity="0.4">
+            <circle cx="70" cy="250" r="2.4" />
+            <circle cx="360" cy="250" r="2.2" />
+            <circle cx="60" cy="470" r="2.4" />
+            <circle cx="372" cy="470" r="2" />
+            <circle cx="120" cy="360" r="1.8" />
+            <circle cx="312" cy="360" r="1.8" />
+            <circle cx="215" cy="366" r="2" opacity="0.6" />
+          </g>
+        </svg>
+
+        {/* Thin mint links: brain (centre) to each button, with junction nodes */}
+        <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 862 748" fill="none" aria-hidden>
+          {paths.map((d, i) => {
+            const on = active === i
+            return (
+              <path
+                key={i}
+                d={d}
+                stroke={on ? '#21A7A2' : '#CBE4E1'}
+                strokeWidth={on ? 3 : 1.6}
+                opacity={on ? 1 : 0.8}
+                className={on ? 'vf-flow' : ''}
+                style={on ? { filter: 'drop-shadow(0 0 4px rgba(33,167,162,0.5))' } : undefined}
+              />
+            )
+          })}
+          {/* junction nodes riding on each line */}
+          {mids.map((d, i) => {
+            const on = active === i
+            return (
+              <circle
+                key={`mid-${i}`}
+                cx={d.x}
+                cy={d.y}
+                r={on ? 4.5 : 2.6}
+                fill={on ? '#21A7A2' : '#BFE3E0'}
+                opacity={on ? 1 : 0.85}
+                style={on ? { filter: 'drop-shadow(0 0 6px rgba(33,167,162,0.85))' } : undefined}
+              />
+            )
+          })}
+          {dots.map((d, i) => {
+            const on = active === i
+            return (
+              <circle
+                key={i}
+                cx={d.x}
+                cy={d.y}
+                r={on ? 6.5 : 3.5}
+                fill={on ? '#21A7A2' : '#8FD0CB'}
+                style={on ? { filter: 'drop-shadow(0 0 7px rgba(33,167,162,0.9))' } : undefined}
+              />
+            )
+          })}
+        </svg>
+
+        {/* Central animated brain medallion (GIF, dark/light bg removed → floats on mint) */}
+        <div
+          className="absolute"
+          style={{ left: brain.cx - brain.r, top: brain.cy - brain.r, width: brain.r * 2, height: brain.r * 2 }}
+        >
+          <div
+            className="vf-neuron-pulse absolute -inset-6 rounded-full bg-[radial-gradient(circle,rgba(33,167,162,0.32),rgba(33,167,162,0)_70%)] blur-[6px]"
+            style={{ transformBox: 'border-box', transformOrigin: 'center' }}
+          />
+          {/* static double ring hugging the medallion */}
+          <div className="absolute -inset-[5px] rounded-full border-[1.5px] border-[#CFEDEA]" />
+          <div className="absolute -inset-[15px] rounded-full border border-[#E3F3F1]" />
+          <svg
+            className="vf-wheel-spin absolute -inset-8"
+            style={{ width: 'calc(100% + 64px)', height: 'calc(100% + 64px)' }}
+            viewBox="0 0 300 300"
+            fill="none"
+            aria-hidden
+          >
+            <ellipse cx="150" cy="150" rx="143" ry="128" stroke="#BFE6E3" strokeWidth="1.5" strokeDasharray="3 9" opacity="0.85" />
+            <ellipse cx="150" cy="150" rx="128" ry="143" stroke="#D6EFEC" strokeWidth="1.2" strokeDasharray="2 10" opacity="0.7" />
+            <circle cx="150" cy="7" r="4" fill="#8FD0CB" />
+            <circle cx="293" cy="150" r="3" fill="#8FD0CB" />
+            <circle cx="150" cy="293" r="3.5" fill="#8FD0CB" />
+            <circle cx="7" cy="150" r="3" fill="#8FD0CB" />
           </svg>
-        </div>
-
-        {/* Theses */}
-        <div className="mt-4 flex flex-1 flex-col justify-center gap-2.5 rounded-[18px] bg-[#EAF8F7] p-5">
-          {view.theses.map((t, i) => (
-            <div key={i} className="flex items-center gap-3.5">
-              <span className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full bg-white text-[#21A7A2] shadow-[0_4px_12px_rgba(33,167,162,0.16)]">
-                {t.icon}
-              </span>
-              <p className="text-[17px] font-bold leading-[1.18] text-[#18324A]">{t.title}</p>
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-3 flex items-center gap-1.5 text-[11.5px] font-medium leading-none text-[#9AA5AF]">
-          <span className="text-[#21A7A2]"><DocIcon /></span>
-          Источник: <span className="text-[#21A7A2]">{view.source}</span>
-        </p>
-      </div>
-
-      {/* Right card */}
-      <div className="absolute right-[45px] top-[122px] flex h-[1000px] w-[472px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
-        <div className="flex items-center gap-3">
-          <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
-            <BrainIcon />
-          </span>
-          <div>
-            <h2 className="text-[23px] font-bold leading-tight text-[#18324A]">{view.rightTitle}</h2>
-            <p className="text-[15px] font-bold leading-tight text-[#21A7A2]">{view.rightSub}</p>
+          <div className="relative h-full w-full overflow-hidden rounded-full bg-[#EAF8F7] shadow-[0_16px_40px_rgba(24,50,74,0.14),inset_0_2px_6px_rgba(255,255,255,0.9)] ring-2 ring-white">
+            <img
+              src="/assets/characters/brain.gif"
+              alt="Анимированный мозг"
+              className="absolute left-1/2 top-1/2 w-[90%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
+              draggable={false}
+            />
+            <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle,transparent_60%,rgba(234,248,247,0.85)_95%)]" />
           </div>
         </div>
 
-        {view.mechanisms.map((m, i) => (
-          <div key={i} className={`${i === 0 ? 'mt-3' : 'mt-2.5'} rounded-[16px] border border-[#EAEEF1] bg-white px-4 py-3 shadow-[0_6px_16px_rgba(24,50,74,0.05)]`}>
-            <div className="flex items-center gap-3">
-              <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-[13px] border border-[#CBEBE8] bg-[#EAF8F7] text-[#21A7A2]">
+        {/* Six interactive cards: three above the brain, three below — all clickable */}
+        {mechs.map((mm, i) => {
+          const on = active === i
+          const g = btnGeom[i]
+          const isTop = i < 3
+          return (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setActive(i)}
+              className={`group absolute flex flex-col items-center justify-center gap-2 rounded-[30px] px-3 text-center transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#21A7A2] ${
+                on
+                  ? 'z-10 scale-[1.04] border-2 border-[#21A7A2] bg-[linear-gradient(135deg,#F1FBFA,#DAF1EE)] shadow-[0_22px_46px_rgba(33,167,162,0.30),inset_0_1px_0_rgba(255,255,255,0.95)]'
+                  : 'border border-[#DCEBEA] bg-white shadow-[0_8px_22px_rgba(24,50,74,0.08)] hover:-translate-y-0.5 hover:border-[#BFE3E0] hover:shadow-[0_16px_36px_rgba(33,167,162,0.20)]'
+              }`}
+              style={{ left: g.left, top: g.top, width: g.w, height: g.h }}
+            >
+              {/* inner gradient / active under-glow */}
+              <span
+                className={`pointer-events-none absolute inset-0 rounded-[30px] ${
+                  on
+                    ? 'bg-[radial-gradient(130%_75%_at_50%_118%,rgba(33,167,162,0.24),transparent_62%)]'
+                    : 'bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(233,247,246,0.55))]'
+                }`}
+              />
+              {/* connector on the edge facing the brain */}
+              <span
+                className={`absolute ${isTop ? '-bottom-[8px]' : '-top-[8px]'} left-1/2 z-10 h-[14px] w-[14px] -translate-x-1/2 rounded-full border-2 border-white transition-all duration-300 ${
+                  on ? 'bg-[#21A7A2] shadow-[0_0_10px_rgba(33,167,162,0.85)]' : 'bg-[#CBE4E1]'
+                }`}
+              />
+              <span
+                className={`relative z-10 flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full transition-all duration-300 [&>svg]:h-[23px] [&>svg]:w-[23px] ${
+                  on
+                    ? 'bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_10px_22px_rgba(33,167,162,0.45),0_0_0_5px_rgba(33,167,162,0.12)]'
+                    : 'border border-[#CBEBE8] bg-[#EAF8F7] text-[#21A7A2] shadow-[0_4px_12px_rgba(33,167,162,0.14)]'
+                }`}
+              >
+                {mm.icon}
+              </span>
+              <span className="relative z-10 min-w-0 text-[13.5px] font-extrabold leading-[1.15] text-[#18324A] [overflow-wrap:anywhere]">{mm.title}</span>
+            </button>
+          )
+        })}
+
+        {/* Info panel */}
+        <div
+          className="absolute overflow-hidden rounded-[28px] border border-[#E9F2F1] bg-white/88 shadow-[0_14px_38px_rgba(24,50,74,0.10)] ring-1 ring-white/60"
+          style={{ left: 452, top: 8, width: 410, height: 732 }}
+        >
+          <div className="h-[6px] w-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] opacity-90" />
+          {m ? (
+            <div key={active} className="vf-fade-up flex h-[calc(100%-6px)] flex-col px-10 py-9">
+              <button
+                type="button"
+                onClick={() => setActive(null)}
+                aria-label="Закрыть"
+                className="absolute right-6 top-[28px] flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#0E8F8B] shadow-[0_5px_14px_rgba(14,42,59,0.14)] transition hover:bg-[#EAF8F7]"
+              >
+                <CloseX />
+              </button>
+
+              <span className="flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-[24px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_12px_28px_rgba(14,42,59,0.22)] [&>svg]:h-10 [&>svg]:w-10">
                 {m.icon}
               </span>
-              <h3 className="text-[18px] font-bold leading-tight text-[#18324A]">{m.title}</h3>
-            </div>
-            <p className="mt-2 text-[13.5px] font-medium leading-[1.3] text-[#6D7A86]">{m.text}</p>
-            <StepScheme steps={m.steps} />
-          </div>
-        ))}
+              <h3 className="mt-5 pr-10 text-[27px] font-extrabold leading-[1.12] text-[#18324A]">{m.title}</h3>
+              <p className="mt-4 text-[18px] font-medium leading-[1.5] text-[#3C4A57]">{m.text}</p>
 
-        <div className="mt-auto flex items-center gap-4 rounded-[16px] bg-[#EAF8F7] px-5 py-3">
-          <span className="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
-            <ShieldIcon check className="h-6 w-6" />
-          </span>
-          <p className="text-[15px] font-medium leading-[1.26] text-[#18324A]">
-            <span className="font-extrabold text-[#0E8F8B]">Итог:</span>
-            {' '}{view.summary.replace('Итог: ', '')}
-          </p>
+              <div className="mt-auto">
+                <StepScheme steps={m.steps} />
+              </div>
+            </div>
+          ) : (
+            <div className="flex h-[calc(100%-6px)] flex-col items-center justify-center px-12 text-center">
+              <span className="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2] [&>svg]:h-11 [&>svg]:w-11">
+                <NeuronIcon />
+              </span>
+              <p className="mt-5 text-[19px] font-semibold leading-[1.4] text-[#6D7A86]">
+                Выберите любой пункт вокруг мозга, чтобы увидеть подробности
+              </p>
+            </div>
+          )}
         </div>
       </div>
-    </>
+
+      {/* Summary — pushed to the bottom, compact */}
+      <div className="mt-auto flex items-center gap-4 rounded-[20px] border border-[#CFEDEA] bg-[linear-gradient(135deg,#F1FBFA,#DEF3F0)] px-6 py-4 shadow-[0_12px_30px_rgba(33,167,162,0.16)] ring-1 ring-white/60">
+        <span className="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-[16px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_10px_24px_rgba(14,42,59,0.20)] [&>svg]:h-7 [&>svg]:w-7">
+          <ShieldIcon check />
+        </span>
+        <p className="text-[17px] font-medium leading-[1.3] text-[#18324A]">
+          <span className="font-extrabold text-[#0E8F8B]">Итог:</span>
+          {' '}{sumView.summary.replace('Итог: ', '')}
+        </p>
+      </div>
+    </div>
   )
 }
 
 /* ── Slide ─────────────────────────────────────────────── */
 
-type Part = 'cognitive' | 'mood'
-
 export default function SlideCognitive() {
-  const [part, setPart] = useState<Part>('cognitive')
-  const view = part === 'cognitive' ? cognitive : mood
-
   return (
     <section className="relative h-full overflow-hidden px-[45px]" style={{ color: NAVY }}>
       <header className="absolute left-[45px] top-[40px]">
         <h1 className="font-display text-[34px] font-extrabold leading-[1.05] tracking-tight text-[#18324A]">
-          {part === 'cognitive'
-            ? 'Витамин D3 и когнитивное развитие'
-            : 'Витамин D3: настроение и социальная адаптация'}
+          Витамин D3 и когнитивное развитие
         </h1>
-        <p className="mt-1.5 text-[16px] font-medium leading-none text-[#6D7A86]">{view.subtitle}</p>
+        <p className="mt-1.5 text-[16px] font-medium leading-none text-[#6D7A86]">{cognitive.subtitle}</p>
       </header>
 
-      <ViewContent view={view} />
-
-      {/* Part switcher */}
-      <div className="absolute bottom-[30px] left-[45px] flex h-11 items-center gap-3">
-        <div className="mr-1 flex items-center gap-1.5">
-          <span className={`h-[9px] w-[9px] rounded-full ${part === 'cognitive' ? 'bg-[#21A7A2]' : 'bg-[#D1D5DB]'}`} />
-          <span className={`h-[9px] w-[9px] rounded-full ${part === 'mood' ? 'bg-[#21A7A2]' : 'bg-[#D1D5DB]'}`} />
-        </div>
-        <button
-          type="button"
-          className={`h-11 cursor-pointer rounded-[12px] px-5 text-[14.5px] font-bold transition duration-200 ease-in-out hover:-translate-y-0.5 ${part === 'cognitive' ? 'bg-[#21A7A2] text-white shadow-[0_8px_18px_rgba(33,167,162,0.22)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86]'}`}
-          onClick={() => setPart('cognitive')}
-        >
-          🧠 1 · Когнитивное развитие
-        </button>
-        <button
-          type="button"
-          className={`h-11 cursor-pointer rounded-[12px] px-5 text-[14.5px] font-bold transition duration-200 ease-in-out hover:-translate-y-0.5 ${part === 'mood' ? 'bg-[#21A7A2] text-white shadow-[0_8px_18px_rgba(33,167,162,0.22)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86]'}`}
-          onClick={() => setPart('mood')}
-        >
-          🌙 2 · Настроение и адаптация →
-        </button>
-      </div>
-
+      <ViewContent />
     </section>
   )
 }

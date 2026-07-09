@@ -179,28 +179,28 @@
    Common (shared) slides are authored in teal. In the baby flow
    we recolor those teal tokens to the baby orange accent so each
    flow reads in one consistent colour. Active keeps the teal. */
-.theme-baby [class*="text-[#21A7A2]"] { color: #D89A4B; }
-.theme-baby [class*="text-[#0E8F8B]"] { color: #B9813C; }
-.theme-baby [class*="text-[#009688]"] { color: #CE9040; }
+.theme-baby [class*="text-[#21A7A2]"] { color: #E6982E; }
+.theme-baby [class*="text-[#0E8F8B]"] { color: #C57C1E; }
+.theme-baby [class*="text-[#009688]"] { color: #DC8E28; }
 
-.theme-baby [class*="bg-[#21A7A2]"] { background-color: #D89A4B; }
-.theme-baby [class*="bg-[#009688]"] { background-color: #CE9040; }
+.theme-baby [class*="bg-[#21A7A2]"] { background-color: #E6982E; }
+.theme-baby [class*="bg-[#009688]"] { background-color: #DC8E28; }
 .theme-baby [class*="bg-[#EAF8F7]"] { background-color: #FFF3E2; }
 .theme-baby [class*="bg-[#F4FAF9]"] { background-color: #FFF7EC; }
 .theme-baby [class*="bg-[#DDF3F0]"] { background-color: #FCE9D0; }
 .theme-baby [class*="bg-[#F2F7F6]"] { background-color: #FBF4EA; }
 
-.theme-baby [class*="border-[#21A7A2]"] { border-color: #D89A4B; }
+.theme-baby [class*="border-[#21A7A2]"] { border-color: #E6982E; }
 .theme-baby [class*="border-[#CBEBE8]"] { border-color: #F6DCB0; }
-.theme-baby [class*="ring-[#21A7A2]"] { --tw-ring-color: #D89A4B; }
+.theme-baby [class*="ring-[#21A7A2]"] { --tw-ring-color: #E6982E; }
 
-.theme-baby [class*="linear-gradient(135deg,#21A7A2,#0E8F8B)"] { background-image: linear-gradient(135deg, #D89A4B, #B9813C); }
-.theme-baby [class*="linear-gradient(135deg,#21A7A2,#009688)"] { background-image: linear-gradient(135deg, #D89A4B, #CE9040); }
+.theme-baby [class*="linear-gradient(135deg,#21A7A2,#0E8F8B)"] { background-image: linear-gradient(135deg, #E6982E, #C57C1E); }
+.theme-baby [class*="linear-gradient(135deg,#21A7A2,#009688)"] { background-image: linear-gradient(135deg, #E6982E, #DC8E28); }
 
-.theme-baby [fill="#21A7A2"] { fill: #D89A4B; }
-.theme-baby [stroke="#21A7A2"] { stroke: #D89A4B; }
-.theme-baby [fill="#0E8F8B"] { fill: #B9813C; }
-.theme-baby [stroke="#0E8F8B"] { stroke: #B9813C; }
+.theme-baby [fill="#21A7A2"] { fill: #E6982E; }
+.theme-baby [stroke="#21A7A2"] { stroke: #E6982E; }
+.theme-baby [fill="#0E8F8B"] { fill: #C57C1E; }
+.theme-baby [stroke="#0E8F8B"] { stroke: #C57C1E; }
 .theme-baby [fill="#EAF8F7"] { fill: #FFF3E2; }
 .theme-baby [stroke="#EAF8F7"] { stroke: #FFF3E2; }
 .theme-baby [fill="#7FCFCA"] { fill: #F2C478; }
@@ -339,6 +339,19 @@
 .vf-flip-in { animation: vf-flip-in 0.5s cubic-bezier(0.34, 1.06, 0.5, 1) both; transform-origin: center; }
 @media (prefers-reduced-motion: reduce) { .vf-flip-in { animation: none; } }
 
+/* Soft fade-up for the cognitive neuron panel (text + staggered icons) */
+@keyframes vf-fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.vf-fade-up { animation: vf-fade-up 0.5s cubic-bezier(0.22, 0.8, 0.3, 1) both; }
+/* Glowing "signal travels along the nerve" dash flow on the active link */
+@keyframes vf-flow { to { stroke-dashoffset: -28; } }
+.vf-flow { stroke-dasharray: 6 9; animation: vf-flow 0.9s linear infinite; }
+/* Central neuron node: gentle continuous breathing + a ping burst on switch */
+@keyframes vf-neuron-pulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.06); opacity: 1; } }
+.vf-neuron-pulse { animation: vf-neuron-pulse 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes vf-neuron-ping { 0% { transform: scale(0.62); opacity: 0.5; } 100% { transform: scale(1.55); opacity: 0; } }
+.vf-neuron-ping { animation: vf-neuron-ping 0.75s cubic-bezier(0.22, 0.8, 0.3, 1) both; transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: reduce) { .vf-fade-up, .vf-flow, .vf-neuron-pulse, .vf-neuron-ping { animation: none; } }
+
 /* =====================================================================
    Calmer palette — globally soften the saturated teal accents.
    Bare [class*] selectors (0,1,0) override the Tailwind utilities by
@@ -368,3 +381,31 @@
 [stroke="#7FCFCA"] { stroke: #9BC3BF; }
 [fill="#8FD6D1"] { fill: #AFCECA; }
 [stroke="#8FD6D1"] { stroke: #AFCECA; }
+[fill="#8FD0CB"] { fill: #A9CFCB; }
+
+/* Cognitive-neuron gradient stops (soma / glow) — recolour per flow */
+[stop-color="#21A7A2"] { stop-color: #4E938E; }
+.theme-baby [stop-color="#21A7A2"] { stop-color: #E6982E; }
+.theme-baby [stop-color="#C4E8E4"] { stop-color: #F4DBB0; }
+.theme-baby [stop-color="#8FD0CB"] { stop-color: #EAC488; }
+.theme-baby [fill="#8FD0CB"] { fill: #EAC488; }
+
+/* Hover variants of the teal tokens compile to `.group:hover .target`
+   (specificity 0,3,0), which outranks the plain remaps above. Re-apply
+   the calm teal (active) and amber (baby) on hover with matching/higher
+   specificity so arrows/chips don't flash the original bright teal. */
+.group:hover [class*="group-hover:bg-[#21A7A2]"] { background-color: #4E938E; }
+.group:hover [class*="group-hover:text-[#0E8F8B]"] { color: #37827D; }
+.group:hover [class*="group-hover:text-[#21A7A2]"] { color: #4E938E; }
+.group:hover [class*="group-hover:border-[#21A7A2]"] { border-color: #4E938E; }
+
+.theme-baby .group:hover [class*="group-hover:bg-[#21A7A2]"] { background-color: #E6982E; }
+.theme-baby .group:hover [class*="group-hover:text-[#0E8F8B]"] { color: #C57C1E; }
+.theme-baby .group:hover [class*="group-hover:text-[#21A7A2]"] { color: #E6982E; }
+.theme-baby .group:hover [class*="group-hover:border-[#21A7A2]"] { border-color: #E6982E; }
+
+/* #0E8F8B as a solid fill (e.g. chevron badges, hover darkening) */
+[class*="bg-[#0E8F8B]"] { background-color: #37827D; }
+.theme-baby [class*="bg-[#0E8F8B]"] { background-color: #C57C1E; }
+.group:hover [class*="group-hover:bg-[#0E8F8B]"] { background-color: #37827D; }
+.theme-baby .group:hover [class*="group-hover:bg-[#0E8F8B]"] { background-color: #C57C1E; }

@@ -7,7 +7,7 @@ interface BreadcrumbProps {
 
 export default function Breadcrumb({ branchLabel, branchColor }: BreadcrumbProps) {
   return (
-    <nav className="relative z-10 flex items-center gap-2 px-[35px] pb-2 pt-[30px] text-[14px] font-medium" aria-label="Навигация">
+    <nav className="relative z-10 flex items-center gap-2.5 px-[35px] pb-2 pt-[30px] text-[18px] font-semibold" aria-label="Навигация">
       <DetrimaxBrand />
       <span className="text-brand-muted">/</span>
       <span style={{ color: branchColor }}>{branchLabel}</span>
