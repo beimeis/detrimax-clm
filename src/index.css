@@ -409,3 +409,11 @@
 .theme-baby [class*="bg-[#0E8F8B]"] { background-color: #C57C1E; }
 .group:hover [class*="group-hover:bg-[#0E8F8B]"] { background-color: #37827D; }
 .theme-baby .group:hover [class*="group-hover:bg-[#0E8F8B]"] { background-color: #C57C1E; }
+
+/* ── Слайдер уровня 25(OH)D на слайде «Как подобрать дозу» ── */
+.d3-range { -webkit-appearance: none; appearance: none; width: 100%; height: 12px; border-radius: 999px; outline: none; cursor: pointer; }
+.d3-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 4px solid #0E8F8B; box-shadow: 0 3px 10px rgba(14,42,59,0.28); cursor: pointer; transition: transform .15s ease; }
+.d3-range::-webkit-slider-thumb:hover { transform: scale(1.1); }
+.d3-range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 5px rgba(33,167,162,0.35); }
+.d3-range::-moz-range-thumb { width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 4px solid #0E8F8B; box-shadow: 0 3px 10px rgba(14,42,59,0.28); cursor: pointer; }
+.d3-range:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 5px rgba(33,167,162,0.35); }

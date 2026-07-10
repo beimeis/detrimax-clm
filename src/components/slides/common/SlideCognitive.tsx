@@ -230,7 +230,7 @@ function StepScheme({ steps }: { steps: Step[] }) {
             >
               {s.icon}
             </span>
-            <p className="mt-2.5 text-[14.5px] font-bold leading-[1.16] text-[#18324A]">{s.label}</p>
+            <p className="mt-2.5 text-[15.5px] font-bold leading-[1.16] text-[#18324A]">{s.label}</p>
           </div>
         </div>
       ))}
@@ -599,7 +599,7 @@ function ViewContent() {
         >
           <div className="h-[6px] w-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] opacity-90" />
           {m ? (
-            <div key={active} className="vf-fade-up flex h-[calc(100%-6px)] flex-col px-10 py-9">
+            <div key={active} className="vf-fade-up flex h-[calc(100%-6px)] flex-col px-9 py-8">
               <button
                 type="button"
                 onClick={() => setActive(null)}
@@ -609,11 +609,11 @@ function ViewContent() {
                 <CloseX />
               </button>
 
-              <span className="flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-[24px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_12px_28px_rgba(14,42,59,0.22)] [&>svg]:h-10 [&>svg]:w-10">
+              <span className="flex h-[80px] w-[80px] shrink-0 items-center justify-center rounded-[24px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_12px_28px_rgba(14,42,59,0.22)] [&>svg]:h-11 [&>svg]:w-11">
                 {m.icon}
               </span>
-              <h3 className="mt-5 pr-10 text-[27px] font-extrabold leading-[1.12] text-[#18324A]">{m.title}</h3>
-              <p className="mt-4 text-[18px] font-medium leading-[1.5] text-[#3C4A57]">{m.text}</p>
+              <h3 className="mt-6 pr-10 text-[31px] font-extrabold leading-[1.14] text-[#122536]">{m.title}</h3>
+              <p className="mt-5 text-[20.5px] font-semibold leading-[1.52] text-[#28353F]">{m.text}</p>
 
               <div className="mt-auto">
                 <StepScheme steps={m.steps} />
@@ -624,7 +624,7 @@ function ViewContent() {
               <span className="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2] [&>svg]:h-11 [&>svg]:w-11">
                 <NeuronIcon />
               </span>
-              <p className="mt-5 text-[19px] font-semibold leading-[1.4] text-[#6D7A86]">
+              <p className="mt-5 text-[21px] font-semibold leading-[1.42] text-[#5A6874]">
                 Выберите любой пункт вокруг мозга, чтобы увидеть подробности
               </p>
             </div>
@@ -633,12 +633,12 @@ function ViewContent() {
       </div>
 
       {/* Summary — pushed to the bottom, compact */}
-      <div className="mt-auto flex items-center gap-4 rounded-[20px] border border-[#CFEDEA] bg-[linear-gradient(135deg,#F1FBFA,#DEF3F0)] px-6 py-4 shadow-[0_12px_30px_rgba(33,167,162,0.16)] ring-1 ring-white/60">
-        <span className="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-[16px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_10px_24px_rgba(14,42,59,0.20)] [&>svg]:h-7 [&>svg]:w-7">
+      <div className="mt-auto flex items-center gap-4 rounded-[20px] border border-[#CFEDEA] bg-[linear-gradient(135deg,#F1FBFA,#DEF3F0)] px-7 py-[22px] shadow-[0_12px_30px_rgba(33,167,162,0.16)] ring-1 ring-white/60">
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[17px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_10px_24px_rgba(14,42,59,0.20)] [&>svg]:h-[34px] [&>svg]:w-[34px]">
           <ShieldIcon check />
         </span>
-        <p className="text-[17px] font-medium leading-[1.3] text-[#18324A]">
-          <span className="font-extrabold text-[#0E8F8B]">Итог:</span>
+        <p className="text-[18.5px] font-semibold leading-[1.36] text-[#14324A]">
+          <span className="text-[22px] font-extrabold uppercase tracking-[0.02em] text-[#0E8F8B]">Итог:</span>
           {' '}{sumView.summary.replace('Итог: ', '')}
         </p>
       </div>
@@ -655,7 +655,6 @@ export default function SlideCognitive() {
         <h1 className="font-display text-[34px] font-extrabold leading-[1.05] tracking-tight text-[#18324A]">
           Витамин D3 и когнитивное развитие
         </h1>
-        <p className="mt-1.5 text-[16px] font-medium leading-none text-[#6D7A86]">{cognitive.subtitle}</p>
       </header>
 
       <ViewContent />

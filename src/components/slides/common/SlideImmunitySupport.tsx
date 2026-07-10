@@ -210,9 +210,6 @@ export default function SlideImmunitySupport() {
         <h1 className="font-display text-[37px] font-extrabold leading-[1.05] tracking-tight text-[#18324A]">
           Влияние витамина D3 на иммунную систему
         </h1>
-        <p className="mt-1.5 text-[19px] font-medium leading-none text-[#6D7A86]">
-          Поддержка защитной функции организма
-        </p>
         <div className="mt-3 h-[3px] w-[150px] rounded-full bg-[#21A7A2]" />
       </header>
 

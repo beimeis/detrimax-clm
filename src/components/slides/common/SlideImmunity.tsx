@@ -141,15 +141,6 @@ function PeopleIcon({ className = 'h-6 w-6' }: { className?: string }) {
   )
 }
 
-function DocIcon({ className = 'h-4 w-4' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
-      <path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8l-5-5Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-      <path d="M14 3v5h5M8.5 13h7M8.5 16.5h7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  )
-}
-
 /* ── Building blocks ───────────────────────────────────── */
 
 interface Step {
@@ -227,7 +218,7 @@ const innate: ImmunityView = {
   photoAlt2: 'Здоровый малыш с крепким иммунитетом',
   glow: 'rgba(255,214,110,0.55)',
   gif: '/assets/characters/immunity-teaching.gif',
-  illustrationCaption: 'Первая линия защиты помогает организму быстрее распознавать угрозы',
+  illustrationCaption: '',
   theses: [
     {
       icon: <MucosaIcon />,
@@ -294,7 +285,7 @@ const adaptive: ImmunityView = {
   photoAlt2: 'Здоровый малыш с крепким иммунитетом',
   glow: 'rgba(120,206,201,0.55)',
   gif: '/assets/characters/immunity-adaptive.gif',
-  illustrationCaption: 'D3 помогает регулировать чрезмерный воспалительный ответ',
+  illustrationCaption: '',
   theses: [
     {
       icon: <FlameIcon />,
@@ -437,7 +428,7 @@ function ViewContent({ view, swapped }: { view: ImmunityView; swapped: boolean }
   return (
     <>
       {/* Benefit-cards card — right on innate, left on adaptive */}
-      <div className={`absolute top-[120px] flex h-[1002px] w-[418px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)] ${swapped ? 'left-[45px]' : 'right-[45px]'}`}>
+      <div className={`absolute top-[120px] flex h-[966px] w-[418px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)] ${swapped ? 'left-[45px]' : 'right-[45px]'}`}>
         <div className="flex items-center gap-3">
           <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
             <ShieldIcon />
@@ -454,9 +445,11 @@ function ViewContent({ view, swapped }: { view: ImmunityView; swapped: boolean }
             draggable={false}
           />
         </div>
-        <p className="mx-auto mt-2 max-w-[360px] text-center text-[15px] font-semibold leading-[1.32] text-[#5A6672]">
-          {view.illustrationCaption}
-        </p>
+        {view.illustrationCaption && (
+          <p className="mx-auto mt-2 max-w-[360px] text-center text-[15px] font-semibold leading-[1.32] text-[#5A6672]">
+            {view.illustrationCaption}
+          </p>
+        )}
 
         {/* Interactive benefit-cards */}
         <div className={`flex min-h-0 flex-1 flex-col gap-2.5 ${swapped ? 'mt-3' : 'mt-4'}`}>
@@ -500,14 +493,10 @@ function ViewContent({ view, swapped }: { view: ImmunityView; swapped: boolean }
           })}
         </div>
 
-        <p className="mt-3 flex items-center gap-1.5 text-[11.5px] font-medium leading-none text-[#9AA5AF]">
-          <span className="text-[#21A7A2]"><DocIcon /></span>
-          Источник: <span className="text-[#21A7A2]">{view.source}</span>
-        </p>
       </div>
 
       {/* Mechanisms card — left on innate, right on adaptive */}
-      <div className={`absolute top-[120px] flex h-[1002px] w-[472px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)] ${swapped ? 'right-[45px]' : 'left-[45px]'}`}>
+      <div className={`absolute top-[120px] flex h-[966px] w-[472px] flex-col rounded-[24px] bg-white px-7 py-6 shadow-[0_12px_35px_rgba(0,0,0,0.08)] ${swapped ? 'right-[45px]' : 'left-[45px]'}`}>
         <div className="flex items-center gap-3">
           <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
             <ShieldIcon check />
@@ -608,6 +597,24 @@ function ViewContent({ view, swapped }: { view: ImmunityView; swapped: boolean }
 
 /* ── Slide ─────────────────────────────────────────────── */
 
+function TabShieldIcon({ className = 'h-5 w-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M12 3l7 2.8v5.4c0 4.6-2.9 8.7-7 10-4.1-1.3-7-5.4-7-10V5.8L12 3Z" stroke="currentColor" strokeWidth="1.9" strokeLinejoin="round" />
+      <path d="M9.2 12.2 11 14l3.9-4.3" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+function TabBalanceIcon({ className = 'h-5 w-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M12 3v18M6.5 6h11M7.5 21h9" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" />
+      <path d="M6 6.5 3.4 12h5.2L6 6.5ZM18 6.5 15.4 12h5.2L18 6.5Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+      <path d="M3.4 12a2.6 2.6 0 0 0 5.2 0M15.4 12a2.6 2.6 0 0 0 5.2 0" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 type Tab = 'innate' | 'adaptive'
 
 export default function SlideImmunity() {
@@ -620,27 +627,36 @@ export default function SlideImmunity() {
         <h1 className="font-display text-[36px] font-extrabold leading-[1.05] tracking-tight text-[#18324A]">
           Витамин D3 и иммунитет ребёнка
         </h1>
-        <p className="mt-1.5 text-[16px] font-medium leading-none text-[#6D7A86]">{view.subtitle}</p>
       </header>
 
       <ViewContent key={tab} view={view} swapped={tab === 'adaptive'} />
 
-      {/* Tabs */}
-      <div className="absolute bottom-[16px] left-[45px] flex h-12 items-center gap-3">
-        <button
-          type="button"
-          className={`flex h-12 cursor-pointer items-center rounded-[13px] px-6 text-[15px] font-bold transition duration-200 ease-in-out hover:-translate-y-0.5 ${tab === 'innate' ? 'border border-transparent bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_10px_24px_rgba(20,143,139,0.30)]' : 'border border-[#DCE3E8] bg-white text-[#54636F] shadow-[0_4px_12px_rgba(24,50,74,0.05)]'}`}
-          onClick={() => setTab('innate')}
-        >
-          🛡️ Врождённый иммунитет
-        </button>
-        <button
-          type="button"
-          className={`flex h-12 cursor-pointer items-center rounded-[13px] px-6 text-[15px] font-bold transition duration-200 ease-in-out hover:-translate-y-0.5 ${tab === 'adaptive' ? 'border border-transparent bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_10px_24px_rgba(20,143,139,0.30)]' : 'border border-[#DCE3E8] bg-white text-[#54636F] shadow-[0_4px_12px_rgba(24,50,74,0.05)]'}`}
-          onClick={() => setTab('adaptive')}
-        >
-          ⚖️ Адаптивный иммунитет
-        </button>
+      {/* Tabs — segmented control */}
+      <div className="absolute bottom-[14px] left-[45px] flex items-center gap-1.5 rounded-[18px] border border-[#E2EAEE] bg-white/85 p-1.5 shadow-[0_10px_26px_rgba(24,50,74,0.09)] backdrop-blur-sm">
+        {([
+          ['innate', 'Врождённый иммунитет'],
+          ['adaptive', 'Адаптивный иммунитет'],
+        ] as const).map(([key, label]) => {
+          const on = tab === key
+          return (
+            <button
+              key={key}
+              type="button"
+              onClick={() => setTab(key)}
+              aria-pressed={on}
+              className={`flex h-[52px] cursor-pointer items-center gap-2.5 rounded-[14px] pl-2.5 pr-6 text-[15.5px] font-bold transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0E8F8B] ${
+                on
+                  ? 'bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_10px_24px_rgba(20,143,139,0.32)]'
+                  : 'text-[#54636F] hover:bg-white hover:text-[#0E8F8B] hover:shadow-[0_6px_16px_rgba(24,50,74,0.08)]'
+              }`}
+            >
+              <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition [&>svg]:h-5 [&>svg]:w-5 ${on ? 'bg-white/20 text-white' : 'bg-[#EAF8F7] text-[#21A7A2]'}`}>
+                {key === 'innate' ? <TabShieldIcon /> : <TabBalanceIcon />}
+              </span>
+              {label}
+            </button>
+          )
+        })}
       </div>
 
     </section>

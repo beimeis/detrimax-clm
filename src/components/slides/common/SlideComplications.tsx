@@ -217,9 +217,6 @@ export default function SlideComplications() {
         <h1 className="font-display text-[40px] font-extrabold leading-[1.04] tracking-tight text-[#18324A]">
           Осложнения дефицита витамина D у детей
         </h1>
-        <p className="mt-2 text-[19px] font-medium leading-none text-[#6D7A86]">
-          От ранних признаков к осложнениям
-        </p>
         <div className="mt-3 h-[4px] w-[160px] rounded-full bg-[#21A7A2]" />
       </header>
 

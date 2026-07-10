@@ -163,9 +163,6 @@ export default function SlideAudience() {
         <h1 className="font-display text-[30px] font-bold leading-[1.08] tracking-normal text-[#18324A]">
           Аудитория и потребность
         </h1>
-        <p className="mt-1 text-[18px] font-medium leading-none text-[#6D7A86]">
-          Пациент: младенец 0–12 месяцев
-        </p>
       </header>
 
       <div className="relative z-10 mt-4 text-center">

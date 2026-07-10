@@ -117,7 +117,6 @@ export default function SlideProduct() {
     <section className="relative h-full overflow-hidden px-[35px]" style={{ color: NAVY }}>
       <header className="absolute left-[35px] top-[4px]">
         <h1 className="font-display text-[40px] font-extrabold leading-[1.1] tracking-normal"><span className="text-[#D93632]">Детримакс®</span> <span className="text-[#FFA726]">Беби</span></h1>
-        <p className="mt-2 text-[18px] font-medium leading-none text-[#6D7A86]">Витамин D3 в каплях • с рождения</p>
       </header>
 
       <div className="absolute left-[35px] top-[91px] h-[970px] w-[435px] rounded-[22px] bg-white px-[30px] py-9 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">

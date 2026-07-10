@@ -226,9 +226,6 @@ export default function SlideDeficitCauses() {
             <h1 className="font-display text-[39px] font-extrabold leading-[1.07] tracking-tight text-[#18324A]">
               Почему возникает дефицит витамина D3 у новорождённых?
             </h1>
-            <p className="mt-3 text-[21px] font-semibold leading-[1.15] text-[#5B6B78]">
-              4 главных фактора «пустого депо» у младенца
-            </p>
           </div>
         </div>
 

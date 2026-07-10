@@ -34,17 +34,17 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          className="grid w-full max-w-[820px] grid-cols-2 gap-4"
+          className="grid w-full max-w-[912px] grid-cols-2 gap-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
         >
           <button
             type="button"
-            className="card-panel group flex min-h-[410px] flex-col items-center justify-center gap-4 p-8 transition-transform duration-200 hover:scale-[1.02]"
+            className="card-panel group flex min-h-[560px] flex-col items-center justify-center gap-6 p-10 transition-transform duration-200 hover:scale-[1.02]"
             onClick={() => selectBranch('baby')}
           >
-            <div className="flex h-[260px] w-full items-center justify-center">
+            <div className="flex h-[370px] w-full items-center justify-center">
               <img
                 src="/products/detrimax-baby-pack.png"
                 alt="Детримакс® Бэби"
@@ -53,21 +53,21 @@ export default function Home() {
               />
             </div>
             <div className="text-center">
-              <p className="font-display text-[30px] font-bold leading-tight">
+              <p className="font-display text-[36px] font-bold leading-tight">
                 <span className="text-detrimax">Детримакс®</span>{' '}
                 <span style={{ color: BABY_COLOR }}>Бэби</span>
               </p>
-              <p className="mt-2 text-[19px] font-semibold text-brand-muted">200 МЕ · с рождения</p>
-              <p className="mt-2 text-[17px] font-medium text-brand-source">Младенцы 0–12 месяцев</p>
+              <p className="mt-3 text-[23px] font-semibold text-brand-muted">200 МЕ · с рождения</p>
+              <p className="mt-2 text-[20px] font-medium text-brand-source">Младенцы 0–12 месяцев</p>
             </div>
           </button>
 
           <button
             type="button"
-            className="card-panel group flex min-h-[410px] flex-col items-center justify-center gap-4 p-8 transition-transform duration-200 hover:scale-[1.02]"
+            className="card-panel group flex min-h-[560px] flex-col items-center justify-center gap-6 p-10 transition-transform duration-200 hover:scale-[1.02]"
             onClick={() => selectBranch('active')}
           >
-            <div className="flex h-[260px] w-full items-center justify-center">
+            <div className="flex h-[370px] w-full items-center justify-center">
               <img
                 src="/products/detrimax-active-pack.png"
                 alt="Детримакс® Актив"
@@ -76,12 +76,12 @@ export default function Home() {
               />
             </div>
             <div className="text-center">
-              <p className="font-display text-[30px] font-bold leading-tight">
+              <p className="font-display text-[36px] font-bold leading-tight">
                 <span className="text-detrimax">Детримакс®</span>{' '}
                 <span style={{ color: ACTIVE_COLOR }}>Актив</span>
               </p>
-              <p className="mt-2 text-[19px] font-semibold text-brand-muted">500 МЕ · с 3 лет</p>
-              <p className="mt-2 text-[17px] font-medium text-brand-source">Школьники</p>
+              <p className="mt-3 text-[23px] font-semibold text-brand-muted">500 МЕ · с 3 лет</p>
+              <p className="mt-2 text-[20px] font-medium text-brand-source">Школьники</p>
             </div>
           </button>
         </motion.div>

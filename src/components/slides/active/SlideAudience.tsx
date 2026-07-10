@@ -237,9 +237,6 @@ export default function SlideAudience() {
         <h1 className="font-display text-[36px] font-bold leading-[1.08] tracking-normal text-[#18324A]">
           Аудитория и потребность
         </h1>
-        <p className="mt-2 text-[18px] font-medium leading-none text-[#6D7A86]">
-          Пациент: ребёнок школьного возраста
-        </p>
       </header>
 
       <div className="absolute left-[48px] top-[96px] flex h-[1060px] w-[448px] flex-col rounded-[22px] bg-white px-[28px] py-12 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">

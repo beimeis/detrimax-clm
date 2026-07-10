@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import type { ReactNode } from 'react'
 
-type ProductTab = 'dose' | 'age' | 'course' | 'dispenser'
 const NAVY = '#18324A'
 
 function DropIcon({ className = 'h-8 w-8' }: { className?: string }) {
@@ -29,34 +28,46 @@ function BulbIcon() { return <svg viewBox="0 0 56 56" className="h-10 w-10" fill
 function ChevronRight({ className = 'h-5 w-5' }: { className?: string }) {
   return <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
 }
-function CloseX({ className = 'h-5 w-5' }: { className?: string }) {
-  return <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" /></svg>
+function ArrowLeft({ className = 'h-4 w-4' }: { className?: string }) {
+  return <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden><path d="M15 6l-6 6 6 6M9 12h11" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
 }
 
-function MiniBenefit({ icon, highlight = false, children }: { icon: ReactNode; highlight?: boolean; children: ReactNode }) {
-  return <div className={`flex h-[104px] min-w-0 flex-col items-center justify-center gap-2 rounded-[14px] border bg-white px-2 text-center text-[#21A7A2] transition-all duration-300 ${highlight ? 'scale-[1.05] border-[#21A7A2] shadow-[0_12px_26px_rgba(33,167,162,0.22)] ring-2 ring-[#21A7A2]/30' : 'border-[#E4E8EB] shadow-[0_8px_18px_rgba(0,0,0,0.035)]'}`}><div>{icon}</div><p className="text-[13px] font-bold leading-[1.1] text-[#18324A]">{children}</p></div>
-}
-function Advantage({ icon, title }: { icon: ReactNode; title: string }) {
-  return <article className="group flex h-[104px] cursor-pointer items-center gap-4 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-3 shadow-[0_8px_20px_rgba(0,0,0,0.045)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.012] hover:border-[#21A7A2] hover:shadow-[0_16px_32px_rgba(33,167,162,0.18)]"><div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">{icon}</div><h3 className="min-w-0 flex-1 text-[20px] font-bold leading-[1.2] text-[#18324A]">{title}</h3><span className="flex h-[28px] w-[28px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2] transition-all duration-200 group-hover:translate-x-1 group-hover:bg-[#21A7A2] group-hover:text-white"><ChevronRight className="h-[16px] w-[16px]" /></span></article>
-}
+type Advantage = { icon: ReactNode; title: string; lead: string; points: string[] }
+const ADVANTAGES: Advantage[] = [
+  { icon: <TargetIcon />, title: 'Оптимальная доза', lead: '500 МЕ витамина D3 в одной капле.', points: ['Рекомендуемая профилактическая доза для детей с 3 лет', 'Одна капля в день — легко соблюдать курс', 'Точная дозировка без риска превышения'] },
+  { icon: <ShieldIcon />, title: 'Поддержка роста и развития', lead: 'Основа крепкого скелета в период активного роста.', points: ['Улучшает усвоение кальция и фосфора', 'Способствует росту костей и здоровью зубов', 'Поддерживает гармоничное физическое развитие'] },
+  { icon: <BrainIcon />, title: 'Поддержка мозга и нервной системы', lead: 'Витамин D3 участвует в работе нервной системы.', points: ['Поддерживает память и концентрацию', 'Способствует обучению и когнитивному развитию', 'Защищает нервные клетки'] },
+  { icon: <SmileIcon />, title: 'Настроение и эмоциональный баланс', lead: 'Участвует в синтезе серотонина.', points: ['Помогает поддерживать ровное настроение', 'Повышает устойчивость к учебным нагрузкам', 'Поддерживает мотивацию и адаптацию'] },
+  { icon: <ShieldIcon />, title: 'Иммунная защита', lead: 'Поддержка защитных сил организма.', points: ['Активирует защитные клетки иммунитета', 'Стимулирует синтез антимикробных пептидов', 'Помогает противостоять сезонным инфекциям'] },
+  { icon: <DropIcon />, title: 'Масляная форма', lead: 'Форма, созданная для усвоения витамина D3.', points: ['Витамин D3 — жирорастворимый', 'Масляная основа улучшает всасывание', 'Усваивается лучше водных растворов'] },
+]
 
+type Benefit = { icon: ReactNode; label: string; sub: string; points: string[] }
+const BENEFITS: Benefit[] = [
+  { icon: <DropIcon className="h-10 w-10" />, label: 'Удобная форма в каплях', sub: 'Витамин D3 в удобных каплях', points: ['Легко дозировать — капля за каплей', 'Без таблеток и капсул', 'Удобно давать ребёнку'] },
+  { icon: <ShieldIcon className="h-10 w-10" />, label: 'Сохранение активности витамина D3', sub: 'Стабильная масляная форма', points: ['Масляная основа сохраняет активность D3', 'Защищает витамин от разрушения', 'Стабильное качество в течение курса'] },
+  { icon: <CalendarIcon className="h-10 w-10" />, label: 'Ежедневная профилактика', sub: 'Приём курсом каждый день', points: ['Подходит для ежедневного приёма', 'Формирует устойчивый уровень витамина D', 'Простая и понятная схема'] },
+  { icon: <ChildIcon className="h-10 w-10" />, label: 'С 3 лет', sub: 'Для детей с 3 лет и взрослых', points: ['Рекомендуемая профилактическая доза для детей с 3 лет', 'Одна капля в день — легко соблюдать курс', 'Точная дозировка без риска превышения'] },
+]
 export default function SlideProduct() {
-  const [activeTab, setActiveTab] = useState<ProductTab>('dose')
-  const [expanded, setExpanded] = useState(false)
-  const productTabs: Array<[ProductTab, string]> = [['dose', 'Доза'], ['age', 'Возраст'], ['course', 'Курс'], ['dispenser', 'Дозатор']]
-  const tabInfo: Record<ProductTab, { label: string; value: string; icon: ReactNode }> = {
-    dose: { label: 'Доза', value: '500 МЕ в 1 капле — суточная доза для школьника', icon: <TargetIcon /> },
-    age: { label: 'Возраст', value: 'С 3 лет', icon: <ChildIcon /> },
-    course: { label: 'Курс', value: 'Ежедневная профилактика', icon: <CalendarIcon /> },
-    dispenser: { label: 'Дозатор', value: 'Удобная форма в каплях', icon: <DropIcon /> },
-  }
-  const info = tabInfo[activeTab]
+  const [openAdv, setOpenAdv] = useState<number | null>(null)
+  const [advIdx, setAdvIdx] = useState(0)
+  const advOpen = openAdv !== null
+  const adv = ADVANTAGES[advIdx]
+  const openAdvantage = (i: number) => { setAdvIdx(i); setOpenAdv(i) }
+  const btnDelay = (i: number) => (advOpen ? i * 60 : 240 + i * 60)
+
+  // Левая карточка: сетка 2×2 кнопок ⇄ инфо-блок выбранного преимущества
+  const [openBenefit, setOpenBenefit] = useState<number | null>(null)
+  const benefitOpen = openBenefit !== null
+  const [benefitIdx, setBenefitIdx] = useState(0)
+  const benefit = BENEFITS[benefitIdx]
+  const openBenefitCard = (i: number) => { setBenefitIdx(i); setOpenBenefit(i) }
 
   return (
     <section className="relative h-full overflow-hidden px-[35px]" style={{ color: NAVY }}>
       <header className="absolute left-[35px] top-[4px]">
         <h1 className="font-display text-[40px] font-extrabold leading-[1.1] tracking-normal"><span className="text-[#D93632]">Детримакс®</span> <span className="text-[#21A7A2]">Актив</span></h1>
-        <p className="mt-2 text-[18px] font-medium leading-none text-[#6D7A86]">Витамин D3 в каплях • с 3 лет</p>
       </header>
 
       <div className="absolute left-[35px] top-[88px] h-[982px] w-[470px] rounded-[18px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
@@ -64,71 +75,121 @@ export default function SlideProduct() {
 
         <div className="relative mx-auto mt-4 h-[430px] w-[414px]">
           <div className="absolute left-1/2 top-[18px] h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,#EAF8F7_0%,#F7FFFF_58%,rgba(234,248,247,0)_74%)]" />
-          <div className={`absolute left-[22px] top-[286px] z-10 flex h-[96px] w-[86px] items-center justify-center rounded-[52%_48%_55%_45%/62%_58%_42%_38%] bg-[linear-gradient(145deg,#FFD45C,#FFA726)] text-center text-[18px] font-extrabold leading-tight text-[#0E6F73] transition-all duration-300 ${expanded && activeTab === 'dose' ? 'scale-[1.12] shadow-[0_16px_34px_rgba(255,167,38,0.5)] ring-4 ring-[#FFD45C]/70' : 'shadow-[0_12px_24px_rgba(255,167,38,0.25)]'}`}>500<br />МЕ</div>
+          <div className="absolute left-[22px] top-[286px] z-10 flex h-[96px] w-[86px] items-center justify-center rounded-[52%_48%_55%_45%/62%_58%_42%_38%] bg-[linear-gradient(145deg,#FFD45C,#FFA726)] text-center text-[18px] font-extrabold leading-tight text-[#0E6F73] shadow-[0_12px_24px_rgba(255,167,38,0.25)]">500<br />МЕ</div>
           <span className="absolute right-[52px] top-[30px] h-4 w-4 rounded-full bg-[#C8F1EF]" />
           <span className="absolute right-[20px] top-[138px] h-7 w-7 rounded-full bg-[#EAF8F7]" />
           <span className="absolute left-[64px] top-[54px] h-5 w-5 rounded-full bg-[#C8F1EF]" />
           <img src="/products/detrimax-active-pack.png" alt="Детримакс Актив" className="absolute left-1/2 top-[28px] h-[378px] w-auto -translate-x-1/2 object-contain drop-shadow-[0_18px_28px_rgba(24,50,74,0.18)]" draggable={false} />
         </div>
 
-        <p className="mt-2 text-center text-[18px] font-medium leading-[1.34] text-[#18324A]">Одна капля содержит <strong>500 МЕ витамина D3</strong> —<br />рекомендуемая профилактическая доза<br />для детей <span className="font-bold text-[#21A7A2]">с 3 лет</span>.</p>
+        {/* Главный акцент под изображением */}
+        <p className="mt-3 text-center leading-[1.3] text-[#18324A]">
+          <span className="block text-[21px] font-semibold">Одна капля содержит</span>
+          <span className="mt-1 block text-[30px] font-extrabold leading-[1.18]"><span className="text-[#21A7A2]">500&nbsp;МЕ</span> витамина&nbsp;D3</span>
+        </p>
 
-        <div className="mt-4 grid grid-cols-4 gap-3">
-          <MiniBenefit icon={<DropIcon />} highlight={expanded && activeTab === 'dispenser'}>Удобная<br />форма<br />в каплях</MiniBenefit>
-          <MiniBenefit icon={<ShieldIcon />}>Сохранение<br />активности<br />витамина D3</MiniBenefit>
-          <MiniBenefit icon={<CalendarIcon />} highlight={expanded && activeTab === 'course'}>Ежедневная<br />профилактика</MiniBenefit>
-          <MiniBenefit icon={<ChildIcon />} highlight={expanded && activeTab === 'age'}>С 3 лет</MiniBenefit>
-        </div>
-
-        {/* Interactive swap zone: button row ⇄ info card */}
-        <div className="absolute bottom-[26px] left-7 right-7 h-[122px]">
-          {/* button row — slides right & fades out when a card opens */}
-          <div className={`absolute inset-x-0 bottom-0 grid grid-cols-4 gap-3 transition-all duration-500 ease-out ${expanded ? 'pointer-events-none translate-x-10 opacity-0' : 'translate-x-0 opacity-100'}`}>
-            {productTabs.map(([id, label]) => (
+        {/* Interactive zone: сетка 2×2 кнопок ⇄ инфо-блок */}
+        <div className="absolute bottom-6 left-7 right-7 top-[632px]">
+          {/* 2×2 сетка крупных кнопок */}
+          <div className={`grid h-full grid-cols-2 grid-rows-2 gap-4 transition-all duration-[420ms] ease-out ${benefitOpen ? 'pointer-events-none scale-[0.97] opacity-0' : 'scale-100 opacity-100'}`}>
+            {BENEFITS.map((b, i) => (
               <button
-                key={id}
+                key={b.label}
                 type="button"
-                onClick={() => { setActiveTab(id); setExpanded(true) }}
-                className={`h-11 cursor-pointer rounded-[12px] px-3 text-[14px] font-bold transition duration-200 ease-in-out ${activeTab === id ? 'bg-[#21A7A2] text-white shadow-[0_8px_18px_rgba(33,167,162,0.28)]' : 'border border-[#E4E8EB] bg-white text-[#6D7A86] hover:-translate-y-0.5 hover:border-[#BFE3E0]'}`}
+                onClick={() => openBenefitCard(i)}
+                className="group flex cursor-pointer flex-col items-center justify-center gap-2.5 rounded-[18px] border border-[#CBEBE8] bg-white px-4 py-4 text-center shadow-[0_8px_22px_rgba(24,50,74,0.06)] outline-none transition-all duration-200 ease-out hover:-translate-y-1 hover:border-[#21A7A2] hover:shadow-[0_16px_34px_rgba(33,167,162,0.2)] focus-visible:ring-2 focus-visible:ring-[#0E8F8B]"
               >
-                {label}
+                <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2] transition-colors duration-200 group-hover:bg-[#D6F3F1] group-hover:text-[#0E8F8B]">{b.icon}</span>
+                <span className="text-[16.5px] font-bold leading-[1.16] text-[#18324A]">{b.label}</span>
               </button>
             ))}
           </div>
 
-          {/* info card — fades in & rises from below */}
-          <div className={`absolute inset-x-0 bottom-0 transition-all duration-500 ease-out ${expanded ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-8 opacity-0'}`}>
-            <div className="relative flex h-[122px] items-center gap-4 rounded-[16px] border border-[#CBEBE8] bg-[linear-gradient(135deg,#F1FBFA,#E3F5F1)] px-6 shadow-[0_14px_32px_rgba(33,167,162,0.18)]">
-              <button
-                type="button"
-                onClick={() => setExpanded(false)}
-                aria-label="Назад"
-                className="absolute right-3.5 top-3.5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#0E8F8B] shadow-[0_5px_14px_rgba(14,42,59,0.14)] transition hover:bg-[#EAF8F7]"
-              >
-                <CloseX />
-              </button>
-              <span className="flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-[18px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_10px_24px_rgba(14,42,59,0.2)] [&>svg]:h-8 [&>svg]:w-8">
-                {info.icon}
-              </span>
-              <div className="min-w-0 pr-10">
-                <p className="text-[15px] font-extrabold uppercase tracking-[0.06em] text-[#0E8F8B]">{info.label}</p>
-                <p className="mt-1 text-[19px] font-bold leading-[1.24] text-[#18324A]">{info.value}</p>
+          {/* Инфо-блок выбранной кнопки */}
+          <div
+            className={`absolute inset-0 flex flex-col rounded-[20px] border border-[#CBEBE8] bg-[linear-gradient(150deg,#F1FBFA,#E3F5F1)] p-6 shadow-[0_16px_36px_rgba(33,167,162,0.18)] transition-all duration-[420ms] ease-out ${benefitOpen ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-6 opacity-0'}`}
+            aria-hidden={!benefitOpen}
+          >
+            <button
+              type="button"
+              onClick={() => setOpenBenefit(null)}
+              className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-white py-2.5 pl-3.5 pr-5 text-[16px] font-bold text-[#0E8F8B] shadow-[0_6px_16px_rgba(14,42,59,0.14)] transition hover:-translate-x-0.5 hover:bg-[#EAF8F7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#0E8F8B]"
+            >
+              <ArrowLeft className="h-5 w-5" /> Назад
+            </button>
+
+            <div className="mt-[46px] flex items-center gap-3.5">
+              <span className="flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_10px_24px_rgba(14,42,59,0.2)] [&>svg]:h-8 [&>svg]:w-8">{benefit.icon}</span>
+              <div className="min-w-0">
+                <h3 className="text-[23px] font-extrabold leading-[1.12] text-[#14366F]">{benefit.label}</h3>
+                <p className="mt-0.5 text-[17px] font-semibold leading-[1.22] text-[#0E8F8B]">{benefit.sub}</p>
               </div>
             </div>
+
+            <ul className="mt-3.5 space-y-2">
+              {benefit.points.map((p) => (
+                <li key={p} className="flex items-start gap-3 rounded-[13px] bg-white/70 px-4 py-2 text-left text-[16px] font-bold leading-[1.3] text-[#18324A] shadow-[0_4px_12px_rgba(24,50,74,0.05)]">
+                  <span className="mt-[6px] h-3 w-3 shrink-0 rounded-full bg-[#21A7A2]" />
+                  {p}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
 
       <div className="absolute right-[35px] top-[88px] h-[982px] w-[455px] rounded-[18px] bg-white px-7 py-7 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         <h2 className="text-center text-[26px] font-bold leading-[1.14] text-[#18324A]">Почему Детримакс® Актив<br /><span className="text-[#21A7A2]">подходит для школьников</span></h2>
-        <div className="mt-4 space-y-2.5">
-          <Advantage icon={<TargetIcon />} title="Оптимальная доза" />
-          <Advantage icon={<ShieldIcon />} title="Поддержка роста и развития" />
-          <Advantage icon={<BrainIcon />} title="Поддержка мозга и нервной системы" />
-          <Advantage icon={<SmileIcon />} title="Настроение и эмоциональный баланс" />
-          <Advantage icon={<ShieldIcon />} title="Иммунная защита" />
-          <Advantage icon={<DropIcon />} title="Масляная форма" />
+
+        {/* Interactive zone: список кнопок ⇄ инфо-карточка */}
+        <div className="relative mt-4 h-[674px]">
+          {/* Список кнопок — по очереди уезжают вправо и исчезают */}
+          <div className="space-y-2.5">
+            {ADVANTAGES.map((a, i) => (
+              <button
+                key={a.title}
+                type="button"
+                onClick={() => openAdvantage(i)}
+                style={{ transitionDelay: `${btnDelay(i)}ms` }}
+                className={`group flex h-[104px] w-full cursor-pointer items-center gap-4 rounded-[14px] border border-[#E4E8EB] bg-white px-4 py-3 text-left shadow-[0_8px_20px_rgba(0,0,0,0.045)] transition-all duration-[420ms] ease-out ${advOpen ? 'pointer-events-none translate-x-[130%] opacity-0' : 'translate-x-0 opacity-100 hover:-translate-y-0.5 hover:scale-[1.012] hover:border-[#21A7A2] hover:shadow-[0_16px_32px_rgba(33,167,162,0.18)]'}`}
+              >
+                <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">{a.icon}</div>
+                <h3 className="min-w-0 flex-1 text-[20px] font-bold leading-[1.2] text-[#18324A]">{a.title}</h3>
+                <span className="flex h-[28px] w-[28px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2] transition-all duration-200 group-hover:translate-x-1 group-hover:bg-[#21A7A2] group-hover:text-white"><ChevronRight className="h-[16px] w-[16px]" /></span>
+              </button>
+            ))}
+          </div>
+
+          {/* Инфо-карточка выбранной кнопки — въезжает справа */}
+          <div
+            style={{ transitionDelay: advOpen ? '360ms' : '0ms' }}
+            className={`absolute inset-0 flex flex-col rounded-[18px] border border-[#CBEBE8] bg-[linear-gradient(150deg,#F1FBFA,#E3F5F1)] p-7 shadow-[0_16px_36px_rgba(33,167,162,0.18)] transition-all duration-[420ms] ease-out ${advOpen ? 'translate-x-0 opacity-100' : 'pointer-events-none translate-x-10 opacity-0'}`}
+            aria-hidden={!advOpen}
+          >
+            <button
+              type="button"
+              onClick={() => setOpenAdv(null)}
+              className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-white py-2 pl-3 pr-4 text-[15px] font-bold text-[#0E8F8B] shadow-[0_6px_16px_rgba(14,42,59,0.14)] transition hover:-translate-x-0.5 hover:bg-[#EAF8F7]"
+            >
+              <ArrowLeft /> Назад
+            </button>
+
+            <div className="flex flex-1 flex-col items-center justify-center px-2 text-center">
+              <span className="flex h-[92px] w-[92px] items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_14px_30px_rgba(14,42,59,0.22)] [&>svg]:h-11 [&>svg]:w-11">{adv.icon}</span>
+              <h3 className="mt-6 text-[27px] font-extrabold leading-[1.14] text-[#18324A]">{adv.title}</h3>
+              <p className="mt-3 text-[18px] font-medium leading-[1.4] text-[#6D7A86]">{adv.lead}</p>
+              <ul className="mt-6 w-full space-y-3 text-left">
+                {adv.points.map((p) => (
+                  <li key={p} className="flex items-start gap-3 rounded-[12px] bg-white/70 px-4 py-3 text-[16px] font-semibold leading-[1.34] text-[#18324A] shadow-[0_4px_12px_rgba(24,50,74,0.05)]">
+                    <span className="mt-[7px] h-2.5 w-2.5 shrink-0 rounded-full bg-[#21A7A2]" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
+
         <div className="mt-4 flex gap-3.5 rounded-[14px] bg-[#EAF8F7] px-4 py-4">
           <div className="shrink-0 text-[#21A7A2]"><BulbIcon /></div>
           <p className="text-[16.5px] font-bold leading-[1.26] text-[#18324A]">Регулярный приём Детримакс® Актив —<br />простой способ поддержать здоровье,<br />развитие и активность ребёнка каждый день.</p>

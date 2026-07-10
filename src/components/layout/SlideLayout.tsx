@@ -69,6 +69,7 @@ export default function SlideLayout({
           onPrev={onPrev}
           onNext={onNext}
           onDotClick={onDotClick}
+          onHome={onHome}
         />
       )}
 

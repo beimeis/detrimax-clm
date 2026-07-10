@@ -335,43 +335,32 @@ function FactorMenuCard({
     <button
       type="button"
       onClick={onClick}
-      className={`group relative flex items-center gap-3.5 rounded-[20px] px-4 py-3.5 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#21A7A2] ${
+      className={`group relative flex w-full items-center gap-4 overflow-hidden rounded-[18px] border px-5 py-[18px] text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#21A7A2] ${
         active
-          ? "border-2 border-[#21A7A2] bg-[linear-gradient(135deg,#F1FBFA,#DAF1EE)] shadow-[0_18px_38px_rgba(33,167,162,0.26)]"
-          : "border border-[#E1E8EA] bg-white shadow-[0_6px_16px_rgba(24,50,74,0.06)] hover:-translate-y-0.5 hover:border-[#CBEBE8] hover:shadow-[0_12px_26px_rgba(24,50,74,0.12)]"
+          ? "border-[#21A7A2] bg-[linear-gradient(135deg,#F1FBFA,#DAF1EE)] shadow-[0_16px_34px_rgba(33,167,162,0.22)]"
+          : "border-[#CBEBE8] bg-white shadow-[0_8px_20px_rgba(24,50,74,0.07)] hover:-translate-y-0.5 hover:border-[#21A7A2] hover:shadow-[0_14px_28px_rgba(33,167,162,0.16)]"
       }`}
     >
+      {/* accent bar on the active item */}
+      {active && <span className="absolute left-0 top-1/2 h-[60%] w-[5px] -translate-y-1/2 rounded-r-full bg-[linear-gradient(180deg,#21A7A2,#0E8F8B)]" />}
       <span
-        className={`absolute -left-2 -top-2 z-10 flex h-[28px] w-[28px] items-center justify-center rounded-full text-[14px] font-bold text-white transition ${
-          active
-            ? "bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] shadow-[0_6px_14px_rgba(33,167,162,0.45)]"
-            : "bg-[#8DBDB8] shadow-[0_4px_10px_rgba(24,50,74,0.14)]"
-        }`}
-      >
-        {f.num}
-      </span>
-      <span
-        className={`flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-[16px] transition-all duration-300 [&>svg]:h-7 [&>svg]:w-7 ${
+        className={`flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full transition-all duration-300 [&>svg]:h-[26px] [&>svg]:w-[26px] ${
           active
             ? "bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white shadow-[0_10px_22px_rgba(33,167,162,0.4)]"
-            : "border border-[#CBEBE8] bg-[#EAF8F7] text-[#21A7A2]"
+            : "bg-[#EAF8F7] text-[#21A7A2] group-hover:bg-[#DEF4F1]"
         }`}
       >
         {f.icon}
       </span>
-      <span className={`min-w-0 flex-1 text-[17.5px] font-extrabold leading-[1.18] ${active ? "text-[#0E3B38]" : "text-[#14293C]"}`}>
+      <span className={`min-w-0 flex-1 text-[18px] leading-[1.2] ${active ? "font-extrabold text-[#0E3B38]" : "font-bold text-[#14293C]"}`}>
         {f.title}
       </span>
       <span
-        className={`flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full transition ${
-          active ? "bg-[#21A7A2] shadow-[0_0_12px_rgba(33,167,162,0.7)]" : "bg-[#E9F0EF] group-hover:bg-[#D4EAE7]"
+        className={`flex h-[28px] w-[28px] shrink-0 items-center justify-center rounded-full transition ${
+          active ? "bg-[#21A7A2] text-white shadow-[0_0_12px_rgba(33,167,162,0.6)]" : "bg-[#DDE8EA] text-[#4C5F6A] group-hover:bg-[#CBE6E2] group-hover:text-[#0E8F8B]"
         }`}
       >
-        {active ? (
-          <span className="h-[10px] w-[10px] rounded-full bg-white" />
-        ) : (
-          <ChevronRight className="h-4 w-4 text-[#7E959D]" />
-        )}
+        <ChevronRight className="h-[18px] w-[18px]" />
       </span>
     </button>
   );
@@ -387,15 +376,9 @@ function GroupBlock({
   onSelect: (i: number) => void;
 }) {
   return (
-    <div className="rounded-[24px] bg-white p-5 shadow-[0_10px_28px_rgba(24,50,74,0.08)]">
-      <div className="flex items-center gap-3">
-        <span className="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-[15px] bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white [&>svg]:h-[25px] [&>svg]:w-[25px]">
-          {group.icon}
-        </span>
-        <h3 className="text-[21px] font-extrabold leading-tight text-[#14293C]">{group.title}</h3>
-      </div>
-
-      <div className="mt-4 flex flex-col gap-3">
+    <div className="rounded-[20px] border border-[#CBEBE8] bg-white/95 p-5 shadow-[0_10px_26px_rgba(24,50,74,0.07)]">
+      <p className="mb-3.5 ml-1 text-[16px] font-bold uppercase tracking-[0.1em] text-[#0E8F8B]">{group.title}</p>
+      <div className="flex flex-col gap-3">
         {group.indices.map((i) => (
           <FactorMenuCard key={i} f={factors[i]} active={activeIndex === i} onClick={() => onSelect(i)} />
         ))}
@@ -416,9 +399,6 @@ export default function SlideRiskFactorsSchool() {
         <h1 className="font-display text-[33px] font-extrabold leading-[1.05] tracking-tight text-[#18324A]">
           Факторы риска дефицита витамина D3 у школьников
         </h1>
-        <p className="mt-1.5 text-[16px] font-medium leading-none text-[#6D7A86]">
-          Образ жизни, рост и питание
-        </p>
       </header>
 
       {/* ── Left: big dynamic card ── */}
@@ -466,23 +446,24 @@ export default function SlideRiskFactorsSchool() {
         </div>
       </div>
 
-      {/* ── Right: factor menu + итог ── */}
-      <div className="absolute right-[45px] top-[150px] flex h-[1035px] w-[352px] flex-col gap-3.5">
+      {/* ── Right: grouped factor cards + compact итог ── */}
+      <div className="absolute left-[619px] top-[150px] flex h-[1035px] w-[360px] flex-col justify-center gap-8">
         {groups.map((g) => (
           <GroupBlock key={g.title} group={g} activeIndex={active} onSelect={setActive} />
         ))}
 
-        {/* Итог */}
-        <div className="flex flex-1 flex-col justify-center rounded-[24px] border border-[#B7E0DB] bg-[linear-gradient(135deg,#E7F6F4,#D6EFEB)] p-7 shadow-[0_12px_30px_rgba(33,167,162,0.18)]">
-          <div className="flex items-center gap-3.5">
-            <D3Shield className="h-[68px] w-[68px] shrink-0" />
-            <h3 className="text-[28px] font-extrabold text-[#122536]">Итог</h3>
+        {/* compact итог */}
+        <div className="rounded-[20px] border border-[#B7E0DB] bg-[linear-gradient(135deg,#EAF8F6,#DDF1EC)] p-6 shadow-[0_10px_26px_rgba(33,167,162,0.16)]">
+          <div className="flex items-center gap-3">
+            <D3Shield className="h-[52px] w-[52px] shrink-0" />
+            <h3 className="text-[24px] font-extrabold leading-tight text-[#122536]">Итог</h3>
           </div>
-          <p className="mt-5 text-[21px] font-semibold leading-[1.5] text-[#1A3340]">
-            Риск дефицита D3 у школьника растёт, когда{" "}
-            <span className="font-extrabold text-[#0E8F8B]">мало солнца</span>,{" "}
-            <span className="font-extrabold text-[#0E8F8B]">много экранного времени</span>,{" "}
-            <span className="font-extrabold text-[#0E8F8B]">высокий темп роста</span> и недостаточно пищевых источников витамина D.
+          <p className="mt-3 text-[16.5px] font-semibold leading-[1.46] text-[#153244]">
+            Риск дефицита витамина D3 повышается при{" "}
+            <span className="font-extrabold text-[#0E8F8B]">недостатке солнца</span>,{" "}
+            <span className="font-extrabold text-[#0E8F8B]">избытке экранного времени</span>,{" "}
+            <span className="font-extrabold text-[#0E8F8B]">быстром росте</span> и{" "}
+            <span className="font-extrabold text-[#0E8F8B]">несбалансированном питании</span>.
           </p>
         </div>
       </div>
