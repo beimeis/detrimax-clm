@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import type { ReactNode } from 'react'
 
 const NAVY = '#18324A'
@@ -256,27 +256,30 @@ export default function SlideImmunitySupport() {
       {/* Right card */}
       <div className="absolute right-[45px] top-[176px] flex h-[856px] w-[500px] flex-col rounded-[24px] bg-white px-4 py-3 shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
         {points.map((p, i) => (
-          <button
-            key={p.num}
-            type="button"
-            onClick={() => setActive(p)}
-            className="group flex flex-1 items-center gap-4 rounded-[16px] px-3 text-left transition duration-200 ease-out hover:bg-[#F4FAF9] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#21A7A2]"
-            style={{ borderTop: i === 0 ? '0' : '1px solid #EEF1F4' }}
-          >
-            <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
-              {p.icon}
-            </div>
-            <p className="min-w-0 flex-1 text-[20px] font-semibold leading-[1.26] text-[#18324A]">
-              <span className="mr-1 font-extrabold text-[#21A7A2]">{p.num}.</span>
-              {p.text}
-            </p>
-            <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-[16px] bg-[#F4FAF9] transition group-hover:bg-white">
-              {p.illus}
-            </div>
-            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2] transition group-hover:bg-[#21A7A2] group-hover:text-white">
-              <ChevronRight className="h-[17px] w-[17px]" />
-            </span>
-          </button>
+          <Fragment key={p.num}>
+            {i > 0 && (
+              <div className="mx-3 h-[2px] shrink-0 rounded-full bg-[linear-gradient(90deg,rgba(33,167,162,0),rgba(33,167,162,0.45)_15%,rgba(33,167,162,0.45)_85%,rgba(33,167,162,0))]" />
+            )}
+            <button
+              type="button"
+              onClick={() => setActive(p)}
+              className="group relative flex flex-1 items-center gap-4 rounded-[16px] px-3 text-left transition-all duration-200 ease-out hover:z-10 hover:-translate-y-1.5 hover:bg-white hover:shadow-[0_18px_38px_rgba(24,50,74,0.16)] hover:ring-1 hover:ring-[#CBEBE8] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#21A7A2]"
+            >
+              <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#21A7A2,#0E8F8B)] text-white">
+                {p.icon}
+              </div>
+              <p className="min-w-0 flex-1 text-[20px] font-semibold leading-[1.26] text-[#18324A]">
+                <span className="mr-1 font-extrabold text-[#21A7A2]">{p.num}.</span>
+                {p.text}
+              </p>
+              <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-[16px] bg-[#F4FAF9] transition group-hover:bg-white">
+                {p.illus}
+              </div>
+              <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-[#EAF8F7] text-[#21A7A2] transition group-hover:bg-[#21A7A2] group-hover:text-white">
+                <ChevronRight className="h-[17px] w-[17px]" />
+              </span>
+            </button>
+          </Fragment>
         ))}
       </div>
 

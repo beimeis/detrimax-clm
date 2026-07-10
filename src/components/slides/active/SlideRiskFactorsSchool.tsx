@@ -13,24 +13,6 @@ function ChevronRight({ className = "h-5 w-5" }: { className?: string }) {
   );
 }
 
-function ChevronDown({ className = "h-4 w-4" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
-      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function TapIcon({ className = "h-5 w-5" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
-      <path d="M9 11V6.5a1.6 1.6 0 0 1 3.2 0V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M12.2 11.5v-1a1.5 1.5 0 0 1 3 0v1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M15.2 11.7a1.5 1.5 0 0 1 3 0V15c0 2.8-2 4.8-4.8 4.8h-1.2c-1.4 0-2.4-.6-3.3-1.9l-2.4-3.5a1.5 1.5 0 0 1 2.4-1.9l1.2 1.4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 function CheckIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
@@ -171,15 +153,6 @@ function PlateIcon({ className = "h-6 w-6" }: { className?: string }) {
       <circle cx="25" cy="30" r="15" stroke="currentColor" strokeWidth="2.8" />
       <circle cx="25" cy="30" r="7" stroke="currentColor" strokeWidth="2.4" />
       <path d="M47 11v34M47 11c-3 .5-4.5 3.5-4.5 7.5s1.5 6 4.5 6.5" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function BulbIcon({ className = "h-6 w-6" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 56 56" className={className} fill="none" aria-hidden>
-      <path d="M28 8a15 15 0 0 0-9 27c1.6 1.2 2.5 2.6 2.7 4.3l.3 2.7h12l.3-2.7c.2-1.7 1.1-3.1 2.7-4.3A15 15 0 0 0 28 8Z" stroke="currentColor" strokeWidth="2.8" strokeLinejoin="round" />
-      <path d="M23 48h10M25 42v6M31 42v6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
     </svg>
   );
 }

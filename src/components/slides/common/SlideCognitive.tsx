@@ -196,15 +196,6 @@ function SunIcon({ className = 'h-6 w-6' }: { className?: string }) {
   )
 }
 
-function DocIcon({ className = 'h-4 w-4' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
-      <path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8l-5-5Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-      <path d="M14 3v5h5M8.5 13h7M8.5 16.5h7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  )
-}
-
 /* ── Building blocks ───────────────────────────────────── */
 
 interface Step {
